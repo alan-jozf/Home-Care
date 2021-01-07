@@ -1,0 +1,55 @@
+body{ 
+    /* background-image: linear-gradient(rgb(245, 245, 245),rgb(238, 238, 238)); */
+    background-color:whitesmoke;
+    background-attachment:fixed;
+    margin: 0px;
+
+}
+.maindiv{
+    width:60%;
+    height:80%;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(0, 208, 156);
+}
+.division{
+    float:left;
+    margin-top:2%;
+    margin-left:7%;
+    position: relative;
+    width:40%;
+    height:60%;
+    /* background-color: brown; */
+}
+input[type="submit"],[type=button]{
+    background-color: rgb(12, 146, 0);
+    color: #fff;
+    width: 40%;
+    margin: 8px 0;
+    border-radius: 10px;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+input[type=text],[type=date],[type=password],[type="submit"],
+        [type=button],[type=time],[type=number],[type=file],select {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 17px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+input[type="submit"],[type=button]{
+    background-color: rgb(12, 146, 0);
+    color: #fff;
+    border-radius: 10px;
+}
+
