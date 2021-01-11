@@ -37,8 +37,7 @@
                 if($row['user_type']=='admin')
                 {
                     ?>
-                        <div class="div"><h2>View Medical Requests</h2></div>
-                        <!-- <div class="div"><a href="MedicalRequest.php"><h2>Medical Request</h2></a></div> -->
+                        <a href="MedicalRequest.php"><div class="div"><h2>View Medical Requests</h2></div></a>
                     <?php
                 }
                 elseif($row['user_type']=='user')

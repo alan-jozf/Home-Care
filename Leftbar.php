@@ -22,52 +22,24 @@
         <div class="content">
             <ul>
                 <a href="Home.php"><li>Home</li></a>
+                <a href="view.php"><li>Account</li></a>
+                <a href="MedicalRequest.php"><li>Medical Request</li></a>
                 <?php
                     if(isset($_SESSION['id']))
                     {
                         $tmpid=$_SESSION['id'];
+                        $con=mysqli_connect("localhost","root","","care_app") or die("failed");
                         $sql="select user_type from login where L_id=$tmpid";
                         $result=mysqli_query($con,$sql) or die($sql);
                         $row=mysqli_fetch_array($result);
-                        if($row['user_type']=='admin')
+                        if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
                         {
                             ?>
-                                <div class="div"><h2>View Medical Requests</h2></div>
-                                <!-- <div class="div"><a href="MedicalRequest.php"><h2>Medical Request</h2></a></div> -->
-                            <?php
-                        }
-                        elseif($row['user_type']=='user')
-                        {
-                            ?>
-                                <a href="MedicalRequest.php"><div class="div"><h2>Medical Request</h2></div></a>
-                                <!-- <div class="div"><h2>Medical Request</h2></div> -->
-                            <?php
-                        }
-                        elseif($row['user_type']=='mstaff')
-                        {
-                            ?>
-                                <a href="ViewRequest.php"><div class="div"><h2>View Request</h2></div></a>
-                                <!-- <div class="div"><h2>View Medical Requests</h2></div> -->
-                            <?php
-                        }
-                        elseif($row['user_type']=='volunteer')
-                        {
-                            ?>
-                                <div class="div"><h2>View Medical Requests</h2></div>
-                            <?php
-                        }
-                        elseif($row['user_type']=='pnchOfficr')
-                        {
-                            ?>
-                                <div class="div"><h2>Medical Request</h2></div>
+                                <a href="logout.php"><li>Logout</li></a>
                             <?php
                         }
                     }
                 ?>
-                <a href="view.php"><li>Account</li></a>
-                <li>About</li>
-                <li>Help</li>
-                <a href="logout.php"><li>Logout</li></a>
             </ul>
         </div>
 </div>
