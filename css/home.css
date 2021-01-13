@@ -81,7 +81,7 @@
         width:80%;
         height:100vh;
         float:left;
-        background-color: aquamarine;
+        background-color: rgb(232, 232, 232);
     }
     .nav{
         position: relative;

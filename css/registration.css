@@ -6,20 +6,30 @@ body{
 
 }
 .maindiv{
-    width:60%;
-    height:80%;
     position: fixed;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    background-color: rgb(0, 208, 156);
+    margin-top:0%;
+    /* width: 60%; */
+    /* margin-left: 10%; */
+    background-color:white;
 }
-.division{
+h1{
+margin-top: 2%;
+}
+.division1{
     float:left;
     margin-top:2%;
-    margin-left:7%;
+    margin-left:17%;
     position: relative;
-    width:40%;
+    width:30%;
+    height:60%;
+    /* background-color: brown; */
+}
+.division2{
+    float:left;
+    margin-top:2%;
+    margin-left:5%;
+    position: relative;
+    width:30%;
     height:60%;
     /* background-color: brown; */
 }
@@ -37,7 +47,7 @@ input:focus, textarea:focus, select:focus{
 input[type=text],[type=date],[type=password],[type="submit"],
         [type=button],[type=time],[type=number],[type=file],select {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     font-size: 17px;
     margin: 8px 0;
     display: inline-block;

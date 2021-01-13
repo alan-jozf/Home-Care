@@ -119,13 +119,17 @@
 	</script>
 
 <body><b>
-	<!-- including top bar -->
+<?php require("Leftbar.php"); ?>
+	
+	<div class="right_cont">
+
+    <?php require("Topbar.php"); ?> 
 
 	<form action="php\addVolunteer.php" method="POST" >
 
     <div class="maindiv">
         <h1> <center>Register as a Volunteer </center></h1>
-        <div class="division">
+        <div class="division1">
             <input type="text" placeholder="Full name :" name="name" id="0"  onblur="myname()" required>
 
             <select onChange="getsubdist(this.value);"  name="dist" id="dist" class="form-control" >
@@ -146,7 +150,7 @@
         <input type="password" placeholder="Password:"name="pword" id="4" onblur="mypword()"required>
 
         </div>
-        <div class="division">
+        <div class="division2">
             <input type="text" placeholder="Housename/ Flat No. :" name="hname"id="1"  onblur="myhname()"required>
 
             <select name="subdist" id="subdist" class="form-control" require>
@@ -172,5 +176,6 @@
     </div>
 	</b>
 </form>
+</div>
 </body>
 </html>
