@@ -11,12 +11,12 @@ $query="SELECT * FROM user WHERE U_id=$id";
 $result=mysqli_query($con,$query);
 $row = mysqli_fetch_array($result);
 if($row["password"]!=$old){
-    header("location:profile.php?err=wrongpass");
+    header("location:..\ChangePassword.php?err=wrongpass");
 }
 else{
     $query="UPDATE user SET password='$new' WHERE U_id=$id";
     if(mysqli_query($con,$query)){
-        header("Location:logout.php");
+        header("Location:..\logout.php");
     }
     else{
         echo "query error";

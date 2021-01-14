@@ -5,10 +5,10 @@
      <meta http-equiv="Cache-control" content="no-cache">
     <title>care app</title>
     <style>
-        a{
+        /* a{
             text-decoration:none;
             color:black;
-        }
+        } */
     </style> 
 </head>
 <body>
@@ -70,7 +70,7 @@
             else
             {
                 ?>
-                    <div class="div"><h2>Medical Request</h2></div>
+                    <a href="MedicalRequest.php"><div class="div"><h2>Medical Request</h2></div></a>
                 <?php
             }
         ?>
@@ -113,7 +113,7 @@
             else
             {
                 ?>
-                    <div class="div"><h2>Medical Request</h2></div>
+                    <div class="div"><h2>Shopping</h2></div>
                 <?php
             }
         ?>

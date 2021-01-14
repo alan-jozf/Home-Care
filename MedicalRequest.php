@@ -10,7 +10,7 @@ div.right_cont{
 	background-color: rgb(232, 232, 232);
 }
 form{
-	margin:6%;
+	margin:5% 0 0 10%;
 	width:30%;
 }
 /* .content{
@@ -40,10 +40,11 @@ input[type="file"],[type=button],[type=checkbox]{
     <form action="php\Mrequest.php" method='POST' enctype="multipart/form-data">
 
 	<?php
-		$con=mysqli_connect("localhost","root","","care_app") or die("failed");
-		$tmpid=$_SESSION['id'];
-
-		?>	
+		if(isset($_SESSION['id']))
+		{
+			$tmpid=$_SESSION['id'];
+		}
+		?>
 		<br>
 		<h1>New Medical Request</h1><br><br>
 		<b><label style ="float:left " > Symptoms</label>  </b><br>

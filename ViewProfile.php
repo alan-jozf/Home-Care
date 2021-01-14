@@ -80,8 +80,8 @@ input[type="file"],[type=button]{
         <h2><?php echo $login['email'] ?></h2><br>
 		<!-- <b><label style ="float:left" > Update DP :</label>  </b><br> -->
 		<!-- <input type="FILE" name='1'><br> -->
-		<a href="edit.php"><input type="button" value="Update DP"></a><br>
-		<a href="profile.php"><input type="button" value="Update Password"></a>
+		<a href="ChangeDP.php"><input type="button" value="Update DP"></a><br>
+		<a href="ChangePassword.php"><input type="button" value="Update Password"></a>
 		<?php
 			}
 			else{

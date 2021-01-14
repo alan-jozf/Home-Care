@@ -11,11 +11,23 @@
     .nav h1{
         font-family:hel;
         float:left;
-        margin-top:20px;
+        margin-top:40px;
         margin-left: 30px;
-        font-size: 100px;
+        font-size: 60px;
         color: rgb(30, 8, 70);
     }
+    .nav h2{
+        font-family:hel;
+        float:left;
+        margin-top:90px;
+        margin-left: -40px;
+        font-size: 20px;
+        color: rgb(30, 8, 70);
+    }
+    h2{
+        font-size: 22px;
+
+    }   
     .logo h3{
         float: right;
         margin-top:60%;
@@ -30,14 +42,7 @@
         float:right;
         /* background-color: rgb(78, 122, 111); */
     } 
-    .nav h2{
-        font-family:hel;
-        float:left;
-        margin-top:110px;
-        margin-left: -50px;
-        font-size: 27px;
-        color: rgb(30, 8, 70);
-    }   
+
 
     .usericon{
         float:right;
@@ -61,17 +66,19 @@
         width: auto;
         height: auto;
     }
-    ul li{
+    /* ul li{
         list-style: none;
-    }
+    } */
     .left_cont ul{
         width:100%;
-        margin-top: 10%;
+        margin-top: 30%;
     }
     .left_cont ul li{
         list-style-type: none;
         padding: .5em 1em;
-        font-size: 2em;
+        font-size: 25px;
+        /* font-weight: 25px; */
+        /* font-size: 2em; */
     }
     .left_cont ul li:hover{
         background-color: rgb(7, 179, 136);
@@ -81,21 +88,21 @@
         width:80%;
         height:100vh;
         float:left;
-        background-color: rgb(232, 232, 232);
+        background-color:  white;
     }
     .nav{
         position: relative;
         top:0px;
-        background-color: rgb(232, 232, 232);
+        background-color: white;
         width: 100%;
         height:25% ;
     }
     .left_cont img{
         border-radius: 50%;
-        width: 100px;
-        margin-left: 80px ;
-        margin-top: 30px;
-        height: 100px;
+        width: 60px;
+        margin-left: 100px ;
+        margin-top: 50px;
+        height: 60px;
         box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
     }
     .right_cont .content{
@@ -103,32 +110,34 @@
         position: relative;
         width:66%;
         height:75%;
-        background-color: rgb(232, 232, 232);
+        background-color: white;
     }
+
     .content .div{
         position: relative;
         float: left;
         width:44%;
         height:120px;
-        background-color: whitesmoke;
+        background-color:  rgb(232, 232, 232);
         margin-top:35px;
         margin-left: 35px;
         border-radius: 20px;
-    }
+    }    
+
     .right_cont .right_content{
         position: relative;
         float:left;
         width:34%;
         height: 75%;
-        background-color: rgb(232, 232, 232);
+        background-color: white;
     }
     .right_content .div{
         position: relative;
         float: left;
         width:90%;
         height:120px;
-        background-color: whitesmoke;
-        
+        background-color:  rgb(232, 232, 232);
+        /* box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3); */
         margin-top:35px;
         margin-left: 15px;
         border-radius: 20px;
@@ -143,5 +152,5 @@
         display:flex;
     }
     div.div:hover{
-        box-shadow: 0 0 10px 5px rgba(6, 183, 139, 0.5);
+        box-shadow:  5px 5px 5px 5px rgba(100, 100, 100, 0.5);
     }

@@ -13,7 +13,7 @@
             <h2>App</h2>
         
         <div class="logo">
-            <!-- <a href="View.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a> -->
+            <!-- <a href="ViewProfile.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a> -->
             <?php
             if(isset($_SESSION['id']))
             {
@@ -27,13 +27,13 @@
                     $image = $row['image'];
                     $image_src = "uploads/".$image;
                     ?>
-                    <a href="view.php"><img class="usericon" src="<?php echo $image_src;  ?>" width="60" height="60"></a>
+                    <a href="ViewProfile.php"><img class="usericon" src="<?php echo $image_src;  ?>" width="60" height="60"></a>
                 <?php
                 }
                 else
                 {
                 ?>
-                    <a href="view.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a>
+                    <a href="ViewProfile.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a>
                 <?php
                 }
             }

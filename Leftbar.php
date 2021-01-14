@@ -21,24 +21,67 @@
 
         <div class="content">
             <ul>
-                <a href="Home.php"><li>Home</li></a>
-                <a href="view.php"><li>Account</li></a>
-                <a href="MedicalRequest.php"><li>Medical Request</li></a>
+                <!-- <a href="Home.php"><li>Home</li></a> -->
+                <!-- <a href="ViewProfile.php"><li>Account</li></a> -->
+                <!-- <a href="MedicalRequest.php"><li>Medical Request</li></a> -->
+                <!-- <a href="logout.php"><li>Logout</li></a> -->
+
                 <?php
-                    if(isset($_SESSION['id']))
+                if(isset($_SESSION['id']))
+                {
+                    $tmpid=$_SESSION['id'];
+                    $con=mysqli_connect("localhost","root","","care_app") or die("failed");
+                    $sql="select user_type from login where L_id=$tmpid";
+                    $result=mysqli_query($con,$sql) or die($sql);
+                    $row=mysqli_fetch_array($result);
+                }
+                    ?>
+                <a href="Home.php"><li>Home</li></a>
+                    <?php
+                if(isset($_SESSION['id']))
+                {    
+                    if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
                     {
-                        $tmpid=$_SESSION['id'];
-                        $con=mysqli_connect("localhost","root","","care_app") or die("failed");
-                        $sql="select user_type from login where L_id=$tmpid";
-                        $result=mysqli_query($con,$sql) or die($sql);
-                        $row=mysqli_fetch_array($result);
-                        if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
-                        {
-                            ?>
-                                <a href="logout.php"><li>Logout</li></a>
-                            <?php
-                        }
+                        ?>
+                            <a href="ViewProfile.php"><li>Account</li></a>
+                        <?php
                     }
+                }
+                    else{
+                        ?>
+                            <a href="Login.php"><li>Login</li></a>
+                        <?php
+                        }
+                        ?>
+                    <a href="MedicalRequest.php"><li>Medical Request</li></a>
+                    <?php
+                if(isset($_SESSION['id']))
+                {
+                    if($row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='pnchOfficr')
+                    {
+                        ?>
+                            <li>Shopping</li>
+                            <!-- <a href="Shopping.php"><li>Shopping</li></a> -->
+                        <?php
+                    }
+                }
+                ?>
+                
+                <li>Test Myself</li>
+                <li>Quarantined List</li>
+                <!-- <a href="Home.php"><li>Quarantined List</li></a> -->
+
+                <?php
+                if(isset($_SESSION['id']))
+                {
+                    if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
+                    {
+                        ?>
+                            <a href="logout.php"><li>Logout</li></a>
+                        <?php
+                    }
+                }
+
                 ?>
             </ul>
         </div>

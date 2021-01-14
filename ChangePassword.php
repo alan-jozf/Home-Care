@@ -145,7 +145,7 @@ input[type="password"],[type=button]{
 <div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
 
 	<?php require("Topbar.php"); ?> 
-    <form action="changepass.php">
+    <form action="php\UpdatePass.php">
     <center>
         <?php
         $id=$_SESSION["id"];
@@ -174,7 +174,7 @@ input[type="password"],[type=button]{
                             }
                         ?>
                 <div class="pass" id="div" style="display:none;">
-                    <form action="changepass.php" method="POST" id="fm">
+                    <form action="php\UpdatePass.php" method="POST" id="fm">
                         <input type="password" class="box" name="old" id="one" placeholder="Old password" onclick="dis()"><br>
                         <input type="password" class="box" name="new" id="two" onblur="pass('two')" placeholder="New password"><br>
                         <input type="password" class="box" name="" id="three" placeholder="Confirm Password"><br><br>

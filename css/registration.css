@@ -13,7 +13,7 @@ body{
     background-color:white;
 }
 h1{
-margin-top: 2%;
+margin-top: 0%;
 }
 .division1{
     float:left;
@@ -62,4 +62,7 @@ input[type="submit"],[type=button]{
     color: #fff;
     border-radius: 10px;
 }
+label{
+    font-size: 20px;
 
+}

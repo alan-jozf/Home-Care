@@ -37,7 +37,7 @@ input[type="file"],[type=button]{
 
 	<?php require("Topbar.php"); ?> 
 <center>
-    <form action="php\upload.php" method='POST' enctype="multipart/form-data">
+    <form action="php\UpdateDP.php" method='POST' enctype="multipart/form-data">
 
 	<?php
 		$con=mysqli_connect("localhost","root","","care_app") or die("failed");
