@@ -7,7 +7,7 @@
 </head>
 <style>
 div.right_cont{
-	background-color: rgb(232, 232, 232);
+	/* background-color: rgb(232, 232, 232); */
 }
 form{
 	margin:6%;
@@ -58,8 +58,10 @@ input[type="file"],[type=button]{
 		?>	
 		<br>
 		<b><label style ="float:left" > Update DP :</label>  </b><br>
-		<input type="FILE" name='1'><br>
+		<input type="FILE" name='1' required ><br>
         <input type="submit" value="Upload">
+		<BR><h3 style="color:blue;"><a href="ViewProfile.php">🢀 Go Back</a></h3>
+
 	</form>
 	</center>
 	</div>

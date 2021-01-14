@@ -1,73 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <!-- <style>
-        body{
-            margin:0px; 
-            padding:0px;
-            background-image: url(images/banner.jpg);
-            /* background-position: center; */
-            background-repeat: no-repeat;
-            background-size: cover;
+    <style>
+        a{
+            /* text-decoration:yes; */
+            color:blue;
         }
+
         .container{
-            width:40%;
-            height:auto;
-            position: absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%,-50%);
-            background-color: rgba(244, 244, 244, 0.899);
-            border-radius: 10px;
-        }
-        .container .circle{
-            position: relative;
-            width:150px;
-            height:150px;
-            border-radius: 50%;
-            background-color: rgb(17, 50, 80);
-            margin-top:40px;
-            background-image: url(images/banner.jpg);
-            background-position: center;
-            background-size: 150px 150px;
-        }
+                    margin-top:5%;
+
+                }
         input{
             width:250px;
             height:40px;
-            border:.6px solid black;
+            /* border:.10px ; */
             margin:5px;
         }
         input:focus{
             outline:none;
         }
-    </style> -->
 
-<style>
-div.right_cont{
-	background-color: rgb(232, 232, 232);
-}
-form{
-	margin:6%;
-	
-}
-label{
-	width: 70%;
-}
-img{
-	border-radius:50%;
-}
-input[type="password"],[type=button]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 40%;
-    height:40px;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-</style>
+        form{
+            margin:2%;
+            
+        }
+        label{
+            width: 70%;
+        }
+        img{
+            border-radius:1%;
+        }
+        input[type="password"],[type=button]{
+            background-color:  rgb(0, 138, 103);
+            color: #fff;
+            width: 40%;
+            height:40px;
+            margin: 8px 0;
+            border-radius: 10px;
+            /* border:10px; */
+        }
+        .butt{
+            margin-top:-30px;
+        }
+    </style>
     <script>
         var one1=false;
         var two1=false;
@@ -126,13 +106,13 @@ input[type="password"],[type=button]{
                 document.getElementById("fm").submit();
             }
         }
-        var field=false;
-        function show_password(){
-            document.getElementById("div").style.cssText="display:block";
-            document.getElementById('ch').value="Change";
-            document.getElementById("ch").setAttribute("onclick", "send()");
-            field=true;
-        }
+        // var field=false;
+        // function show_password(){
+        //     document.getElementById("div").style.cssText="display:block";
+        //     document.getElementById('ch').value="Change";
+        //     document.getElementById("ch").setAttribute("onclick", "send()");
+        //     field=true;
+        // }
         function dis(){
             document.getElementById('invalid').style.cssText="visibility: hidden;";
         }
@@ -141,16 +121,15 @@ input[type="password"],[type=button]{
 </head>
 
 <body>
-<?php require("Leftbar.php"); ?> 
-<div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
+<?php require("Leftbar.php"); ?>
+<div class="right_cont">
 
-	<?php require("Topbar.php"); ?> 
-    <form action="php\UpdatePass.php">
+    <?php require("Topbar.php"); ?> 
     <center>
         <?php
         $id=$_SESSION["id"];
         $con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
-        $query="select * from login where L_id=$id";
+        $query="SELECT * FROM login WHERE L_id=$id";
         $result=mysqli_query($con,$query);
         $login = mysqli_fetch_array($result);
 
@@ -158,35 +137,32 @@ input[type="password"],[type=button]{
         union select name from user where L_id=$id
         union select name from volunteer where L_id=$id";
 
-        $result=mysqli_query($con,$query);
-        $reg_table = mysqli_fetch_array($result);
+        $result=mysqli_query($con,$query); 
 
         ?>
         <div class="container">
             <div class="inside_container">
- 
-                </div>
+            <h2>Change Password</h2>
                 <?php  
-                            if(isset($_GET['password'])=='wrongpass'){
+                            if(isset($_GET['err'])=='wrongpass'){
                                 ?>
                                 <h2 style="color:red" id="invalid">old password dosent match</h2>
                                 <?php
                             }
                         ?>
-                <div class="pass" id="div" style="display:none;">
+                <!-- <div class="pass" id="div" style="display:none;"> -->
+                <div class="pass" id="div">
                     <form action="php\UpdatePass.php" method="POST" id="fm">
                         <input type="password" class="box" name="old" id="one" placeholder="Old password" onclick="dis()"><br>
                         <input type="password" class="box" name="new" id="two" onblur="pass('two')" placeholder="New password"><br>
                         <input type="password" class="box" name="" id="three" placeholder="Confirm Password"><br><br>
                     </form>
                 </div>
-                <!-- <input type="submit" style="background-color:green;color:white;" class="butt" id="ch" onclick="show_password()" value="Change Paswword"> -->
-
-                <input type="button" style="background-color:green;color:white;" class="butt" id="ch" onclick="show_password()" value="Change Paswword">
+                <input type="button" style="background-color:green;color:white;" class="butt" id="ch" onclick="send()" value="Change Paswword">
+                <BR><h3 style="color:blue;"><a href="ViewProfile.php">🢀 Go Back</a></h3>
             </div>
         </div>
     </center>
-    </form>
-    </div>
+</div>
 </body>
 </html>

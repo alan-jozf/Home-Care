@@ -30,7 +30,7 @@
     }   
     .logo h3{
         float: right;
-        margin-top:60%;
+        margin-top:55%;
         margin-right: -50%;
         font-size: 27px;
     }
@@ -109,7 +109,7 @@
         float: left;
         position: relative;
         width:66%;
-        height:75%;
+        height:74%;
         background-color: white;
     }
 

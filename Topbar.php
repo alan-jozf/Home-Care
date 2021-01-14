@@ -5,10 +5,14 @@
      <meta http-equiv="Cache-control" content="no-cache">
     <title>care app</title>
     <style>
+    .nav{
+        height:24.8%;
+    }
+
     </style> 
 </head>
 <body>
-<div class="nav">
+    <div class="nav">
             <h1>Care</h1> 
             <h2>App</h2>
         
@@ -73,5 +77,8 @@
         </div>
 
     </div>
+    
+    <hr>
+
 </body>
 </html>

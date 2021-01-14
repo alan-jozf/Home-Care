@@ -53,7 +53,22 @@
                         <?php
                         }
                         ?>
-                    <a href="MedicalRequest.php"><li>Medical Request</li></a>
+                    <?php
+                if(isset($_SESSION['id']))
+                {
+                    if($row['user_type']=='user')
+                    {
+                        ?>
+                            <a href="MedicalRequest.php"><li>Medical Request</li></a>
+                        <?php
+                    }
+                }
+                    else{
+                        ?>
+                            <a href="MedicalRequest.php"><li>Medical Request</li></a>
+                        <?php
+                        }
+                    ?>
                     <?php
                 if(isset($_SESSION['id']))
                 {

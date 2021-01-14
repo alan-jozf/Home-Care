@@ -7,7 +7,7 @@
 </head>
 <style>
 div.right_cont{
-	background-color: rgb(232, 232, 232);;
+	/* background-color: rgb(232, 232, 232);; */
 }
 form{
 	margin:1%;
