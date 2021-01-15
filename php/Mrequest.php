@@ -3,11 +3,12 @@
 $con = mysqli_connect("localhost","root","","care_app")or die("failed");
 $cbox = $_POST['cbox'];
 $Urgency = $_POST['Urgency'];
+$date=date("Y-m-d");
 
 session_start();
 $tmpid=$_SESSION['id'];
 // echo $cbox,$Urgency,$tmpid;
-$sql = "insert into mrequest(L_id,Reason,Urgency) values($tmpid,'$cbox','$Urgency')";
+$sql = "insert into mrequest(L_id,Reason,Urgency,Date) values($tmpid,'$cbox','$Urgency','$date')";
 
 
 if(mysqli_query($con,$sql)){

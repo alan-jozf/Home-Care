@@ -38,7 +38,7 @@
                 if($row['user_type']=='admin')
                 {
                     ?>
-                        <a href="MedicalRequest.php"><div class="div"><h2>View Medical Requests</h2></div></a>
+                        <a href="ViewRequest.php"><div class="div"><h2>View Medical Requests</h2></div></a>
                     <?php
                 }
                 elseif($row['user_type']=='user')
@@ -71,7 +71,7 @@
             else
             {
                 ?>
-                    <a href="MedicalRequest.php"><div class="div"><h2>Medical Request</h2></div></a>
+                    <a href="Login.php"><div class="div"><h2>Medical Request</h2></div></a>
                 <?php
             }
         ?>
@@ -211,7 +211,7 @@
                 if($row['user_type']=='admin')
                 {
                     ?>
-                        <div class="div"><h2>View Quarantined List</h2></div>
+                        <a href="ViewQuarantine.php"><div class="div"><h2>View Quarantined List</h2></div></a>
                         <!-- <div class="div"><a href="MedicalRequest.php"><h2>Medical Request</h2></a></div> -->
                     <?php
                 }
@@ -224,26 +224,28 @@
                 elseif($row['user_type']=='mstaff')
                 {
                     ?>
-                        <div class="div"><h2>View Quarantined List</h2></div>
+                        <a href="ViewQuarantine.php"><div class="div"><h2>View Quarantined List</h2></div></a>
                     <?php
                 }
                 elseif($row['user_type']=='volunteer')
                 {
                     ?>
-                        <div class="div"><h2>View Quarantined List</h2></div>
+                        <a href="ViewQuarantine.php"><div class="div"><h2>View Quarantined List</h2></div></a>
                     <?php
                 }
                 elseif($row['user_type']=='pnchOfficr')
                 {
                     ?>
-                        <div class="div"><h2>View Quarantined List</h2></div>
+                        <a href="ViewQuarantine.php"><div class="div"><h2>View Quarantined List</h2></div></a>
                     <?php
                 }
             }
             else
             {
                 ?>
-                    <div class="div"><h2>View Quarantined List</h2></div>
+                    <a href="ViewQuarantine.php"><div class="div"><h2>View Quarantined List</h2></div></a>
+                    
+
                 <?php
             }
         ?>

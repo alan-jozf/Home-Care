@@ -40,7 +40,8 @@
                     <?php
                 if(isset($_SESSION['id']))
                 {    
-                    if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
+                    if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' 
+                                                    or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
                     {
                         ?>
                             <a href="ViewProfile.php"><li>Account</li></a>
@@ -56,16 +57,41 @@
                     <?php
                 if(isset($_SESSION['id']))
                 {
+                    if($row['user_type']=='admin')
+                    {
+                        ?>
+                            <a href="admin/AddProduct.php"><li>Add Product</li></a>
+                        <?php
+                    }
+                }
+                ?>
+                    <?php
+                if(isset($_SESSION['id']))
+                {
+                    if($row['user_type']=='mstaff' 
+                    or $row['user_type']=='pnchOfficr'  or $row['user_type']=='volunteer')
+                    {
+                        ?>
+                            <a href="ViewRequest.php"><li>View Request</li></a>
+                        <?php
+                    }
+                    if($row['user_type']=='admin')
+                    {
+                        ?>
+                            <a href="ViewRequest.php"><li>View Request</li></a>
+                        <?php
+                    }
                     if($row['user_type']=='user')
                     {
                         ?>
                             <a href="MedicalRequest.php"><li>Medical Request</li></a>
                         <?php
                     }
+
                 }
                     else{
                         ?>
-                            <a href="MedicalRequest.php"><li>Medical Request</li></a>
+                            <a href="Login.php"><li>Medical Request</li></a>
                         <?php
                         }
                     ?>
@@ -75,21 +101,22 @@
                     if($row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='pnchOfficr')
                     {
                         ?>
-                            <li>Shopping</li>
-                            <!-- <a href="Shopping.php"><li>Shopping</li></a> -->
+                            <!-- <li>Shopping</li> -->
+                            <a href="Shopping.php"><li>Shopping</li></a>
                         <?php
                     }
                 }
                 ?>
                 
                 <li>Test Myself</li>
-                <li>Quarantined List</li>
+                <a href="ViewQuarantine.php"><li>Quarantined List</li></a>
                 <!-- <a href="Home.php"><li>Quarantined List</li></a> -->
 
                 <?php
                 if(isset($_SESSION['id']))
                 {
-                    if($row['user_type']=='admin' or $row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
+                    if($row['user_type']=='admin' or $row['user_type']=='user' 
+                    or $row['user_type']=='mstaff' or $row['user_type']=='volunteer' or $row['user_type']=='pnchOfficr')
                     {
                         ?>
                             <a href="logout.php"><li>Logout</li></a>

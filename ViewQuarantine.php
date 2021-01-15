@@ -33,41 +33,40 @@ input[type="file"],[type=button]{
 
 		<?php require("Topbar.php"); ?> 
 
-		<br><h1 style="margin-left:4%;">Medical Requests</h1><br>
+		<br><h1 style="margin-left:4%;">Quarantined List</h1><br>
 
 		<table class="cart" cellpadding="5" cellspacing="10">
 			<tbody>
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
 				<th style="text-align:left;" width="100px">Name</th>
-				<th style="text-align:left;" width="100px">Urgency</th>
-				<th style="text-align:left;" width="100px">Reason</th>
-				<th style="text-align:left;" width="100px">Date</th>
+				<th style="text-align:left;" width="100px">House Name</th>
+				<th style="text-align:left;" width="100px">Place</th>
+				<!-- <th style="text-align:left;" width="100px">Date</th> -->
 				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
 			<?php
 				$counter = 0;
 
 				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
-				$query="select * from mrequest";
+				$query="select * from user";
 				$result =mysqli_query($con,$query);
 				while($row=mysqli_fetch_array($result))  
 				{?>
 					<tr>
 					<td><?php echo ++$counter ?></td>
+					<td><?php echo $row['name'] ?></td>
+					<td><?php echo $row['hname'] ?></td>
 					<?php
 					// echo $row['L_id'] 
-					$id=$row['L_id'];
-					$quer="select * from user where L_id=$id";
+					$id=$row['sd_id'];
+					$quer="select * from subdist where sd_id=$id";
 					$resl =mysqli_query($con,$quer);
 					$ro=mysqli_fetch_array($resl);
 					// echo count($ro);
 					?>
-						<td><?php echo $ro['name'] ?></td>
+						<td><?php echo $ro['sd_name'] ?></td>
 
-					<td><?php echo $row['Urgency'] ?></td>
-					<td><?php echo $row['Reason'] ?></td>
-					<td><?php echo $row['Date'] ?></td><br>
 
 					</tr>
 					<?php
