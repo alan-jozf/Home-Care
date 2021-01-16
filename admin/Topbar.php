@@ -4,12 +4,12 @@
      <link rel="stylesheet" href="../css/home.css">
      <meta http-equiv="Cache-control" content="no-cache">
     <title>care app</title>
-    <style>
-    .nav{
-        height:24.8%;
+<style>
+    @font-face{
+        font-family: hel;
+        src:url(../assets/AlexBrush-Regular.ttf);
     }
-
-    </style> 
+</style> 
 </head>
 <body>
     <div class="nav">
@@ -31,20 +31,21 @@
                     $image = $row['image'];
                     $image_src = "../uploads/".$image;
                     ?>
-                    <a href="../ViewProfile.php"><img class="usericon" src="<?php echo $image_src;  ?>" width="60" height="60"></a>
+                    <a href="../ViewProfile.php"><img class="usericon" src="<?php echo $image_src;  ?>" ></a>
                 <?php
                 }
                 else
                 {
                 ?>
-                    <a href="../ViewProfile.php"><img class="usericon" src="../images/uicon.png" width="60" height="60"></a>
+                    <a href="../ViewProfile.php"><img class="usericon" src="../images/uicon.png" ></a>
+                    <!-- <a href="../ViewProfile.php"><img class="usericon" src="../images/uicon.png" width="50" height="50"></a> -->
                 <?php
                 }
             }
             else
             {
             ?>
-                <a href="../Login.php"><img class="usericon" src="../images/uicon.png" width="50" height="50"></a>
+                <a href="../Login.php"><img class="usericon" src="../images/uicon.png"></a>
             <?php
             }
         ?>

@@ -3,6 +3,7 @@
 <head>
 	<title>EDIT</title>
 	<link rel="stylesheet" type="text/css" href="..\css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="..\css\Home.css" />
 
 </head>
 <style>

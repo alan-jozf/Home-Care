@@ -20,9 +20,6 @@ label{
 	width: 70%;
 	/* size:20px; */
 }
-img{
-	border-radius:50%;
-}
 input[type="file"],[type=button],[type=checkbox]{
     background-color:  rgb(0, 138, 103);
     color: #fff;

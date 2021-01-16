@@ -4,55 +4,11 @@
         padding:0;
         transition: .5s ease-out;
     }
-    @font-face{
-        font-family: hel;
-        src:url(../assets/AlexBrush-Regular.ttf);
-    }
-    .nav h1{
-        font-family:hel;
-        float:left;
-        margin-top:40px;
-        margin-left: 30px;
-        font-size: 60px;
-        color: rgb(30, 8, 70);
-    }
-    .nav h2{
-        font-family:hel;
-        float:left;
-        margin-top:90px;
-        margin-left: -40px;
-        font-size: 20px;
-        color: rgb(30, 8, 70);
-    }
+
     h2{
         font-size: 22px;
-
     }   
-    .logo h3{
-        float: right;
-        margin-top:55%;
-        margin-right: -50%;
-        font-size: 27px;
-    }
 
-    .logo{
-        position: relative;
-        height: 100%;
-        width:20%;
-        float:right;
-        /* background-color: rgb(78, 122, 111); */
-    } 
-
-
-    .usericon{
-        float:right;
-        margin:50px;
-        border-radius: 50%;
-        transition: 0.10s ease-out;
-    }
-    .usericon:hover{
-        transform: scale(1.2);
-    }
     .left_cont{
         position: relative;
         float:left;
@@ -90,13 +46,7 @@
         float:left;
         background-color:  white;
     }
-    .nav{
-        position: relative;
-        top:0px;
-        background-color: white;
-        width: 100%;
-        height:25% ;
-    }
+
     .left_cont img{
         border-radius: 50%;
         width: 60px;
@@ -154,3 +104,75 @@
     div.div:hover{
         box-shadow:  5px 5px 5px 5px rgba(100, 100, 100, 0.5);
     }
+    /* table{
+        border:1;
+    } */
+
+/* STYLE ONLY FOR TOPBAR */
+
+.nav{
+    position: relative;
+    top:0px;
+    background-color: white;
+    width: 100%;
+    /* height:25% ; */
+    height:24.8%;
+}
+.nav h1{
+    font-family:hel;
+    float:left;
+    margin-top:40px;
+    margin-left: 30px;
+    font-size: 60px;
+    color: rgb(30, 8, 70);
+}
+.nav h2{
+    font-family:hel;
+    float:left;
+    margin-top:90px;
+    margin-left: -40px;
+    font-size: 20px;
+    color: rgb(30, 8, 70);
+}
+.logo{
+    position: relative;
+    /* background-color:red; */
+    height: 100%;
+    width:30%;
+    float:right;
+} 
+.usericon{
+    float:right;
+    /* position: fixed; */
+    margin-top:50px;
+    margin-right:50px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    transition: 0.10s ease-out;
+}
+.usericon:hover{
+    transform: scale(1.2);
+}
+.carticon{
+    float:left;
+    margin-left:110px;
+    margin-top:60px;
+    width:40px;
+    height:40px;
+    transition: 0.10s ease-out;
+}
+.carticon:hover{
+    transform: scale(1.2);
+}
+/* display name logo h3*/
+.logo h3{
+    /* background-color:blue; */
+    float:right;
+    font-size: 20px;
+    /* top:1%; */
+    margin-top:120px;
+    margin-right: -15%;
+}
+
+/* TOPBAR STYLE ENDS */
