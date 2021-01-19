@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 05:34 AM
+-- Generation Time: Jan 19, 2021 at 05:05 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -40,6 +40,30 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`a_id`, `L_id`, `name`, `status`) VALUES
 (1, 1, 'Alan Joseph', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `C_id` int(5) NOT NULL,
+  `L_id` int(5) NOT NULL,
+  `P_id` int(5) NOT NULL,
+  `quantity` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`C_id`, `L_id`, `P_id`, `quantity`) VALUES
+(1, 15, 3, 1),
+(2, 12, 1, 17),
+(11, 12, 2, 2),
+(12, 12, 3, 1),
+(13, 12, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +106,7 @@ INSERT INTO `district` (`dt_id`, `dt_name`, `status`) VALUES
 CREATE TABLE `dp` (
   `dp_id` int(5) NOT NULL,
   `L_id` int(5) NOT NULL,
-  `image` varchar(30) NOT NULL,
+  `image` varchar(50) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -92,7 +116,7 @@ CREATE TABLE `dp` (
 
 INSERT INTO `dp` (`dp_id`, `L_id`, `image`, `status`) VALUES
 (1, 1, 'alan.jpg', 1),
-(23, 15, 'dp.jpg', 1);
+(33, 11, '3377ffd767bf454ea55ec9488f56c714.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -115,11 +139,11 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`L_id`, `PhoneNo`, `email`, `password`, `user_type`, `status`) VALUES
 (1, '9947900268', 'alan@gmail.com', 'Alan@123', 'admin', 1),
-(11, '9999999999', 'aby2@gmail.com', 'Asdf@123', 'volunteer', 1),
-(12, '9877667766', 'amal@hjk.nm', 'Asd@1234', 'user', 1),
-(13, '8765433456', 'hari@fgh.nm', 'Asdf@123', 'mstaff', 1),
-(14, '7868584838', 'jessy@gjk.bv', '!Asdf123', 'pnchOfficr', 1),
-(15, '9996755666', 'hsasgw@ghgg.mm', 'Asdf@123', 'user', 1);
+(11, '7777777777', 'aby2@gmail.com', 'Asdf.123', 'volunteer', 1),
+(12, '4444444444', 'amal@hjk.nm', 'Asd@1234', 'user', 1),
+(13, '3333333333', 'hari@fgh.nm', 'Asdf@123', 'mstaff', 1),
+(14, '9999999999', 'jessy@gjk.bv', '!Asdf123', 'pnchOfficr', 1),
+(15, '5555555555', 'hsasgw@ghgg.mm', 'Asdf@123', 'user', 1);
 
 -- --------------------------------------------------------
 
@@ -154,16 +178,46 @@ CREATE TABLE `mrequest` (
   `MR_id` int(5) NOT NULL,
   `L_id` int(5) NOT NULL,
   `Reason` varchar(20) NOT NULL,
-  `Urgency` varchar(10) NOT NULL
+  `Urgency` varchar(10) NOT NULL,
+  `Date` varchar(12) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mrequest`
 --
 
-INSERT INTO `mrequest` (`MR_id`, `L_id`, `Reason`, `Urgency`) VALUES
-(1, 12, 'Headache', 'Severe'),
-(2, 15, 'Feaver', 'Moderate');
+INSERT INTO `mrequest` (`MR_id`, `L_id`, `Reason`, `Urgency`, `Date`, `status`) VALUES
+(1, 12, 'Headache', 'Severe', '2021-01-14', 1),
+(2, 15, 'Feaver', 'Moderate', '2021-01-14', 1),
+(3, 12, 'Cough', 'Moderate', '2021-01-15', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `P_id` int(5) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `price` int(5) NOT NULL,
+  `quantity` int(5) NOT NULL,
+  `category` varchar(20) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`P_id`, `name`, `price`, `quantity`, `category`, `image`, `status`) VALUES
+(1, 'Egg', 8, 100, 'Food', 'Screenshot_20201003-145051_Instagram.jpg', 1),
+(2, 'Mik', 50, 100, 'Food', 'Screenshot_20201005-144846_WhatsApp.jpg', 1),
+(3, 'Rice', 50, 2000, 'Grocery', 'attachment_68686820.jpg', 1),
+(4, 'Onion', 34, 100, 'Vegitable', 'Onion-alternative_1200.jpg', 1),
+(5, 'Tappioca', 47, 800, 'Food', 'marc-schaefer-7Bm_UrVFH-8-unsplash.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -277,6 +331,12 @@ ALTER TABLE `admin`
   ADD KEY `L_id` (`L_id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`C_id`);
+
+--
 -- Indexes for table `district`
 --
 ALTER TABLE `district`
@@ -308,6 +368,12 @@ ALTER TABLE `medical_staff`
 ALTER TABLE `mrequest`
   ADD PRIMARY KEY (`MR_id`),
   ADD KEY `L_id` (`L_id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`P_id`);
 
 --
 -- Indexes for table `punchayat_officer`
@@ -348,16 +414,22 @@ ALTER TABLE `admin`
   MODIFY `a_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `C_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `dp`
 --
 ALTER TABLE `dp`
-  MODIFY `dp_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `dp_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `L_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `L_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `medical_staff`
@@ -369,7 +441,13 @@ ALTER TABLE `medical_staff`
 -- AUTO_INCREMENT for table `mrequest`
 --
 ALTER TABLE `mrequest`
-  MODIFY `MR_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MR_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `punchayat_officer`
