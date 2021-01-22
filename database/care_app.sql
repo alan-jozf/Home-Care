@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2021 at 05:05 AM
+-- Generation Time: Jan 22, 2021 at 09:20 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -60,9 +60,9 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`C_id`, `L_id`, `P_id`, `quantity`) VALUES
 (1, 15, 3, 1),
-(2, 12, 1, 17),
+(2, 12, 1, 18),
 (11, 12, 2, 2),
-(12, 12, 3, 1),
+(12, 12, 3, 2),
 (13, 12, 4, 2);
 
 -- --------------------------------------------------------
