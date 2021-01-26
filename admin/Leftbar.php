@@ -42,11 +42,13 @@
 
                                 <a href="../ViewProfile.php"><li>Account</li></a>
 
-                                <a href="AddProduct.php"><li>Add Product</li></a>
-
                                 <a href="../ViewRequest.php"><li>View Request</li></a>
 
-                                <li>Test Myself</li>
+                                <a href="AddProduct.php"><li>Add Product</li></a>
+
+                                <a href="ViewProduct.php"><li>View Product</li></a>
+
+                                <a href="../TestMyself.php"><li>Test Myself</li></a>
 
                                 <a href="../ViewQuarantine.php"><li>Quarantined List</li></a>
 

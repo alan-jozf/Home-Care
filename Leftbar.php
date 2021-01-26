@@ -54,17 +54,7 @@
                         <?php
                         }
                         ?>
-                    <?php
-                if(isset($_SESSION['id']))
-                {
-                    if($row['user_type']=='admin')
-                    {
-                        ?>
-                            <a href="admin/AddProduct.php"><li>Add Product</li></a>
-                        <?php
-                    }
-                }
-                ?>
+
                     <?php
                 if(isset($_SESSION['id']))
                 {
@@ -95,20 +85,51 @@
                         <?php
                         }
                     ?>
+                    
                     <?php
                 if(isset($_SESSION['id']))
                 {
-                    if($row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='pnchOfficr')
+                    if($row['user_type']=='admin')
+                    {
+                        ?>
+                            <a href="admin/AddProduct.php"><li>Add Product</li></a>
+                            <a href="admin/ViewProduct.php"><li>View Product</li></a>
+
+                        <?php
+                    }
+                }
+                ?>
+                    
+                    <?php
+                if(isset($_SESSION['id']))
+                {
+                    if($row['user_type']=='volunteer')
+                    {
+                        ?>
+                            <a href="Delivery.php"><li>Deliveries</li></a>
+                        <?php
+                    }
+                }
+                ?>
+
+                    <?php
+                if(isset($_SESSION['id']))
+                {
+                    // if($row['user_type']=='user' or $row['user_type']=='mstaff' or $row['user_type']=='pnchOfficr')
+                    if($row['user_type']=='user')
                     {
                         ?>
                             <!-- <li>Shopping</li> -->
                             <a href="Shopping.php"><li>Shopping</li></a>
+                            <a href="myOrder.php"><li>My Orders</li></a>
+                            
                         <?php
                     }
                 }
                 ?>
                 
-                <li>Test Myself</li>
+                <a href="TestMyself.php"><li>Test Myself</li></a>
+                <!-- <li>Test Myself</li> -->
                 <a href="ViewQuarantine.php"><li>Quarantined List</li></a>
                 <!-- <a href="Home.php"><li>Quarantined List</li></a> -->
 

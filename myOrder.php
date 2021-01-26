@@ -35,7 +35,7 @@ input[type=button]{
 
 		<?php require("Topbar.php"); ?> 
 
-		<br><h1 style="margin-left:4%;">Cart</h1><br>
+		<br><h1 style="margin-left:4%;">My Orders</h1><br>
 
 		<table class="cart" cellpadding="5" cellspacing="10">
 			<tbody>
@@ -45,7 +45,8 @@ input[type=button]{
 				<th style="text-align:left;" width="100px">Name</th>
 				<th style="text-align:left;" width="100px">Price</th>
 				<th style="text-align:left;" width="100px">Quantinty</th>
-				<th style="text-align:left;" width="100px">Total</th>				
+				<th style="text-align:left;" width="100px">Total</th>
+				<th style="text-align:left;" width="100px">Date</th>								
 				<th style="text-align:left;" width="100px">Delete</th>
 
 				<!-- <th style="text-align:left;" width="100px">Date</th> -->
@@ -56,12 +57,12 @@ input[type=button]{
 				$tmpid=$_SESSION['id'];
 
 				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
-				$query="select * from cart where L_id = $tmpid";
+				$query="select * from myOrder where L_id = $tmpid";
 				$result =mysqli_query($con,$query);
 				while($row=mysqli_fetch_array($result))  
 				{	
 					$id=$row['P_id'];
-					$cid=$row['C_id'];
+					$Oid=$row['O_id'];
 
 					$quer="select * from product where P_id=$id";
 					$resl =mysqli_query($con,$quer);
@@ -81,17 +82,14 @@ input[type=button]{
 							$total=$row['quantity']*$ro['price'];
 						?>
 						<td><?php echo $total ?></td>
-
-						<td><a href="php/delete.php?dd=<?php echo $cid ?>"><img src="images\icon-delete.png" /></a></td>
+						<td><?php echo $row['Date'] ?></td>
+						<td><a href="php/deleteOrder.php?dd=<?php echo $Oid ?>"><img src="images\icon-delete.png" /></a></td>
 
 					</tr>
 					<?php
 				}
 			?>
 		</table>
-		<!-- <input type="button" value="Buy Now"></p> -->
-		<a href="php/BuyNow.php"><input type="button" value="Buy Now"></a></p>
- 		
 	</div>
 </body>
 </html>

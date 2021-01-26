@@ -35,63 +35,73 @@ input[type=button]{
 
 		<?php require("Topbar.php"); ?> 
 
-		<br><h1 style="margin-left:4%;">Cart</h1><br>
+		<br><h1 style="margin-left:4%;">Pending Deliveries</h1><br>
 
 		<table class="cart" cellpadding="5" cellspacing="10">
 			<tbody>
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
+				<th style="text-align:left;" width="100px">Date</th>
+				<th style="text-align:left;" width="100px">User</th>
+				<th style="text-align:left;" width="100px">Mobile</th>
+				<th style="text-align:left;" width="100px">House Name</th>
+				<th style="text-align:left;" width="100px">Place</th>
 				<th style="text-align:left;" width="100px">Image</th>
-				<th style="text-align:left;" width="100px">Name</th>
-				<th style="text-align:left;" width="100px">Price</th>
+				<th style="text-align:left;" width="100px">Product</th>
 				<th style="text-align:left;" width="100px">Quantinty</th>
-				<th style="text-align:left;" width="100px">Total</th>				
-				<th style="text-align:left;" width="100px">Delete</th>
+					
 
 				<!-- <th style="text-align:left;" width="100px">Date</th> -->
 				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
 			<?php
 				$counter = 0;
-				$tmpid=$_SESSION['id'];
-
 				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
-				$query="select * from cart where L_id = $tmpid";
+				$query="select * from myOrder";
 				$result =mysqli_query($con,$query);
 				while($row=mysqli_fetch_array($result))  
 				{	
 					$id=$row['P_id'];
-					$cid=$row['C_id'];
+					$Oid=$row['O_id'];
+					$lid=$row['L_id'];
 
 					$quer="select * from product where P_id=$id";
 					$resl =mysqli_query($con,$quer);
 					$ro=mysqli_fetch_array($resl);
+					$image = $ro['image'];
+					$image_src = "uploads/".$image;
 
-						$image = $ro['image'];
-						$image_src = "uploads/".$image;
-						?>
+					$querB="select * from user where L_id=$lid";
+					$reslB =mysqli_query($con,$querB);
+					$roB=mysqli_fetch_array($reslB);
+					$sid=$roB['sd_id'];
+
+					$querC="select * from subdist where sd_id=$sid";
+					$reslC =mysqli_query($con,$querC);
+					$roC=mysqli_fetch_array($reslC);
+
+					$querD="select * from login where L_id=$lid";
+					$reslD =mysqli_query($con,$querD);
+					$roD=mysqli_fetch_array($reslD);
+
+					?>
 					<tr>
 						<td><?php echo ++$counter ?></td>
+						<td><?php echo $row['Date'] ?></td>
+						<td><?php echo $roB['name'] ?></td>
+						<td><?php echo $roD['PhoneNo'] ?></td>
+						<td><?php echo $roB['hname'] ?></td>
+						<td><?php echo $roC['sd_name'] ?></td>
 						<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 						<td><?php echo $ro['name'] ?></td>
-						<td><?php echo $ro['price'] ?></td>
-
 						<td><?php echo $row['quantity'] ?></td>
-						<?php
-							$total=$row['quantity']*$ro['price'];
-						?>
-						<td><?php echo $total ?></td>
 
-						<td><a href="php/delete.php?dd=<?php echo $cid ?>"><img src="images\icon-delete.png" /></a></td>
 
 					</tr>
 					<?php
 				}
 			?>
 		</table>
-		<!-- <input type="button" value="Buy Now"></p> -->
-		<a href="php/BuyNow.php"><input type="button" value="Buy Now"></a></p>
- 		
 	</div>
 </body>
 </html>

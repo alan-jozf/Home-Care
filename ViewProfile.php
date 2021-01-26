@@ -74,7 +74,14 @@ input[type="file"],[type=button]{
             $reg_table = mysqli_fetch_array($result);
 
         ?> 
-        <br>
+		<br>
+		<h2><?php echo $login['user_type'] ?></h2><br>
+			<!-- 
+			if($login['user_type']=='punchOfficr')
+			{ 
+				echo 'Punchayat Officer';
+				
+			} -->
         <h2><?php echo $reg_table['name'] ?></h2><br>
         <h2><?php echo $login['PhoneNo'] ?></h2><br>
         <h2><?php echo $login['email'] ?></h2><br>

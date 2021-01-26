@@ -122,7 +122,7 @@
 
 							<div class ="line">
 								<div class="pprice"><?php echo "Rs: ".$row["price"]; ?></div>
-								<div><input  class="pquantity"type="number" name="quantity" value="1" /></div>
+								<div><input  class="pquantity"type="number" name="quantity" value="1" min="1"/></div>
 								
 										<!-- <a href="php/addToCart.php?P_id=
 														<?php echo $row['P_id']?>
