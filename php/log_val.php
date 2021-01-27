@@ -10,7 +10,7 @@
     {
         while($row = mysqli_fetch_array($result))
 	    {
-            if(($phone=$row['PhoneNo']) && ($pword=$row['password']))
+            if(($phone==$row['PhoneNo']) && ($pword==$row['password']))
             { 
                 $_SESSION['id']=$row['L_id'];
                 header("location:../Home.php");

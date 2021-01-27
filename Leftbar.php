@@ -50,7 +50,7 @@
                 }
                     else{
                         ?>
-                            <a href="Login.php"><li>Login</li></a>
+                            <a href="Login.php"><li>Login/Register</li></a>
                         <?php
                         }
                         ?>

@@ -1,11 +1,9 @@
-
-
 <?php
-session_start();
+    session_start();
     if(isset($_SESSION['id']))
     {
     session_destroy();
-    header('Location:../Home.php');
+    header('Location:../Login.php');
     }
 ?>
 

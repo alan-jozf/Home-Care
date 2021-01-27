@@ -171,8 +171,15 @@
 
 
 		</div>
-		<center><input type="submit" name="submit" value="Submit"/><br></center>
-		<label > <center>Already Registered ? <a href="Login.php"> LOGIN</a></center></label><br><br>
+		<center><input type="submit" name="submit" value="Submit"/><br>
+					<?php
+						if(isset($_GET['err'])){
+							if($_GET["err"]=="wrong"){
+								echo "<h3 id='err' style='color:red'>Mobile Number already exist ! </h3>";
+							}
+						}
+					?>
+		<label >Already Registered ? <a href="Login.php"> LOGIN</a></center></label><br><br>
 
     </div>
 	</b>

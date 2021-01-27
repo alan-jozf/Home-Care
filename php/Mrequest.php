@@ -12,8 +12,8 @@ $sql = "insert into mrequest(L_id,Reason,Urgency,Date) values($tmpid,'$cbox','$U
 
 
 if(mysqli_query($con,$sql)){
-    header("location:..\Home.php");
-    echo '<h3>Request Succesfull</h3>';
+    header("location:..\Medicalrequest.php?err=wrong");
+    // echo '<h3>Request Succesfull</h3>';
 }
 else{
     header("location:..\MedicalRequest.php");

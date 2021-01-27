@@ -17,7 +17,7 @@ label{
 	width: 70%;
 }
 img{
-	border-radius:50%;
+	/* border-radius:50%; */
 }
 input[type="file"],[type=button]{
     background-color:  rgb(0, 138, 103);
