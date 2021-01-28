@@ -5,6 +5,34 @@
         transition: .5s ease-out;
     }
 
+
+/* Table designs */
+/* fix table height and heading in case of row overflow */
+    table {
+        border-collapse: collapse;
+        border: 1px solid black;
+        height: 10px !important; 
+        overflow: scroll;
+
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    th, td {
+        padding: 5px;
+        /* border: 1px solid black; */
+        text-align: left;
+    }
+    tr{
+        border: 1px solid black;
+    }
+    tr:hover {
+        background-color: #cecece;
+    }
+/* table design over */
+
+
     h2{
         font-size: 22px;
     }   

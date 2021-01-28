@@ -27,6 +27,7 @@ input[type=button]{
     margin: 20px 0 0 20%;
     border-radius: 10px;
 }
+
 </style>
 
 <body>
@@ -38,7 +39,8 @@ input[type=button]{
 		<br><h1 style="margin-left:4%;">My Orders</h1><br>
 
 		<table class="cart" cellpadding="5" cellspacing="10">
-			<tbody>
+		<thead>
+
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
 				<th style="text-align:left;" width="100px">Image</th>
@@ -52,6 +54,10 @@ input[type=button]{
 				<!-- <th style="text-align:left;" width="100px">Date</th> -->
 				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
+			</thead>
+
+			<tbody style="height: 10px !important; overflow: scroll; ">
+
 			<?php
 				$counter = 0;
 				$tmpid=$_SESSION['id'];
@@ -89,6 +95,7 @@ input[type=button]{
 					<?php
 				}
 			?>
+			</tbody>
 		</table>
 	</div>
 </body>
