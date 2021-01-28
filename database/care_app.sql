@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2021 at 09:20 AM
+-- Generation Time: Jan 28, 2021 at 03:49 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -59,11 +59,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`C_id`, `L_id`, `P_id`, `quantity`) VALUES
-(1, 15, 3, 1),
-(2, 12, 1, 18),
-(11, 12, 2, 2),
-(12, 12, 3, 2),
-(13, 12, 4, 2);
+(53, 15, 2, 3),
+(54, 15, 3, 20),
+(55, 12, 1, 10),
+(56, 12, 3, 50),
+(57, 12, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,8 @@ CREATE TABLE `dp` (
 
 INSERT INTO `dp` (`dp_id`, `L_id`, `image`, `status`) VALUES
 (1, 1, 'alan.jpg', 1),
-(33, 11, '3377ffd767bf454ea55ec9488f56c714.jpg', 1);
+(33, 11, '3377ffd767bf454ea55ec9488f56c714.jpg', 1),
+(34, 12, '0fc902e07391a5d7190c5b1a108b6b37.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,7 @@ CREATE TABLE `login` (
   `PhoneNo` varchar(10) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `password` varchar(10) DEFAULT NULL,
-  `user_type` varchar(10) DEFAULT NULL,
+  `user_type` varchar(20) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -139,11 +140,11 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`L_id`, `PhoneNo`, `email`, `password`, `user_type`, `status`) VALUES
 (1, '9947900268', 'alan@gmail.com', 'Alan@123', 'admin', 1),
-(11, '7777777777', 'aby2@gmail.com', 'Asdf.123', 'volunteer', 1),
+(11, '7777777777', 'hari@gmail.com', 'Asdf.123', 'volunteer', 1),
 (12, '4444444444', 'amal@hjk.nm', 'Asd@1234', 'user', 1),
-(13, '3333333333', 'hari@fgh.nm', 'Asdf@123', 'mstaff', 1),
+(13, '3333333333', 'adhin@fgh.nm', 'Asdf@123', 'mstaff', 1),
 (14, '9999999999', 'jessy@gjk.bv', '!Asdf123', 'pnchOfficr', 1),
-(15, '5555555555', 'hsasgw@ghgg.mm', 'Asdf@123', 'user', 1);
+(15, '5555555555', 'aby@ghgg.mm', 'Asdf@123', 'user', 1);
 
 -- --------------------------------------------------------
 
@@ -166,7 +167,7 @@ CREATE TABLE `medical_staff` (
 --
 
 INSERT INTO `medical_staff` (`M_id`, `L_id`, `name`, `hname`, `sd_id`, `dob`, `gender`) VALUES
-(7, 13, 'Hari', 'Mtrust', 6, '1987-07-08', 'Male');
+(7, 13, 'Adhin', 'Mtrust', 6, '1987-07-08', 'Male');
 
 -- --------------------------------------------------------
 
@@ -190,7 +191,30 @@ CREATE TABLE `mrequest` (
 INSERT INTO `mrequest` (`MR_id`, `L_id`, `Reason`, `Urgency`, `Date`, `status`) VALUES
 (1, 12, 'Headache', 'Severe', '2021-01-14', 1),
 (2, 15, 'Feaver', 'Moderate', '2021-01-14', 1),
-(3, 12, 'Cough', 'Moderate', '2021-01-15', 1);
+(3, 12, 'Cough', 'Moderate', '2021-01-15', 1),
+(5, 15, 'Cough', 'Moderate', '2021-01-26', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `myorder`
+--
+
+CREATE TABLE `myorder` (
+  `O_id` int(5) NOT NULL,
+  `L_id` int(5) NOT NULL,
+  `P_id` int(5) NOT NULL,
+  `quantity` int(5) NOT NULL,
+  `Date` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `myorder`
+--
+
+INSERT INTO `myorder` (`O_id`, `L_id`, `P_id`, `quantity`, `Date`) VALUES
+(17, 15, 4, 50, '01/25/2021'),
+(20, 12, 1, 10, '01/26/2021');
 
 -- --------------------------------------------------------
 
@@ -213,11 +237,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`P_id`, `name`, `price`, `quantity`, `category`, `image`, `status`) VALUES
-(1, 'Egg', 8, 100, 'Food', 'Screenshot_20201003-145051_Instagram.jpg', 1),
-(2, 'Mik', 50, 100, 'Food', 'Screenshot_20201005-144846_WhatsApp.jpg', 1),
-(3, 'Rice', 50, 2000, 'Grocery', 'attachment_68686820.jpg', 1),
-(4, 'Onion', 34, 100, 'Vegitable', 'Onion-alternative_1200.jpg', 1),
-(5, 'Tappioca', 47, 800, 'Food', 'marc-schaefer-7Bm_UrVFH-8-unsplash.jpg', 1);
+(1, 'Egg', 8, 75, 'Food', 'Screenshot_20201003-145051_Instagram.jpg', 1),
+(2, 'Milk', 50, 100, 'Food', 'Screenshot_20201005-144846_WhatsApp.jpg', 1),
+(3, 'Rice', 50, 996, 'Grocery', 'attachment_68686820.jpg', 1),
+(4, 'Onion', 25, 1000, 'Vegitable', 'Onion-alternative_1200.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -293,8 +316,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`U_id`, `L_id`, `name`, `hname`, `sd_id`, `dob`, `gender`) VALUES
-(7, 12, 'Amal', 'padghkm', 4, '1991-05-06', 'Male'),
-(8, 15, 'fghshhs', 'haskkk', 10, '1987-08-08', 'Male');
+(7, 12, 'Amal', 'kanimangalam', 4, '1991-05-06', 'Male'),
+(8, 15, 'Aby', 'karikkattoor', 10, '1987-08-08', 'Male');
 
 -- --------------------------------------------------------
 
@@ -317,7 +340,7 @@ CREATE TABLE `volunteer` (
 --
 
 INSERT INTO `volunteer` (`V_id`, `L_id`, `name`, `hname`, `sd_id`, `dob`, `gender`) VALUES
-(6, 11, 'Aby', 'Helikum', 11, '1997-02-05', 'Male');
+(6, 11, 'Hari', 'Helikum', 11, '1997-02-05', 'Male');
 
 --
 -- Indexes for dumped tables
@@ -370,6 +393,12 @@ ALTER TABLE `mrequest`
   ADD KEY `L_id` (`L_id`);
 
 --
+-- Indexes for table `myorder`
+--
+ALTER TABLE `myorder`
+  ADD PRIMARY KEY (`O_id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -417,13 +446,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `C_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `C_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `dp`
 --
 ALTER TABLE `dp`
-  MODIFY `dp_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `dp_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -441,13 +470,19 @@ ALTER TABLE `medical_staff`
 -- AUTO_INCREMENT for table `mrequest`
 --
 ALTER TABLE `mrequest`
-  MODIFY `MR_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MR_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `myorder`
+--
+ALTER TABLE `myorder`
+  MODIFY `O_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `punchayat_officer`
