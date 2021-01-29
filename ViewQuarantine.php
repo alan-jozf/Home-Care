@@ -105,13 +105,13 @@ input[type="text"]{
 				// Normal case 
 				else{
 						?>
-							<table class="cart" cellpadding="5" cellspacing="10">
+							<table class="cart" cellpadding="10" cellspacing="10">
 							<tbody>
 							<tr>
 								<th style="text-align:left;" width="40px">No</th>
 								<th style="text-align:left;" width="100px">Name</th>
-								<th style="text-align:left;" width="100px">House Name</th>
-								<th style="text-align:left;" width="100px">Place</th>
+								<th style="text-align:left;" width="150px">House Name</th>
+								<th style="text-align:left;" width="150px">Place</th>
 								<!-- <th style="text-align:left;" width="100px">Date</th> -->
 								<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 							</tr>
