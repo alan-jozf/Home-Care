@@ -68,7 +68,7 @@ form{
 }
 input{
 	height:30px;
-	padding-top:5%;
+	padding-top:2%;
 	margin: 8px 0;
 	font-size: 17px;
 	display: inline-block;
@@ -106,9 +106,8 @@ input[type=button]{
 	margin: 30px 2px 0px;
 	  cursor: pointer;
 	  background-color: rgb(0, 170, 128);
-
-	
 }
+
 input[type=submit]:hover {
   background-color: #1d9223;
 }

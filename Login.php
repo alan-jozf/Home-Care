@@ -65,8 +65,8 @@
 					<!-- <input type="text" placeholder="Moblile number / email id" name ="phone" id="uname" onclick=ee() onblur="uname()"required><br> -->
 					<input type="text" placeholder="Moblile number" name ="phone" id="uname" onclick=ee() onblur="uname()"required><br>
 					<input type="password" placeholder="Password" name="pword" id="pword" onclick=ee() onblur="pword()"required>
-					<!-- <a href="#">Forgot?</a><br> -->
-					<input type="submit" value="Sign In"><br><br><br>
+					<input type="submit" value="Sign In">
+					<a href="fpEnterMail.php">Forgot Password..?</a>
 					</center>
 					</div>
 				</form>
