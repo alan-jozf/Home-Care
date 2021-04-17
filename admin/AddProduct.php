@@ -66,9 +66,9 @@ function ee()
 		<label>Name</label><br>
 		<input type="text" onclick=ee() name="name" required><br>
 		<label>Price</label><br>
-		<input type="number"  onclick=ee() name="price" required><br>
+		<input type="number"  onclick=ee() name="price"  min=1 required><br>
 		<label>Quantity</label><br>
-		<input type="number"  onclick=ee() name="quantity" required><br>
+		<input type="number"  onclick=ee() name="quantity" min=1 required><br>
 		<label>Category</label><br>
 		<select name ="category"  required>
 					<option value="" onclick=ee() ></option>

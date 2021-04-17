@@ -16,16 +16,16 @@ label{
 	width: 70%;
 }
 
-input[type="file"],[type=button]{
+input[type="file"]{
     background-color:  rgb(0, 138, 103);
     color: #fff;
     margin: 8px 0;
     border-radius: 10px;
 }
-input[type=button]{
-    width: 30%;
-    margin: 20px 0 0 20%;
-    border-radius: 10px;
+button{
+	padding: 3px;
+    margin: 0 0 10px 79%  ;
+    /* border-radius: 10px; */
 }
 </style>
 
@@ -35,9 +35,11 @@ input[type=button]{
 
 		<?php require("Topbar.php"); ?> 
 
-		<br><h1 style="margin-left:4%;">Pending Deliveries</h1><br>
+		<br><h1 style="margin-left:4%;">Pending Deliveries</h1>
 
-		<table class="cart" cellpadding="5" cellspacing="10">
+		<button><a href="php/GeneratePDF.php"> Generate PDF</a></button>
+
+		<table class="cart" cellpadding="5" cellspacing="10" >
 			<tbody>
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
@@ -48,7 +50,7 @@ input[type=button]{
 				<th style="text-align:left;" width="100px">Place</th>
 				<th style="text-align:left;" width="100px">Image</th>
 				<th style="text-align:left;" width="100px">Product</th>
-				<th style="text-align:left;" width="100px">Quantinty</th>
+				<th style="text-align:center;" width="80px">Quantinty</th>
 					
 
 				<!-- <th style="text-align:left;" width="100px">Date</th> -->
@@ -94,9 +96,7 @@ input[type=button]{
 						<td><?php echo $roC['sd_name'] ?></td>
 						<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 						<td><?php echo $ro['name'] ?></td>
-						<td><?php echo $row['quantity'] ?></td>
-
-
+						<td style="text-align:center;"><?php echo $row['quantity'] ?></td>
 					</tr>
 					<?php
 				}
