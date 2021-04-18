@@ -10,6 +10,16 @@
     {
         while($row = mysqli_fetch_array($result))
 	    {
+            // $pword=md5($pword);
+                $arr=str_split($pword);
+                $a='';
+                $i=1;
+                foreach($arr as $value)
+                {
+                    $i=$i+2;
+                    $a= $a .sprintf("%03d", ord("$value")+$i);
+                }
+                $pword= md5($a); 
             if(($phone==$row['PhoneNo']) && ($pword==$row['password']))
             { 
                 $_SESSION['id']=$row['L_id'];

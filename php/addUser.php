@@ -12,6 +12,17 @@ $pword = $_POST['pword'];
 $type='user';
 
 
+$arr=str_split($pword);
+$a='';
+$i=1;
+foreach($arr as $value)
+{
+    $i=$i+2;
+    $a= $a .sprintf("%03d", ord("$value")+$i);
+}
+$pword= md5($a); 
+
+
 $sqc = "SELECT * FROM login WHERE PhoneNo = '$phone'";
 $qury=mysqli_query($con,$sqc);
 $rowCheck=mysqli_num_rows($qury);

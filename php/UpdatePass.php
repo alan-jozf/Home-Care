@@ -1,7 +1,31 @@
 <?php
 $con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+
 $old=$_POST["old"];
+// $old=md5($old);
+$arr=str_split($old);
+$a='';
+$i=1;
+foreach($arr as $value)
+{
+    $i=$i+2;
+    $a= $a .sprintf("%03d", ord("$value")+$i);
+}
+$old= md5($a); 
+
+
 $n=$_POST["new"];
+// $n= md5($n);
+$arr=str_split($n);
+$a='';
+$i=1;
+foreach($arr as $value)
+{
+    $i=$i+2;
+    $a= $a .sprintf("%03d", ord("$value")+$i);
+}
+$n= md5($a);
+
 
 session_start();
 $id=$_SESSION["id"];

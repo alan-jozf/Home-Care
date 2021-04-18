@@ -5,6 +5,17 @@ session_start();
     if( isset($_SESSION['login']) && isset($_POST['password']))
     {
         $n=$_POST["password"];
+        // $n=md5($n);
+        $arr=str_split($n);
+        $a='';
+        $i=1;
+        foreach($arr as $value)
+        {
+            $i=$i+2;
+            $a= $a .sprintf("%03d", ord("$value")+$i);
+        }
+        $n= md5($a);
+        
         $id=$_SESSION["login"];
 
         $query="UPDATE login SET password='$n' WHERE L_id=$id";

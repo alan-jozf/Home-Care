@@ -37,7 +37,7 @@ button{
 
 		<br><h1 style="margin-left:4%;">Pending Deliveries</h1>
 
-		<button><a href="php/GeneratePDF.php"> Generate PDF</a></button>
+		<button><a href="php/GeneratePDF.php" target="_blank"> Generate PDF</a></button>
 
 		<table class="cart" cellpadding="5" cellspacing="10" >
 			<tbody>

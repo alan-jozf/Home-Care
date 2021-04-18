@@ -4,13 +4,10 @@
   use Dompdf\Dompdf;
   $dompdf = new Dompdf();
 
-  session_start();
+  // session_start();
   // if(isset($_POST['create']))
   // {
     $output ='<h3 align="center">Delivery List</h3><br />';
-
-    //output -> html design
-
     $output .="
       <table fontsize= '10' width ='100%' border='1' cellpadding='5' cellspacing='0'>
       <tbody>
@@ -26,7 +23,9 @@
           
       </tr>
       ";
-
+    
+    $counter = 0;
+    
     $query="select * from myOrder";
     $result =mysqli_query($con,$query);
     while($row=mysqli_fetch_array($result))  
@@ -35,7 +34,6 @@
         $Oid=$row['O_id'];
         $lid=$row['L_id'];
 
-        $counter = 0;
 
         $quer="select * from product where P_id=$id";
         $resl =mysqli_query($con,$quer);

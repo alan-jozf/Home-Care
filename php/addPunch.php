@@ -12,6 +12,17 @@ $pword = $_POST['pword'];
 $type='pnchOfficr';
 
 
+$arr=str_split($pword);
+$a='';
+$i=1;
+foreach($arr as $value)
+{
+    $i=$i+2;
+    $a= $a .sprintf("%03d", ord("$value")+$i);
+}
+$pword= md5($a); 
+
+
 $query="insert into login(PhoneNo,email,password,user_type) values('$phone','$email','$pword','$type')";
 mysqli_query($con,$query);
 $id=mysqli_insert_id($con);
