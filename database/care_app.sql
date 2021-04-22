@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2021 at 03:49 AM
+-- Generation Time: Apr 20, 2021 at 01:15 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -61,9 +61,8 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`C_id`, `L_id`, `P_id`, `quantity`) VALUES
 (53, 15, 2, 3),
 (54, 15, 3, 20),
-(55, 12, 1, 10),
-(56, 12, 3, 50),
-(57, 12, 4, 3);
+(78, 12, 4, 1),
+(79, 12, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,7 @@ CREATE TABLE `login` (
   `L_id` int(5) NOT NULL,
   `PhoneNo` varchar(10) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
-  `password` varchar(10) DEFAULT NULL,
+  `password` varchar(40) DEFAULT NULL,
   `user_type` varchar(20) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -139,12 +138,12 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`L_id`, `PhoneNo`, `email`, `password`, `user_type`, `status`) VALUES
-(1, '9947900268', 'alan@gmail.com', 'Alan@123', 'admin', 1),
-(11, '7777777777', 'hari@gmail.com', 'Asdf.123', 'volunteer', 1),
-(12, '4444444444', 'amal@hjk.nm', 'Asd@1234', 'user', 1),
-(13, '3333333333', 'adhin@fgh.nm', 'Asdf@123', 'mstaff', 1),
-(14, '9999999999', 'jessy@gjk.bv', '!Asdf123', 'pnchOfficr', 1),
-(15, '5555555555', 'aby@ghgg.mm', 'Asdf@123', 'user', 1);
+(1, '9947900268', 'alanpezhumkattil@gmail.com', '87e55fbd71dbf849561b24cdb5144a91', 'admin', 1),
+(11, '7777777777', 'hari@gmail.com', 'cea50d07cf7d85354a579f13eb9e3281', 'volunteer', 1),
+(12, '4444444444', 'amal@hjk.nm', 'cea50d07cf7d85354a579f13eb9e3281', 'user', 1),
+(13, '3333333333', 'adhin@fgh.nm', 'cea50d07cf7d85354a579f13eb9e3281', 'mstaff', 1),
+(14, '9999999999', 'jessy@gjk.bv', 'cea50d07cf7d85354a579f13eb9e3281', 'pnchOfficr', 1),
+(15, '5555555555', 'aby@ghgg.mm', 'cea50d07cf7d85354a579f13eb9e3281', 'user', 1);
 
 -- --------------------------------------------------------
 
@@ -192,7 +191,8 @@ INSERT INTO `mrequest` (`MR_id`, `L_id`, `Reason`, `Urgency`, `Date`, `status`) 
 (1, 12, 'Headache', 'Severe', '2021-01-14', 1),
 (2, 15, 'Feaver', 'Moderate', '2021-01-14', 1),
 (3, 12, 'Cough', 'Moderate', '2021-01-15', 1),
-(5, 15, 'Cough', 'Moderate', '2021-01-26', 1);
+(5, 15, 'Cough', 'Moderate', '2021-01-26', 1),
+(11, 12, 'Cough', 'Severe', '2021-01-29', 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +214,8 @@ CREATE TABLE `myorder` (
 
 INSERT INTO `myorder` (`O_id`, `L_id`, `P_id`, `quantity`, `Date`) VALUES
 (17, 15, 4, 50, '01/25/2021'),
-(20, 12, 1, 10, '01/26/2021');
+(38, 12, 2, 1, '01/29/2021'),
+(40, 12, 3, 1, '01/29/2021');
 
 -- --------------------------------------------------------
 
@@ -237,9 +238,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`P_id`, `name`, `price`, `quantity`, `category`, `image`, `status`) VALUES
-(1, 'Egg', 8, 75, 'Food', 'Screenshot_20201003-145051_Instagram.jpg', 1),
-(2, 'Milk', 50, 100, 'Food', 'Screenshot_20201005-144846_WhatsApp.jpg', 1),
-(3, 'Rice', 50, 996, 'Grocery', 'attachment_68686820.jpg', 1),
+(1, 'Egg', 8, 85, 'Food', 'Screenshot_20201003-145051_Instagram.jpg', 1),
+(2, 'Milk', 50, 99, 'Food', 'Screenshot_20201005-144846_WhatsApp.jpg', 1),
+(3, 'Rice', 50, 995, 'Grocery', 'attachment_68686820.jpg', 1),
 (4, 'Onion', 25, 1000, 'Vegitable', 'Onion-alternative_1200.jpg', 1);
 
 -- --------------------------------------------------------
@@ -294,6 +295,46 @@ INSERT INTO `subdist` (`sd_id`, `dt_id`, `sd_name`, `status`) VALUES
 (9, 5, 'Changanassery', 1),
 (10, 5, 'Vaikom', 1),
 (11, 5, 'Kanjirapally', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `symptom`
+--
+
+CREATE TABLE `symptom` (
+  `Sy_id` int(5) NOT NULL,
+  `Type` varchar(20) NOT NULL,
+  `Description` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_otp`
+--
+
+CREATE TABLE `tbl_otp` (
+  `id` int(5) NOT NULL,
+  `L_id` int(5) NOT NULL,
+  `otp_data` int(6) NOT NULL,
+  `otp_random` varchar(61) NOT NULL,
+  `otp_time` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatment`
+--
+
+CREATE TABLE `treatment` (
+  `Tr_id` int(5) NOT NULL,
+  `Type` varchar(20) NOT NULL,
+  `Description` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -419,6 +460,25 @@ ALTER TABLE `subdist`
   ADD KEY `dt_id` (`dt_id`);
 
 --
+-- Indexes for table `symptom`
+--
+ALTER TABLE `symptom`
+  ADD PRIMARY KEY (`Sy_id`);
+
+--
+-- Indexes for table `tbl_otp`
+--
+ALTER TABLE `tbl_otp`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `L_id` (`L_id`);
+
+--
+-- Indexes for table `treatment`
+--
+ALTER TABLE `treatment`
+  ADD PRIMARY KEY (`Tr_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -446,7 +506,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `C_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `C_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `dp`
@@ -470,25 +530,43 @@ ALTER TABLE `medical_staff`
 -- AUTO_INCREMENT for table `mrequest`
 --
 ALTER TABLE `mrequest`
-  MODIFY `MR_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `MR_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `myorder`
 --
 ALTER TABLE `myorder`
-  MODIFY `O_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `O_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `punchayat_officer`
 --
 ALTER TABLE `punchayat_officer`
   MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `symptom`
+--
+ALTER TABLE `symptom`
+  MODIFY `Sy_id` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_otp`
+--
+ALTER TABLE `tbl_otp`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `treatment`
+--
+ALTER TABLE `treatment`
+  MODIFY `Tr_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -541,6 +619,12 @@ ALTER TABLE `punchayat_officer`
 --
 ALTER TABLE `subdist`
   ADD CONSTRAINT `subdist_ibfk_1` FOREIGN KEY (`dt_id`) REFERENCES `district` (`dt_id`);
+
+--
+-- Constraints for table `tbl_otp`
+--
+ALTER TABLE `tbl_otp`
+  ADD CONSTRAINT `tbl_otp_ibfk_1` FOREIGN KEY (`L_id`) REFERENCES `login` (`L_id`);
 
 --
 -- Constraints for table `user`

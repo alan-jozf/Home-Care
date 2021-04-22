@@ -75,7 +75,6 @@ input[type="file"],[type=button]{
 
         ?> 
 		<br>
-		<h2><?php echo $login['user_type'] ?></h2><br>
 			<!-- 
 			if($login['user_type']=='punchOfficr')
 			{ 

@@ -15,6 +15,8 @@
     </style> 
 </head>
 <body>
+
+
 <div class="left_cont">
         
         <img src="images/c.png" alt="pic">

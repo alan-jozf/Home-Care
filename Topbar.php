@@ -15,8 +15,32 @@
 <body>
     <div class="nav">
             <h1>Home Care</h1> 
-            <!-- <h2>App</h2> -->
-        
+            <!-- <h2>Welcome User</h2> -->
+            <?php
+            if(isset($_SESSION['id']))
+            {
+                if($row['user_type']=='user')
+                {    ?>
+                    <h2>User</h2>
+                    <?php
+                }if($row['user_type']=='admin')
+                {    ?>
+                    <h2>Admin</h2>
+                    <?php
+                }if($row['user_type']=='mstaff')
+                {    ?>
+                    <h2>Medical Staff </h2>
+                    <?php
+                }if($row['user_type']=='pnchOfficr')
+                {    ?>
+                    <h2>Punchayat Officer</h2>
+                    <?php
+                }if($row['user_type']=='volunteer')
+                {    ?>
+                    <h2>Volunteer</h2>
+                    <?php
+                }           
+            }?> 
         <div class="logo">
             <!-- <a href="ViewProfile.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a> -->
             <?php

@@ -1,5 +1,6 @@
 <?php
   $con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+  // ob_start();
   require_once 'dompdf/autoload.inc.php';
   use Dompdf\Dompdf;
   $dompdf = new Dompdf();
