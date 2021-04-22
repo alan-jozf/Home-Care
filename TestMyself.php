@@ -55,7 +55,7 @@
 </head>
 <style>
 	.cntr{
-		background-color:  rgb(177, 177, 180);
+		background-color:  rgb(0, 208, 156);
 		height:40%;
 		padding:5%;
 		margin:5%;
