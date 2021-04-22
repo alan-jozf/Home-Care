@@ -8,7 +8,23 @@
   // session_start();
   // if(isset($_POST['create']))
   // {
-    $output ='<h3 align="center">Delivery List</h3><br />';
+    $date = date('m/d/Y');
+    $query="select * from myOrder";
+    $result =mysqli_query($con,$query);
+    $row=mysqli_fetch_array($result); 
+    $lid=$row['L_id'];
+    $querC="select * from subdist where sd_id=$lid";
+    $querB="select * from user where L_id=$lid";
+    $reslB =mysqli_query($con,$querB);
+    $roB=mysqli_fetch_array($reslB);
+    $sid=$roB['sd_id'];
+    $querC="select * from subdist where sd_id=$sid";
+    $reslC =mysqli_query($con,$querC);
+    $roC=mysqli_fetch_array($reslC);
+
+
+    $output ='<p align="left">'.$roC['sd_name'] .'</p><p align="left">'.$date.'</p>
+              <h3 align="center"><u>Home Care </u></h3><h4>Delivery List</h4><br />';
     $output .="
       <table fontsize= '10' width ='100%' border='1' cellpadding='5' cellspacing='0'>
       <tbody>
