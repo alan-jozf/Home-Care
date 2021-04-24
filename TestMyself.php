@@ -11,6 +11,7 @@
 
         function active(btn){
             element=document.getElementById(btn);
+            // if( window.getComputedStyle(element).getPropertyValue("color")=="rgb(50, 112, 204)")
             if( window.getComputedStyle(element).getPropertyValue("color")=="rgb(50, 112, 204)")
 				{	
 
@@ -193,14 +194,14 @@
 	<div class= "cntr" id="div5">
 		<div class=" inCntr">
 			<center>
-					<h3>Serrious</h3><br> 
+					<h3>Don't be panic</h3><br> 
 					<?php	
 						$query="select * from treatment where Type='Serious'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
 							$bt+=1;
-							echo "<button id='.$bt.' name='Serious'> ".$row['Description']." </button>";
+							echo "<button id='.$bt.' name='Serious'> ".$row['Description']." </button><br>";
 						}
 					?>
 					<!-- <br><button  id="q4" onclick="show_next_div()"> Next &#10095;</button> -->
@@ -209,7 +210,7 @@
 	<div class= "cntr" id="div6">
 		<div class=" inCntr">
 			<center>
-					<h3>More Care</h3><br> 
+					<h3>You should Care More..</h3><br> 
 					<?php						
 						$query="select * from treatment where Type='MoreCare'";
 						$result=mysqli_query($con,$query);
@@ -225,7 +226,7 @@
 	<div class= "cntr" id="div7">
 		<div class=" inCntr">
 			<center>
-					<h3>Self Care</h3><br> 
+					<h3>Self Care Tips</h3><br> 
 					<?php						
 						$query="select * from treatment where Type='SelfCare'";
 						$result=mysqli_query($con,$query);

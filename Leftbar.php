@@ -86,6 +86,7 @@
                 <a href="Home.php"><li>Home</li></a>
                 <a href="Login.php"><li>Login/Register</li></a>
                 <a href="Registration_Volunteer.php"><li>Volunteer Registration</li></a>
+                <a href="TestMyself.php"><li>Test Myself</li></a>
                 <a href="Login.php"><li>Medical Request</li></a>
                 <a href="Login.php"><li>Shopping</li></a>
                 <a href="ViewQuarantine.php"><li>Quarantined List</li></a>

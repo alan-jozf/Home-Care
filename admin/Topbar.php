@@ -14,7 +14,7 @@
 <body>
     <div class="nav">
             <h1>Home Care</h1> 
-            <h2>Welcome Admin</h2>
+            <h2> Admin</h2>
         
         <div class="logo">
             <!-- <a href="ViewProfile.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a> -->

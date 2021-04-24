@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 01:15 PM
+-- Generation Time: Apr 23, 2021 at 05:31 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -138,7 +138,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`L_id`, `PhoneNo`, `email`, `password`, `user_type`, `status`) VALUES
-(1, '9947900268', 'alanpezhumkattil@gmail.com', '87e55fbd71dbf849561b24cdb5144a91', 'admin', 1),
+(1, '9947900268', 'alanpezhumkattil@gmail.com', 'cea50d07cf7d85354a579f13eb9e3281', 'admin', 1),
 (11, '7777777777', 'hari@gmail.com', 'cea50d07cf7d85354a579f13eb9e3281', 'volunteer', 1),
 (12, '4444444444', 'amal@hjk.nm', 'cea50d07cf7d85354a579f13eb9e3281', 'user', 1),
 (13, '3333333333', 'adhin@fgh.nm', 'cea50d07cf7d85354a579f13eb9e3281', 'mstaff', 1),
@@ -309,6 +309,30 @@ CREATE TABLE `symptom` (
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `symptom`
+--
+
+INSERT INTO `symptom` (`Sy_id`, `Type`, `Description`, `status`) VALUES
+(1, 'MostCommon', 'Fever', 1),
+(2, 'MostCommon', 'Dry Cough', 1),
+(3, 'MostCommon', 'Tiredness', 1),
+(4, 'MostCommon', 'Headache', 1),
+(5, 'MostCommon', 'Loss of taste or smell', 1),
+(6, 'LessCommon', 'Aches and pains\r\n', 1),
+(7, 'LessCommon', 'Sore throat', 1),
+(8, 'LessCommon', 'Diarrhoea', 1),
+(9, 'LessCommon', 'Conjunctivitis', 1),
+(10, 'LessCommon', 'A rash on skin, or Discolouration of fingers or toes', 1),
+(11, 'Serious', 'Difficulty breathing or shortness of breath', 1),
+(12, 'Serious', 'Chest pain or pressure', 1),
+(13, 'Serious', 'Loss of speech or movement', 1),
+(14, 'Disease', 'Lung Disease', 1),
+(15, 'Disease', 'Kidney Disorder', 1),
+(16, 'Disease', 'Heart Disease', 1),
+(17, 'Disease', 'Diabetes', 0),
+(18, 'Disease', 'Hypertension', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -323,6 +347,36 @@ CREATE TABLE `tbl_otp` (
   `otp_time` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_otp`
+--
+
+INSERT INTO `tbl_otp` (`id`, `L_id`, `otp_data`, `otp_random`, `otp_time`) VALUES
+(13, 11, 424239, 'UkLSsIdGy7XAN9bmfJoaehQM65pn4FCRT2Dug1zlwjYqB3HPvWiZV8cx0tKOr', '21-04-20 02:42:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test_qstn`
+--
+
+CREATE TABLE `test_qstn` (
+  `tq_id` int(5) NOT NULL,
+  `Type` varchar(20) NOT NULL,
+  `question` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `test_qstn`
+--
+
+INSERT INTO `test_qstn` (`tq_id`, `Type`, `question`, `status`) VALUES
+(1, 'Serious', 'Are you experiencing any of these serious symptoms ?', 1),
+(2, 'MostCommon', 'Do you have any of the following most common symptoms ?', 1),
+(3, 'LessCommon', 'These are some less common symptoms, Are you experiencing any of these ?', 1),
+(4, 'Disease', 'Have you ever had any of the following:', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -335,6 +389,28 @@ CREATE TABLE `treatment` (
   `Description` varchar(200) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `treatment`
+--
+
+INSERT INTO `treatment` (`Tr_id`, `Type`, `Description`, `status`) VALUES
+(1, 'SelfCare', 'Use Mask', 1),
+(2, 'SelfCare', 'Clean your hands often', 1),
+(3, 'SelfCare', 'Avoid touching your eyes, nose and mouth', 1),
+(4, 'SelfCare', 'Cough or sneeze in your bent elbow - not your hands!', 1),
+(5, 'SelfCare', 'Limit social gatherings and time spent in crowded places', 1),
+(6, 'SelfCare', 'Avoid close contact with someone who is sick', 1),
+(7, 'SelfCare', 'Clean and disinfect frequently touched objects and surfaces', 1),
+(8, 'SelfCare', 'Everyone should keep a healthy lifestyle at home. Maintain a healthy diet, sleep, stay active', 1),
+(9, 'MoreCare', 'You should take rest, drink plenty of fluid, and eat nutritious food', 1),
+(10, 'MoreCare', 'Stay in a separate room from other family members, and use a dedicated bathroom if possible', 1),
+(11, 'MoreCare', 'Clean and disinfect frequently touched surfaces', 1),
+(12, 'MoreCare', 'It is normal to feel sad, stressed, or confused during a crisis. Make social contact with loved ones through the phone or internet. Talking to people you trust, such as friends and family, can help', 1),
+(13, 'MoreCare', 'Children need extra love and attention from adults during difficult times', 1),
+(14, 'Serious', 'Seek immediate medical attention if you have serious symptoms', 1),
+(15, 'Serious', 'Always call before visiting your doctor or health facility', 1),
+(16, 'SelfCare', 'On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days. So keep a healthy lifestyle', 1);
 
 -- --------------------------------------------------------
 
@@ -381,7 +457,7 @@ CREATE TABLE `volunteer` (
 --
 
 INSERT INTO `volunteer` (`V_id`, `L_id`, `name`, `hname`, `sd_id`, `dob`, `gender`) VALUES
-(6, 11, 'Hari', 'Helikum', 11, '1997-02-05', 'Male');
+(6, 11, 'Hari', 'Helikum', 10, '1997-02-05', 'Male');
 
 --
 -- Indexes for dumped tables
@@ -473,6 +549,12 @@ ALTER TABLE `tbl_otp`
   ADD KEY `L_id` (`L_id`);
 
 --
+-- Indexes for table `test_qstn`
+--
+ALTER TABLE `test_qstn`
+  ADD PRIMARY KEY (`tq_id`);
+
+--
 -- Indexes for table `treatment`
 --
 ALTER TABLE `treatment`
@@ -554,19 +636,25 @@ ALTER TABLE `punchayat_officer`
 -- AUTO_INCREMENT for table `symptom`
 --
 ALTER TABLE `symptom`
-  MODIFY `Sy_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `Sy_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_otp`
 --
 ALTER TABLE `tbl_otp`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `test_qstn`
+--
+ALTER TABLE `test_qstn`
+  MODIFY `tq_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `treatment`
 --
 ALTER TABLE `treatment`
-  MODIFY `Tr_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `Tr_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
