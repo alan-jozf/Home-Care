@@ -89,9 +89,9 @@ input[type=button]{
 				}
 			?>
 		</table>
-		<!-- <input type="button" value="Buy Now"></p> -->
-		<a href="php/BuyNow.php"><input type="button" value="Buy Now"></a></p>
- 		
+		<!-- <a href="php/BuyNow.php"><input type="button" value="Buy Now"></a></p> -->
+		<a href="Payment.php"><input type="button" value="Buy Now"></a></p>
+
 	</div>
 </body>
 </html>

@@ -11,7 +11,7 @@ $email = $_POST['email'];
 $pword = $_POST['pword'];
 $type='user';
 
-
+// $pword = $_POST['pword'];
 $arr=str_split($pword);
 $a='';
 $i=1;
