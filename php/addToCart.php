@@ -3,7 +3,7 @@
 session_start();
 $tmpid=$_SESSION['id'];
 
-$con = mysqli_connect("localhost","root","","care_app")or die("failed");
+include('config.php');
 
 // to get value using session
 // $Pid = $_SESSION['pid'];

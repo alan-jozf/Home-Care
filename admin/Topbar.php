@@ -21,7 +21,8 @@
             <?php
             if(isset($_SESSION['id']))
             {
-                $con = mysqli_connect("localhost","root","","care_app")or die("failed");
+                
+                include('php/config.php');
                 $tmpid=$_SESSION['id'];
                 $sql="select image from dp where L_id=$tmpid ";
                 $result=mysqli_query($con,$sql) or die($sql);
@@ -55,7 +56,7 @@
             <?php
                 if(isset($_SESSION['id']))
                 {
-                    $con = mysqli_connect("localhost","root","","care_app")or die("failed");
+                    // include('php/config.php');
                     $tmpid=$_SESSION['id'];
                     // echo $tmpid;
                         $sql="select name as name from admin where L_id=$tmpid

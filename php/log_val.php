@@ -3,7 +3,7 @@
     $pword=$_POST["pword"];
 
     session_start();
-    $con=mysqli_connect("localhost","root","","care_app") or die("failed");
+    include('config.php');
     $sql="select * from login where PhoneNo='$phone' or email='$phone' and password='$pword'";
     $result=mysqli_query($con,$sql);
     if(mysqli_num_rows($result)>0)

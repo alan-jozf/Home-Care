@@ -46,7 +46,7 @@
             <?php
             if(isset($_SESSION['id']))
             {
-                $con = mysqli_connect("localhost","root","","care_app")or die("failed");
+				include('php/config.php');
                 $tmpid=$_SESSION['id'];
 
                 if($row['user_type']=='user')
@@ -85,7 +85,7 @@
             <?php
                 if(isset($_SESSION['id']))
                 {
-                    $con = mysqli_connect("localhost","root","","care_app")or die("failed");
+                    // include('php/config.php');
                     $tmpid=$_SESSION['id'];
                     // echo $tmpid;
                         $sql="select name as name from admin where L_id=$tmpid

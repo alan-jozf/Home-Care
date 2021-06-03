@@ -1,6 +1,5 @@
 <?php
-#include("Db_connection.php");
-$con = mysqli_connect("localhost","root","","care_app")or die("failed");
+include('config.php');
 $cbox = $_POST['cbox'];
 $Urgency = $_POST['Urgency'];
 $date=date("Y-m-d");

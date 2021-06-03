@@ -1,7 +1,6 @@
   
 <?php
-
-$con=mysqli_connect("localhost","root","","care_app") or die("failed");
+include('config.php');
 
 $pid  = $_GET['dd'];
 session_start();

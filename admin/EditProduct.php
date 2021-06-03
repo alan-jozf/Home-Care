@@ -49,7 +49,7 @@ table{
 
 		<a href="ViewProduct.php">🢀 Go Back</a></td>
 		<?php
-			$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+			include('php/config.php');
 			$pid  = $_GET['dd'];
 			$query="select * from product where P_id=$pid";
 			$reslt =mysqli_query($con,$query);

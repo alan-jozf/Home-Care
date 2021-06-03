@@ -99,7 +99,7 @@
 
 			<?php
 
-				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+				include('php/config.php');
 				$query="select * from product";
 				$result =mysqli_query($con,$query);
 				// $row=mysqli_fetch_array($result);

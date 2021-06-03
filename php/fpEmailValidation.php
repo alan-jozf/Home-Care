@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+include('config.php');
 
     $email = $_POST["email"];
     $sql="SELECT * FROM login where email = '$email' ";

@@ -1,6 +1,5 @@
 <?php
-#include("Db_connection.php");
-$con = mysqli_connect("localhost","root","","care_app")or die("failed");
+include('config.php');
 $name = $_POST['name'];
 $hname = $_POST['hname'];
 $subdist= $_POST['subdist'];

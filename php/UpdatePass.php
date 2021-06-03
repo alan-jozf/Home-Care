@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+include('config.php');
 
 $old=$_POST["old"];
 // $old=md5($old);

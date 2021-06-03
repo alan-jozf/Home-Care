@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+include('config.php');
 
 session_start();
     if( isset($_SESSION['login']) && isset($_POST['password']))

@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Kolkata');
-include('config.php');
+include('../config.php');
 $txt=mysqli_real_escape_string($con,$_POST['txt']);
 $sql="select reply from chatbot_hints where question like '%$txt%'";
 $res=mysqli_query($con,$sql);

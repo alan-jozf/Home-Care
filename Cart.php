@@ -55,7 +55,7 @@ input[type=button]{
 				$counter = 0;
 				$tmpid=$_SESSION['id'];
 
-				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+				include('php/config.php');
 				$query="select * from cart where L_id = $tmpid";
 				$result =mysqli_query($con,$query);
 				while($row=mysqli_fetch_array($result))  

@@ -1,5 +1,6 @@
 <?php
 require('pconfig.php');
+include('config.php');
 session_start();
 require_once 'TwilioSMS/vendor/autoload.php';
 use Twilio\Rest\Client;
@@ -23,7 +24,6 @@ if(isset($_POST['stripeToken'])){
 
 	$tmpid=$_SESSION['id'];
 	$date = date('m/d/Y');
-	$con = mysqli_connect("localhost","root","","care_app")or die("failed");
 
 	$queryA = "SELECT * FROM cart WHERE L_id = '$tmpid'";
 	$resultA=mysqli_query($con,$queryA);
@@ -50,12 +50,12 @@ if(isset($_POST['stripeToken'])){
 				
 		#SMS using Twilio
 			// session_start();
+			// include('config.php');
 			$id     = $_SESSION["id"];
 			$total  = $_SESSION['total'];
 			$total 	= $total/100;
 			$date   = date('m/d/Y');
 
-			// $con    = mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
 			$query  = "select * from login where L_id=$id";
 			$result = mysqli_query($con,$query);
 			$login  = mysqli_fetch_array($result);

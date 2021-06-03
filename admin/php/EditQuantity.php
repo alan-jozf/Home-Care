@@ -1,6 +1,7 @@
 
 <?php
-$con = mysqli_connect("localhost","root","","care_app")or die("failed");
+include('config.php');
+
 $quantity = $_POST['quantity'];
 $pid  = $_GET['dd'];
 

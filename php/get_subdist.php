@@ -1,6 +1,6 @@
 
 <?php
-$con = mysqli_connect("localhost","root","","bloodtoday")or die("failed");;
+include('config.php');
 if(!empty($_POST["pas_id"])) 
     {
     $query =mysqli_query($con,"SELECT * FROM subdist WHERE dt_id = '" . $_POST["pas_id"] . "'");

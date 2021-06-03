@@ -48,8 +48,8 @@ input[type="text"]{
 
 			<!-- search function -->
 			<?php
-				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
-
+				include('php/config.php');
+                
 				// $output ='';
 				$counter = 0;
 

@@ -6,7 +6,7 @@
 <head>
      <link rel="stylesheet" href="../css/home.css">
      <meta http-equiv="Cache-control" content="no-cache">
-    <title>care app</title>
+    <title>Home Care</title>
     <style>
         a{
             text-decoration:none;
@@ -17,7 +17,7 @@
 <body>
 <div class="left_cont">
         
-        <img src="../images/c.png" alt="pic">
+        <img src="../images/homecare.jpg" alt="pic">
 
         <div class="content">
             <ul>
@@ -30,7 +30,7 @@
                     if(isset($_SESSION['id']))
                     {
                         $tmpid=$_SESSION['id'];
-                        $con=mysqli_connect("localhost","root","","care_app") or die("failed");
+                        include('php/config.php');
                         $sql="select user_type from login where L_id=$tmpid";
                         $result=mysqli_query($con,$sql) or die($sql);
                         $row=mysqli_fetch_array($result);

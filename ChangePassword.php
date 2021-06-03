@@ -128,7 +128,7 @@
     <center>
         <?php
         $id=$_SESSION["id"];
-        $con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+        include('php/config.php');
         $query="SELECT * FROM login WHERE L_id=$id";
         $result=mysqli_query($con,$query);
         $login = mysqli_fetch_array($result);

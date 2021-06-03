@@ -45,7 +45,7 @@ input[type="file"],[type=button]{
 			<?php
 				$counter = 0;
 
-				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+				include('php/config.php');
 				$query="select * from mrequest";
 				$result =mysqli_query($con,$query);
 				while($row=mysqli_fetch_array($result))  

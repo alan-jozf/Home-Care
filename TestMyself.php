@@ -97,8 +97,9 @@
 <?php require("Leftbar.php"); ?> 
 <div class="right_cont" >
 	<?php
-		$con=mysqli_connect("localhost","root","","care_app") or die("failed");?>
-	<?php require("Topbar.php"); ?> 
+		include('php/config.php');
+		require("Topbar.php"); 
+		?> 
 	<div class= "cntr" id="div1">
 		<div class=" inCntr">
 			<center>

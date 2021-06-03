@@ -8,7 +8,7 @@ $file_path0='../uploads/'.$image0;
 move_uploaded_file($_FILES["1"]["tmp_name"],$file_path0);
 session_start();
 
-$con=mysqli_connect("localhost","root","","care_app") or die("failed");
+include('config.php');
 $tmpid=$_SESSION['id'];
 
 $sqc = "SELECT L_id FROM dp WHERE L_id = '$tmpid'";

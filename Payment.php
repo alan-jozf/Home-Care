@@ -48,7 +48,7 @@
 		<?php require("Topbar.php"); ?> 
 
         <?php
-            $con=mysqli_connect("localhost","root","","care_app") or die("failed");
+            include('php/config.php');
             $tempid=$_SESSION['id'];
             $query="select * from login where L_id=$tempid";
             $result=mysqli_query($con,$query);

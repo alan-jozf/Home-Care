@@ -40,7 +40,7 @@ input[type="file"],[type=button]{
             {
 				?>
 	<?php
-		$con=mysqli_connect("localhost","root","","care_app") or die("failed");
+		include('php/config.php');
 		$tmpid=$_SESSION['id'];
 		$sql = "select image from dp where L_id=$tmpid";
 		$result = mysqli_query($con,$sql);
@@ -59,7 +59,7 @@ input[type="file"],[type=button]{
 		<br>
 		<?php
             $id=$_SESSION["id"];
-            $con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+			// include('php/config.php');
             $query="select * from login where L_id=$id";
             $result=mysqli_query($con,$query);
             $login = mysqli_fetch_array($result);

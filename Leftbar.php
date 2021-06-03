@@ -26,7 +26,7 @@
             if(isset($_SESSION['id']))
             {
                 $tmpid=$_SESSION['id'];
-                $con=mysqli_connect("localhost","root","","care_app") or die("failed");
+				include('php/config.php');
                 $sql="select user_type from login where L_id=$tmpid";
                 $result=mysqli_query($con,$sql) or die($sql);
                 $row=mysqli_fetch_array($result);

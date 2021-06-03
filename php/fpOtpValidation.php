@@ -1,8 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
-
-// $con=mysqli_connect("localhost","root","","find")or die("Couldn't connect to server");
-// include("../connection.php");
+include('config.php');
 
 if(isset($_GET['varify'])){
     $rand=$_GET['varify'];

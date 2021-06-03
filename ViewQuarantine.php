@@ -48,7 +48,7 @@ input[type="text"]{
 
 			<!-- search function -->
 			<?php
-				$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+				include('php/config.php');
 
 				// $output ='';
 				$counter = 0;
@@ -116,7 +116,7 @@ input[type="text"]{
 								<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 							</tr>
 						<?php
-						$con=mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+						// include('php/config.php');
 						$query="select * from user";
 						$result =mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result))  

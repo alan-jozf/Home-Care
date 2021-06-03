@@ -40,7 +40,7 @@ input[type="file"],[type=button]{
     <form action="php\UpdateDP.php" method='POST' enctype="multipart/form-data">
 
 	<?php
-		$con=mysqli_connect("localhost","root","","care_app") or die("failed");
+		include('php/config.php');
 		$tmpid=$_SESSION['id'];
 		$sql = "select image from dp where L_id=$tmpid";
 		$result = mysqli_query($con,$sql);
