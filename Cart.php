@@ -90,6 +90,8 @@ input[type=button]{
 			?>
 		</table>
 		<!-- <a href="php/BuyNow.php"><input type="button" value="Buy Now"></a></p> -->
+		<!-- <a href="php/TwilioSMS/index.php"><input type="button" value="Buy Now"></a></p> -->
+
 		<a href="Payment.php"><input type="button" value="Buy Now"></a></p>
 
 	</div>

@@ -1,6 +1,8 @@
 <?php
 require('pconfig.php');
 session_start();
+require_once 'TwilioSMS/vendor/autoload.php';
+use Twilio\Rest\Client;
 $total = $_SESSION['total'];
 // $tmpid=	$_SESSION['id'];
 
@@ -44,6 +46,39 @@ if(isset($_POST['stripeToken'])){
 		}
 		$queryE ="DELETE FROM cart WHERE L_id= $tmpid";
 		$resultE =mysqli_query($con,$queryE);
+
+				
+		#SMS using Twilio
+			// session_start();
+			$id     = $_SESSION["id"];
+			$total  = $_SESSION['total'];
+			$total 	= $total/100;
+			$date   = date('m/d/Y');
+
+			// $con    = mysqli_connect("localhost","root","","care_app")or die("couldn't connect");
+			$query  = "select * from login where L_id=$id";
+			$result = mysqli_query($con,$query);
+			$login  = mysqli_fetch_array($result);
+			$phone  = $login['PhoneNo'];
+			$a	    = "+91";
+			$phone  = $a.$phone;
+			$body   = "Your order of Rs ".$total." on ".$date." is Successful - Home Care";
+
+			// require_once 'TwilioSMS/vendor/autoload.php';
+			// use Twilio\Rest\Client;
+			// $sid=	'ACfe7629a58dee1146a63c91fa9e5aae75';
+			// $token=	'42657316c6fc1a18df815437c7592022';
+			$twilio = new Client('ACfe7629a58dee1146a63c91fa9e5aae75','42657316c6fc1a18df815437c7592022');
+
+			// Uncomment bellow	$message for SMS
+
+			// $message = $twilio->messages
+			// 				->create($phone, // to
+			// 						["body" => $body, 
+			// 						"from" => "+18053015484"]
+			// 				);
+
+			// print($message->sid);
 
 		header("location:../myOrder.php");
 	}
