@@ -19,7 +19,7 @@
 
 <div class="left_cont">
         
-    <img src="images/c.png" alt="pic">
+    <img src="images/homecare.jpg" alt="pic">
     <div class="content">
         <ul>
             <?php
@@ -69,13 +69,13 @@
                 }
                 elseif($row['user_type']=='user')
                 {?>
-                    <a href="ViewRequest.php"><li>View Request</li></a>
                     <a href="MedicalRequest.php"><li>Medical Request</li></a>
                     <!-- <a href="MedicineRequest.php"><li>Medicine</li></a> -->
                     <a href="Shopping.php"><li>Shopping</li></a>
                     <a href="myOrder.php"><li>My Orders</li></a>
                     <a href="TestMyself.php"><li>Test Myself</li></a>
                     <a href="ViewQuarantine.php"><li>Quarantined List</li></a>
+                    <a href="Help.php"><li>Help</li></a>
                     <?php
                 }?>
                 <a href="logout.php"><li>Logout</li></a>
