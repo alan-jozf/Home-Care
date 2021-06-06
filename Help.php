@@ -1,112 +1,116 @@
-<?php
-date_default_timezone_set('Asia/Kolkata');
-include('config.php');
-?>
+<!-- Created By CodingNepal -->
 <!DOCTYPE html>
 <html lang="en">
-  	<head>
-		<meta charset="utf-8">
-		<meta name="robots" content="noindex, nofollow">
-		<title>PHP Chatbot</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<link href="chatbot.css" rel="stylesheet">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Chatbot</title>
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+    <script src="script/jquery-3.5.1.min.js"></script>
+</head>
 <body>
-   	<?php require("Leftbar.php"); ?> 
+	<?php require("Leftbar.php"); ?> 
 	<div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
 	 <?php require("Topbar.php"); ?> 
 
-      <div class="container">
-         <div class="row justify-content-md-center mb-4">
-            <div class="col-md-6">
-               <!--start code-->
-               <div class="card">
-                  <div class="card-body messages-box">
-					 <ul class="list-unstyled messages-list">
-							<?php
-							$res=mysqli_query($con,"select * from message");
-							if(mysqli_num_rows($res)>0){
-								$html='';
-								while($row=mysqli_fetch_assoc($res)){
-									$message=$row['message'];
-									$added_on=$row['added_on'];
-									$strtotime=strtotime($added_on);
-									$time=date('h:i A',$strtotime);
-									$type=$row['type'];
-									if($type=='user'){
-										$class="messages-me";
-										$imgAvatar="user_avatar.png";
-										$name="Me";
-									}else{
-										$class="messages-you";
-										$imgAvatar="bot_avatar.png";
-										$name="Chatbot";
-									}
-									$html.='<li class="'.$class.' clearfix"><span class="message-img"><img src="images/'.$imgAvatar.'" class="avatar-sm rounded-circle"></span><div class="message-body clearfix"><div class="message-header"><strong class="messages-title">'.$name.'</strong> <small class="time-messages text-muted"><span class="fas fa-time"></span> <span class="minutes">'.$time.'</span></small> </div><p class="messages-p">'.$message.'</p></div></li>';
-								}
-								echo $html;
-							}else{
-								?>
-								<li class="messages-me clearfix start_chat">
-								   Please start
-								</li>
-								<?php
-							}
-							?>
-                    
-                     </ul>
-                  </div>
-                  <div class="card-header">
-                    <div class="input-group">
-					   <input id="input-me" type="text" name="messages" class="form-control input-sm" placeholder="Type your message here..." />
-					   <span class="input-group-append">
-					   <input type="button" class="btn btn-primary" value="Send" onclick="send_msg()">
-					   </span>
-					</div> 
-                  </div>
-               </div>
-               <!--end code-->
+    <div class="wrapper">
+        <div class="title">Chatbot</div>
+        <div class="form">
+            <div class="bot-inbox inbox">
+                <div class="icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="msg-header">
+					<?php
+						include('php/config.php');        
+						$_SESSION['btn']="";
+						$quer="select * from chat_qstn where cq_id='1'";
+						$resul=mysqli_query($con,$quer);
+						$ro=mysqli_fetch_array($resul);
+						echo "<p>".$ro['question']."</p>";
+						?>
+						<div class="msg-optn">
+					<?php
+						$query="select * from chat_optn where cq_id='1'";
+						$result=mysqli_query($con,$query);
+						$bt=0;
+						while($row=mysqli_fetch_array($result)){
+							$bt++;
+							echo "<input class='option-btn' id='$bt' name='btn' type='button' value='".$row['options']."' >&nbsp";
+						}?>
+						</div><?php
+					?>
+                </div>
             </div>
-         </div>
-      </div>
-	  </div>
 
-      <script type="text/javascript">
-		 function getCurrentTime(){
-			var now = new Date();
-			var hh = now.getHours();
-			var min = now.getMinutes();
-			var ampm = (hh>=12)?'PM':'AM';
-			hh = hh%12;
-			hh = hh?hh:12;
-			hh = hh<10?'0'+hh:hh;
-			min = min<10?'0'+min:min;
-			var time = hh+":"+min+" "+ampm;
-			return time;
-		 }
-		 function send_msg(){
-			jQuery('.start_chat').hide();
-			var txt=jQuery('#input-me').val();
-			var html='<li class="messages-me clearfix"><span class="message-img"><img src="image/user_avatar.png" class="avatar-sm rounded-circle"></span><div class="message-body clearfix"><div class="message-header"><strong class="messages-title">Me</strong> <small class="time-messages text-muted"><span class="fas fa-time"></span> <span class="minutes">'+getCurrentTime()+'</span></small> </div><p class="messages-p">'+txt+'</p></div></li>';
-			jQuery('.messages-list').append(html);
-			jQuery('#input-me').val('');
-			if(txt){
-				jQuery.ajax({
-					url:'get_bot_message.php',
-					type:'post',
-					data:'txt='+txt,
-					success:function(result){
-						var html='<li class="messages-you clearfix"><span class="message-img"><img src="image/bot_avatar.png" class="avatar-sm rounded-circle"></span><div class="message-body clearfix"><div class="message-header"><strong class="messages-title">Chatbot</strong> <small class="time-messages text-muted"><span class="fas fa-time"></span> <span class="minutes">'+getCurrentTime()+'</span></small> </div><p class="messages-p">'+result+'</p></div></li>';
-						jQuery('.messages-list').append(html);
-						jQuery('.messages-box').scrollTop(jQuery('.messages-box')[0].scrollHeight);
-					}
-				});
-			}
-		 }
-      </script>
+        </div>
+        <div class="typing-field">
+            <div class="input-data">
+                <input id="data" type="text" placeholder="Type something here.." required>
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+			
+		// ajax for button input
+		$(document).ready(btnclickloader);
+			function btnclickloader(){
+            $(".option-btn").on("click", function(){
+                $value = $(this).val();
+				 console.log("clicked value : ", $value);
+                $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>'+ $value +'</p></div></div>';
+                $(".form").append($msg);
+                // $(this).val('');
+				// document.getElementsByClassName('msg-optn')[0].remove();
+				$(".msg-optn").remove();
+				console.log("msgoption delted");
+                
+                // start ajax code
+                $.ajax({
+                    url: 'php/bot_option.php',
+                    type: 'POST',
+                    data: 'btn='+$value,
+                    success: function(result){
+						console.log(result);
+                        // $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header">'+ result +'</div></div>';
+                        $(".form").append(result);
+						btnclickloader();
+						// when chat goes down the scroll bar automatically comes to the bottom
+                        $(".form").scrollTop($(".form")[0].scrollHeight);
+                    }
+                });
+            });
+        }
 
-   </body>
+
+		// ajax for Text input
+        $(document).ready(function(){
+            $("#send-btn").on("click", function(){
+                $value = $("#data").val();
+                $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>'+ $value +'</p></div></div>';
+                $(".form").append($msg);
+                $("#data").val('');
+                
+                // start ajax code
+                $.ajax({
+                    url: 'php/bot_text.php',
+                    type: 'POST',
+                    data: 'text='+$value,
+                    success: function(result){
+                        $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>'+ result +'</p></div></div>';
+                        $(".form").append($replay);
+                        // when chat goes down the scroll bar automatically comes to the bottom
+                        $(".form").scrollTop($(".form")[0].scrollHeight);
+                    }
+                });
+            });
+        });
+
+    </script>
+    
+</body>
 </html>
