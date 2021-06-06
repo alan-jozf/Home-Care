@@ -1,6 +1,6 @@
 <?php
-	$con = mysqli_connect("localhost","root","","care_app")or die("failed");
-?>
+	require('php/pconfig.php');
+	?>
 <!DOCTYPE html>
 <html>
 

@@ -6,7 +6,7 @@
 <head>
      <link rel="stylesheet" href="css/home.css">
      <meta http-equiv="Cache-control" content="no-cache">
-    <title>care app</title>
+    <title>Home Care</title>
     <style>
         a{
             text-decoration:none;

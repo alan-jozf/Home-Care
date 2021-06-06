@@ -137,7 +137,7 @@
             data-amount=<?php echo  $gtotal* 100  ?>
             data-name="Payment"
             data-description="Purchace with Home Care"
-            data-image="C:\xampp\htdocs\Care_App\images\c.png"
+            data-image="C:\xampp\htdocs\Home-Care\images\homecare.jpg"
             data-currency="inr"
             data-email=<?php echo $mail ?>
         >

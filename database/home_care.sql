@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2021 at 09:45 AM
+-- Generation Time: Jun 06, 2021 at 01:46 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -434,43 +434,6 @@ INSERT INTO `subdist` (`sd_id`, `dt_id`, `sd_name`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `symptom`
---
-
-CREATE TABLE `symptom` (
-  `Sy_id` int(5) NOT NULL,
-  `Type` varchar(20) NOT NULL,
-  `Description` varchar(200) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `symptom`
---
-
-INSERT INTO `symptom` (`Sy_id`, `Type`, `Description`, `status`) VALUES
-(1, 'MostCommon', 'Fever', 1),
-(2, 'MostCommon', 'Dry Cough', 1),
-(3, 'MostCommon', 'Tiredness', 1),
-(4, 'MostCommon', 'Headache', 1),
-(5, 'MostCommon', 'Loss of taste or smell', 1),
-(6, 'LessCommon', 'Aches and pains\r\n', 1),
-(7, 'LessCommon', 'Sore throat', 1),
-(8, 'LessCommon', 'Diarrhoea', 1),
-(9, 'LessCommon', 'Conjunctivitis', 1),
-(10, 'LessCommon', 'A rash on skin, or Discolouration of fingers or toes', 1),
-(11, 'Serious', 'Difficulty breathing or shortness of breath', 1),
-(12, 'Serious', 'Chest pain or pressure', 1),
-(13, 'Serious', 'Loss of speech or movement', 1),
-(14, 'Disease', 'Lung Disease', 1),
-(15, 'Disease', 'Kidney Disorder', 1),
-(16, 'Disease', 'Heart Disease', 1),
-(17, 'Disease', 'Diabetes', 0),
-(18, 'Disease', 'Hypertension', 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_otp`
 --
 
@@ -515,10 +478,47 @@ INSERT INTO `test_qstn` (`tq_id`, `Type`, `question`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `treatment`
+-- Table structure for table `test_symptom`
 --
 
-CREATE TABLE `treatment` (
+CREATE TABLE `test_symptom` (
+  `Sy_id` int(5) NOT NULL,
+  `Type` varchar(20) NOT NULL,
+  `Description` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `test_symptom`
+--
+
+INSERT INTO `test_symptom` (`Sy_id`, `Type`, `Description`, `status`) VALUES
+(1, 'MostCommon', 'Fever', 1),
+(2, 'MostCommon', 'Dry Cough', 1),
+(3, 'MostCommon', 'Tiredness', 1),
+(4, 'MostCommon', 'Headache', 1),
+(5, 'MostCommon', 'Loss of taste or smell', 1),
+(6, 'LessCommon', 'Aches and pains\r\n', 1),
+(7, 'LessCommon', 'Sore throat', 1),
+(8, 'LessCommon', 'Diarrhoea', 1),
+(9, 'LessCommon', 'Conjunctivitis', 1),
+(10, 'LessCommon', 'A rash on skin, or Discolouration of fingers or toes', 1),
+(11, 'Serious', 'Difficulty breathing or shortness of breath', 1),
+(12, 'Serious', 'Chest pain or pressure', 1),
+(13, 'Serious', 'Loss of speech or movement', 1),
+(14, 'Disease', 'Lung Disease', 1),
+(15, 'Disease', 'Kidney Disorder', 1),
+(16, 'Disease', 'Heart Disease', 1),
+(17, 'Disease', 'Diabetes', 0),
+(18, 'Disease', 'Hypertension', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test_treatment`
+--
+
+CREATE TABLE `test_treatment` (
   `Tr_id` int(5) NOT NULL,
   `Type` varchar(20) NOT NULL,
   `Description` varchar(200) NOT NULL,
@@ -526,10 +526,10 @@ CREATE TABLE `treatment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `treatment`
+-- Dumping data for table `test_treatment`
 --
 
-INSERT INTO `treatment` (`Tr_id`, `Type`, `Description`, `status`) VALUES
+INSERT INTO `test_treatment` (`Tr_id`, `Type`, `Description`, `status`) VALUES
 (1, 'SelfCare', 'Use Mask', 1),
 (2, 'SelfCare', 'Clean your hands often', 1),
 (3, 'SelfCare', 'Avoid touching your eyes, nose and mouth', 1),
@@ -703,12 +703,6 @@ ALTER TABLE `subdist`
   ADD KEY `dt_id` (`dt_id`);
 
 --
--- Indexes for table `symptom`
---
-ALTER TABLE `symptom`
-  ADD PRIMARY KEY (`Sy_id`);
-
---
 -- Indexes for table `tbl_otp`
 --
 ALTER TABLE `tbl_otp`
@@ -722,9 +716,15 @@ ALTER TABLE `test_qstn`
   ADD PRIMARY KEY (`tq_id`);
 
 --
--- Indexes for table `treatment`
+-- Indexes for table `test_symptom`
 --
-ALTER TABLE `treatment`
+ALTER TABLE `test_symptom`
+  ADD PRIMARY KEY (`Sy_id`);
+
+--
+-- Indexes for table `test_treatment`
+--
+ALTER TABLE `test_treatment`
   ADD PRIMARY KEY (`Tr_id`);
 
 --
@@ -830,12 +830,6 @@ ALTER TABLE `punchayat_officer`
   MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `symptom`
---
-ALTER TABLE `symptom`
-  MODIFY `Sy_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
 -- AUTO_INCREMENT for table `tbl_otp`
 --
 ALTER TABLE `tbl_otp`
@@ -848,9 +842,15 @@ ALTER TABLE `test_qstn`
   MODIFY `tq_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `treatment`
+-- AUTO_INCREMENT for table `test_symptom`
 --
-ALTER TABLE `treatment`
+ALTER TABLE `test_symptom`
+  MODIFY `Sy_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `test_treatment`
+--
+ALTER TABLE `test_treatment`
   MODIFY `Tr_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --

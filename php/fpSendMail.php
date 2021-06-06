@@ -82,7 +82,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['rand']) && isset($_SESSION['otp
                 <div class="container">
                     <center><h1>Hello.</h1></center>
                     <p>No need to worry, you can reset your Find password by clicking the link below or entering the OTP:</p>
-                    <a href="localhost/care_app/php/fpOtpValidation.php?varify='.$rand.'">Reset Password</a>
+                    <a href="localhost/Home-Care/php/fpOtpValidation.php?varify='.$rand.'">Reset Password</a>
                     <p>OTP : <b>'.$otp_data.'</b> </p>
                     <p>For security reasons this link and OTP will only be active for 3 minuties. If you didnt request a password reset, feel free to delete this email and carry on enjoying !</p>
                     <p style="margin-bottom:0;">All the best</p>
