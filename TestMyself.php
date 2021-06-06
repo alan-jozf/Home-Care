@@ -109,7 +109,7 @@
 						$resul=mysqli_query($con,$quer);
 						$ro=mysqli_fetch_array($resul);
 						echo "<h3>".$ro['question']."</h3><br>";
-						$query="select * from symptom where Type='Serious'";
+						$query="select * from test_symptom where Type='Serious'";
 						$result=mysqli_query($con,$query);
 						$bt=0;
 						while($row=mysqli_fetch_array($result)){
@@ -133,7 +133,7 @@
 						$resul=mysqli_query($con,$quer);
 						$ro=mysqli_fetch_array($resul);
 						echo "<h3>".$ro['question']."</h3><br>";
-						$query="select * from symptom where Type='MostCommon'";
+						$query="select * from test_symptom where Type='MostCommon'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
@@ -157,7 +157,7 @@
 						$resul=mysqli_query($con,$quer);
 						$ro=mysqli_fetch_array($resul);
 						echo "<h3>".$ro['question']."</h3><br>";
-						$query="select * from symptom where Type='LessCommon'";
+						$query="select * from test_symptom where Type='LessCommon'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
@@ -179,7 +179,7 @@
 						$resul=mysqli_query($con,$quer);
 						$ro=mysqli_fetch_array($resul);
 						echo "<h3>".$ro['question']."</h3><br>";
-						$query="select * from symptom where Type='Disease'";
+						$query="select * from test_symptom where Type='Disease'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
@@ -197,7 +197,7 @@
 			<center>
 					<h3>Don't be panic</h3><br> 
 					<?php	
-						$query="select * from treatment where Type='Serious'";
+						$query="select * from test_treatment where Type='Serious'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
@@ -213,7 +213,7 @@
 			<center>
 					<h3>You should Care More..</h3><br> 
 					<?php						
-						$query="select * from treatment where Type='MoreCare'";
+						$query="select * from test_treatment where Type='MoreCare'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
@@ -229,7 +229,7 @@
 			<center>
 					<h3>Self Care Tips</h3><br> 
 					<?php						
-						$query="select * from treatment where Type='SelfCare'";
+						$query="select * from test_treatment where Type='SelfCare'";
 						$result=mysqli_query($con,$query);
 						// $bt=0;
 						while($row=mysqli_fetch_array($result)){
