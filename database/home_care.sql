@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 03:58 PM
+-- Generation Time: Jun 06, 2021 at 09:45 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -66,26 +66,138 @@ INSERT INTO `cart` (`C_id`, `L_id`, `P_id`, `quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chatbot_hints`
+-- Table structure for table `chat_bot`
 --
 
-CREATE TABLE `chatbot_hints` (
-  `id` int(11) NOT NULL,
-  `question` varchar(100) NOT NULL,
-  `reply` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `chat_bot` (
+  `cb_id` int(11) NOT NULL,
+  `queries` varchar(300) NOT NULL,
+  `replies` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `chatbot_hints`
+-- Dumping data for table `chat_bot`
 --
 
-INSERT INTO `chatbot_hints` (`id`, `question`, `reply`) VALUES
-(1, 'HI||Hello||Hola', 'Hello, how are you.'),
+INSERT INTO `chat_bot` (`cb_id`, `queries`, `replies`) VALUES
+(1, 'HI||Hello||Hola||Hlo||Hai||Koi||hey||hy', 'Hello, how are you.'),
 (2, 'How are you', 'Good to see you again!'),
-(3, 'what is your name||whats your name', 'My name is Vishal Bot'),
-(4, 'what should I call you', 'You can call me Vishal Bot'),
-(5, 'Where are your from', 'I m from India'),
-(6, 'Bye||See you later||Have a Good Day', 'Sad to see you are going. Have a nice day');
+(3, 'what is your name||what is your name ?||whats your name||whats your name ?', 'My name is Bot'),
+(4, 'what should I call you', 'You can call me Bot'),
+(5, 'Where are you from||Where are you from ?', 'I m from India'),
+(6, 'See you later||Have a Good Day||Bye||by||bi||bei||good bye||good by||thank you||tnk u||thanks||thankz', 'Sad to see you are going. Have a nice day'),
+(7, 'ok||oky||okey||kk|thanks||thank you||tnq||thankz||', 'Ok see you again!'),
+(8, 'others||Others||othrs||oters||otrs||other||help||hlp||chat||call|||care||customer||costomer||costamar||custumer||costumer||please||pls||may||talk||can||shall||will||what||wht||who||need||sorry||dont||don\'t||this||', 'Choose any above given choices given for faster response');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_link`
+--
+
+CREATE TABLE `chat_link` (
+  `op_id` int(5) NOT NULL,
+  `cl_id` int(5) NOT NULL,
+  `link` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_link`
+--
+
+INSERT INTO `chat_link` (`op_id`, `cl_id`, `link`) VALUES
+(9, 1, 'MedicalRequest.php'),
+(11, 3, 'MedicalRequest.php'),
+(13, 4, 'BuyMedicine.php'),
+(14, 5, 'BookVaccine.php'),
+(16, 6, 'Shopping.php'),
+(18, 7, 'myOrder.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_message`
+--
+
+CREATE TABLE `chat_message` (
+  `id` int(10) NOT NULL,
+  `L_id` int(10) NOT NULL,
+  `message` varchar(300) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `toWhom` varchar(20) NOT NULL DEFAULT 'admin'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_message`
+--
+
+INSERT INTO `chat_message` (`id`, `L_id`, `message`, `date`, `toWhom`) VALUES
+(1, 12, 'Hello', '2021-06-06', 'admin'),
+(10, 12, 'nbnbn', '2021-06-06', 'admin'),
+(11, 12, 'sadsadasd', '2021-06-06', 'admin'),
+(12, 12, 'jkxjkx', '2021-06-06', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_optn`
+--
+
+CREATE TABLE `chat_optn` (
+  `cq_id` int(5) NOT NULL,
+  `op_id` int(5) NOT NULL,
+  `options` varchar(300) NOT NULL,
+  `link` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_optn`
+--
+
+INSERT INTO `chat_optn` (`cq_id`, `op_id`, `options`, `link`) VALUES
+(1, 1, 'Medical', 0),
+(1, 2, 'Shopping', 0),
+(1, 3, 'Orders', 0),
+(1, 4, 'Payment', 0),
+(1, 5, 'Others', 0),
+(2, 9, 'Connect to Doctor', 1),
+(2, 11, 'New Medical Request', 1),
+(2, 12, 'Urgent Call Back', 0),
+(2, 13, 'Buy Medicine', 0),
+(2, 14, 'Book Vaccine', 0),
+(3, 16, 'Yes', 1),
+(4, 18, 'Show me order history', 1),
+(5, 20, 'Money Lost', 0),
+(5, 21, 'Error in payment', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_qstn`
+--
+
+CREATE TABLE `chat_qstn` (
+  `from_optn` int(5) NOT NULL DEFAULT 0,
+  `cq_id` int(5) NOT NULL,
+  `question` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_qstn`
+--
+
+INSERT INTO `chat_qstn` (`from_optn`, `cq_id`, `question`) VALUES
+(0, 1, 'Hello there, What support are you looking at ?'),
+(1, 2, 'Here is some medical related services, Choose any!'),
+(2, 3, 'Can I take you to the Shopping page!'),
+(3, 4, 'Here are some Order related Queries, Choose any!'),
+(4, 5, 'Have you face any of these Payment related Queries!'),
+(5, 6, 'If you are facing any problem \r\nor Have a suggestion,\r\nLeave a message to our executive,\r\nWe will call back you as soon as possible!'),
+(12, 8, 'OK, We will contact you immediately'),
+(20, 12, 'Sorry for your loss, Leave a message to our executive, We will call back you as soon as possible!'),
+(21, 13, 'Leave a message to our executive, We will call back you as soon as possible!'),
+(13, 16, 'Site is under maintenance! \r\nSorry for the inconvenience.\r\nHope to reach you soon. '),
+(14, 17, 'Site is under maintenance! \r\nSorry for the inconvenience.\r\nHope to reach you soon. ');
 
 -- --------------------------------------------------------
 
@@ -190,39 +302,6 @@ CREATE TABLE `medical_staff` (
 
 INSERT INTO `medical_staff` (`M_id`, `L_id`, `name`, `hname`, `sd_id`, `dob`, `gender`) VALUES
 (7, 13, 'Adhin', 'Mtrust', 6, '1987-07-08', 'Male');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `message`
---
-
-CREATE TABLE `message` (
-  `id` int(11) NOT NULL,
-  `message` text NOT NULL,
-  `added_on` datetime NOT NULL,
-  `type` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `message`
---
-
-INSERT INTO `message` (`id`, `message`, `added_on`, `type`) VALUES
-(1, 'Hi', '2020-04-22 12:41:04', 'user'),
-(2, 'Hello, how are you.', '2020-04-22 12:41:05', 'bot'),
-(3, 'what is your name', '2020-04-22 12:41:22', 'user'),
-(4, 'My name is Vishal Bot', '2020-04-22 12:41:22', 'bot'),
-(5, 'Where are your from', '2020-04-22 12:41:30', 'user'),
-(6, 'I m from India', '2020-04-22 12:41:30', 'bot'),
-(7, 'Go to hell', '2020-04-22 12:41:41', 'user'),
-(8, 'Sorry not be able to understand you', '2020-04-22 12:41:41', 'bot'),
-(9, 'bye', '2020-04-22 12:41:46', 'user'),
-(10, 'Sad to see you are going. Have a nice day', '2020-04-22 12:41:46', 'bot'),
-(11, 'hi', '2021-06-03 01:28:29', 'user'),
-(12, 'Hello, how are you.', '2021-06-03 01:28:29', 'bot'),
-(13, 'hlo', '2021-06-03 01:28:38', 'user'),
-(14, 'Sorry not be able to understand you', '2021-06-03 01:28:38', 'bot');
 
 -- --------------------------------------------------------
 
@@ -533,10 +612,36 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`C_id`);
 
 --
--- Indexes for table `chatbot_hints`
+-- Indexes for table `chat_bot`
 --
-ALTER TABLE `chatbot_hints`
+ALTER TABLE `chat_bot`
+  ADD PRIMARY KEY (`cb_id`);
+
+--
+-- Indexes for table `chat_link`
+--
+ALTER TABLE `chat_link`
+  ADD PRIMARY KEY (`cl_id`),
+  ADD KEY `op_id` (`op_id`);
+
+--
+-- Indexes for table `chat_message`
+--
+ALTER TABLE `chat_message`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chat_optn`
+--
+ALTER TABLE `chat_optn`
+  ADD PRIMARY KEY (`op_id`),
+  ADD KEY `cq_id` (`cq_id`);
+
+--
+-- Indexes for table `chat_qstn`
+--
+ALTER TABLE `chat_qstn`
+  ADD PRIMARY KEY (`cq_id`);
 
 --
 -- Indexes for table `district`
@@ -563,12 +668,6 @@ ALTER TABLE `login`
 ALTER TABLE `medical_staff`
   ADD PRIMARY KEY (`M_id`),
   ADD KEY `L_id` (`L_id`);
-
---
--- Indexes for table `message`
---
-ALTER TABLE `message`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `mrequest`
@@ -659,10 +758,34 @@ ALTER TABLE `cart`
   MODIFY `C_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
--- AUTO_INCREMENT for table `chatbot_hints`
+-- AUTO_INCREMENT for table `chat_bot`
 --
-ALTER TABLE `chatbot_hints`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `chat_bot`
+  MODIFY `cb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `chat_link`
+--
+ALTER TABLE `chat_link`
+  MODIFY `cl_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `chat_message`
+--
+ALTER TABLE `chat_message`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `chat_optn`
+--
+ALTER TABLE `chat_optn`
+  MODIFY `op_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `chat_qstn`
+--
+ALTER TABLE `chat_qstn`
+  MODIFY `cq_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `dp`
@@ -681,12 +804,6 @@ ALTER TABLE `login`
 --
 ALTER TABLE `medical_staff`
   MODIFY `M_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `message`
---
-ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `mrequest`
@@ -757,6 +874,18 @@ ALTER TABLE `volunteer`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`L_id`) REFERENCES `login` (`L_id`);
+
+--
+-- Constraints for table `chat_link`
+--
+ALTER TABLE `chat_link`
+  ADD CONSTRAINT `chat_link_ibfk_1` FOREIGN KEY (`op_id`) REFERENCES `chat_optn` (`op_id`);
+
+--
+-- Constraints for table `chat_optn`
+--
+ALTER TABLE `chat_optn`
+  ADD CONSTRAINT `chat_optn_ibfk_1` FOREIGN KEY (`cq_id`) REFERENCES `chat_qstn` (`cq_id`);
 
 --
 -- Constraints for table `dp`
