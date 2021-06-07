@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="../css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css\registration.css" />
 
 </head>
 <style>
@@ -55,7 +55,7 @@ table{
 			$reslt =mysqli_query($con,$query);
 			$row=mysqli_fetch_array($reslt);
 			$image = $row['image'];
-			$image_src = "../uploads/".$image;
+			$image_src = "uploads/".$image;
 		?>
 		<h2><?php echo $row['name'] ?></h2>
 		<table class="cart" cellpadding="5" cellspacing="10">

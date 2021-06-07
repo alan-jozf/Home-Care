@@ -5,7 +5,7 @@ $pid  = $_GET['dd'];
 
 $image0=$_FILES['image']["name"];
 echo $image0;
-$file_path0='../../uploads/'.$image0;
+$file_path0='../uploads/'.$image0;
 move_uploaded_file($_FILES["image"]["tmp_name"],$file_path0);
 
 $query="update product SET image = '$image0' where P_id ='$pid'";
@@ -15,6 +15,6 @@ if(mysqli_query($con,$query)){
     header("location:../ViewProduct.php");
 }
 else{
-    header("location:../../Home.php");
+    header("location:../Home.php");
 }
 ?>

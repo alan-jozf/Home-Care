@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="..\css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css\registration.css" />
 
 </head>
 <style>
@@ -93,14 +93,14 @@ input[type="text"]{
 									<?php 
 										$pid =$row['P_id'];
 										$image = $row['image'];
-										$image_src = "../uploads/".$image;?>
+										$image_src = "uploads/".$image;?>
 									<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 									<td><?php echo $row['name'] ?></td>
 									<td><?php echo $row['category'] ?></td>
 									<td><?php echo $row['price'] ?></td>
 									<td><?php echo $row['quantity'] ?></td>
 									<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
-									<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="../images\icon-delete.png" /></a></td>
+									<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="images\icon-delete.png" /></a></td>
 
 								</tr>
 								<?php
@@ -135,14 +135,14 @@ input[type="text"]{
 								<?php 
 									$pid =$row['P_id'];
 									$image = $row['image'];
-									$image_src = "../uploads/".$image;?>
+									$image_src = "uploads/".$image;?>
 								<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 								<td><?php echo $row['name'] ?></td>
 								<td><?php echo $row['category'] ?></td>
 								<td><?php echo $row['price'] ?></td>						
 								<td><?php echo $row['quantity'] ?></td>
 								<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
-								<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="../images\icon-delete.png" /></a></td>
+								<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="images\icon-delete.png" /></a></td>
 							</tr> 
 						<?php
 					}

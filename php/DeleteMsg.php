@@ -13,7 +13,7 @@ if(mysqli_query($con,$sql)){
     header("Location:../Feedbacks.php");
 }
 else{
-    header("location:../../Home.php");
+    header("location:../Home.php");
     // echo mysqli_query($con,$sql);
 
 }

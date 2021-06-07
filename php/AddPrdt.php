@@ -6,7 +6,7 @@ $quantity= $_POST['quantity'];
 $category = $_POST['category'];
 // $image = $_POST['image'];
 $image0=$_FILES['image']["name"];
-$file_path0='../../uploads/'.$image0;
+$file_path0='uploads/'.$image0;
 move_uploaded_file($_FILES["image"]["tmp_name"],$file_path0);
 
 
@@ -17,6 +17,6 @@ if(mysqli_query($con,$query)){
     header("location:../AddProduct.php?err=done");
 }
 else{
-    header("location:../../Home.php");
+    header("location:../Home.php");
 }
 ?>

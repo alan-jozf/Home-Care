@@ -155,7 +155,7 @@
 <script>
 	function myFunction() {
 		$.ajax({
-			url: "admin/php/view_notification.php",
+			url: "php/view_notification.php",
 			type: "POST",
 			processData:false,
 			success: function(data){

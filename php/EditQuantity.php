@@ -11,6 +11,6 @@ if(mysqli_query($con,$query)){
     header("location:../ViewProduct.php");
 }
 else{
-    header("location:../../Home.php");
+    header("location:../Home.php");
 }
 ?>

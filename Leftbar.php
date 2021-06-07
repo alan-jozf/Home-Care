@@ -37,9 +37,9 @@
                 if($row['user_type']=='admin')
                 {?>
                     <a href="ViewRequest.php"><li>View Request</li></a>
-                    <a href="admin/AddProduct.php"><li>Add Product</li></a>
-                    <a href="admin/ViewProduct.php"><li>View Product</li></a>
-                    <a href="admin/Feedbacks.php"><li>Feedbacks</li></a>
+                    <a href="AddProduct.php"><li>Add Product</li></a>
+                    <a href="ViewProduct.php"><li>View Product</li></a>
+                    <a href="Feedbacks.php"><li>Feedbacks</li></a>
                     <a href="TestMyself.php"><li>Test Myself</li></a>
                     <a href="ViewQuarantine.php"><li>Quarantined List</li></a>
                     <?php
@@ -47,8 +47,8 @@
                 elseif($row['user_type']=='pnchOfficr')
                 {?>
                     <a href="ViewRequest.php"><li>View Request</li></a>
-                    <!-- <a href="admin/AddProduct.php"><li>Add Product</li></a>
-                    <a href="admin/ViewProduct.php"><li>View Product</li></a> -->
+                    <!-- <a href="AddProduct.php"><li>Add Product</li></a>
+                    <a href="ViewProduct.php"><li>View Product</li></a> -->
                     <a href="TestMyself.php"><li>Test Myself</li></a>
                     <a href="ViewQuarantine.php"><li>Quarantined List</li></a>
                     <?php

@@ -68,7 +68,7 @@ input[type="file"],[type=button]{
 					<td><?php echo $row['message'] ?></td>
 					<td><?php echo $row['date'] ?></td>
 					<td><?php echo $ro2['PhoneNo'] ?></td><br>
-					<td><a href="php/DeleteMsg.php?mid=<?php echo $mid ?>"><img src="../images\icon-delete.png" /></a></td>
+					<td><a href="php/DeleteMsg.php?mid=<?php echo $mid ?>"><img src="images\icon-delete.png" /></a></td>
 
 
 					</tr>
