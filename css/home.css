@@ -32,7 +32,7 @@
     }
 /* table design over */
 
-
+/* Left bar style begins*/
     h2{
         font-size: 22px;
     }   
@@ -138,6 +138,9 @@
         border:1;
     } */
 
+
+/* left bar style ends */
+
 /* STYLE ONLY FOR TOPBAR */
 
 .nav{
@@ -171,6 +174,7 @@
     width:30%;
     float:right;
 } 
+
 .usericon{
     float:right;
     /* position: fixed; */
@@ -186,10 +190,13 @@
 }
 .carticon{
     float:left;
-    margin-left:110px;
+    margin-left:100px;
     margin-top:60px;
+	position:relative;
+	cursor:pointer;    
     width:40px;
     height:40px;
+    border:0;
     transition: 0.10s ease-out;
 }
 .carticon:hover{
@@ -205,4 +212,67 @@
     margin-right: -15%;
 }
 
+/* notification styles begin*/
+.bellticon{
+    /* float:left;
+    margin-left:50px; */
+    width:40px;
+    height:40px;
+}
+button#notification-icon:hover{
+    transform: scale(1.2);
+}
+button#notification-icon {
+	background: transparent;
+	border: 0;
+    margin-left:100px;
+    height: 60px;
+    width:60px;
+    margin-top:45px;
+	position:relative;
+	cursor:pointer;
+    transition: 0.10s ease-out;
+
+}
+a{
+text-decoration: none;
+color: inherit;
+}
+#notification-count{
+    text-align: center;
+	position: absolute;
+    height: 15px;
+    width:15px;
+    /* padding: 1px; */
+	font-size: 0.9em;	
+	color: #ffffff;
+    background-color: red;
+    border-radius: 50px;
+	font-weight:bold;
+}
+#notification-latest {
+	color: white;
+	position: absolute;
+	right: 50px;
+	background: #3964dd;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.20);		
+	max-width: 250px;
+	text-align: left;
+}
+.notification-item {
+	padding:10px;
+	border-bottom: #3ae2cb 1px solid;
+	cursor:pointer;
+}
+.notification-subject {		
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.notification-comment {		
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style:italic;
+}
 /* TOPBAR STYLE ENDS */

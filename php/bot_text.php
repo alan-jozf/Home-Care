@@ -8,7 +8,7 @@ $getMes = $_SESSION['btn'];
 
 if($getMes=="Others")
 {
-    $date=date("Y-m-d");
+    $date=date("d-m-Y");
     $tmpid=$_SESSION['id'];
     $to='admin';
     $sql = "insert into chat_message(L_id,message,date,toWhom) values($tmpid,'$getMesg','$date','$to')";
@@ -16,6 +16,8 @@ if($getMes=="Others")
     if(mysqli_query($con,$sql)){
         echo "Your message is deliered.\n We will contact you soon.\n Thank You for your time";
     }
+    $_SESSION['btn']="";
+
 }
 else{
     //checking user query to database query
@@ -35,7 +37,7 @@ else{
         }
     }
     if($pass=="0"){
-        // checking preset talk
+        // checking preset msg
         foreach($arr as $value)
         {
             $check_data = "SELECT * FROM chat_bot WHERE queries LIKE '%$value%' and cb_id !='8'";

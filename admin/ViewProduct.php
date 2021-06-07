@@ -59,7 +59,7 @@ input[type="text"]{
 					$searchq = $_POST['search'];
 					$searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
 					// $query = mysql_query("SELECT * FROM product WHERE name LIKE '%$searchq%' OR category LIKE '%$searchq%'") or die("could not search");
-					$query = "SELECT * FROM product WHERE name LIKE '%$searchq%' OR category LIKE '%$searchq%'";
+					$query = "SELECT * FROM product WHERE name LIKE '%$searchq%' OR category LIKE '%$searchq%' ORDER BY quantity ";
 					$result =mysqli_query($con,$query);
 					$count = mysqli_num_rows($result);
 					if($count == 0)
@@ -110,7 +110,7 @@ input[type="text"]{
 				// Normal case 
 				else
 				{
-					$query = "SELECT * FROM product ";
+					$query = "SELECT * FROM product ORDER BY quantity";
 					$result =mysqli_query($con,$query);
 					$count = mysqli_num_rows($result);
 					?>
@@ -139,7 +139,7 @@ input[type="text"]{
 								<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 								<td><?php echo $row['name'] ?></td>
 								<td><?php echo $row['category'] ?></td>
-								<td><?php echo $row['price'] ?></td>
+								<td><?php echo $row['price'] ?></td>						
 								<td><?php echo $row['quantity'] ?></td>
 								<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
 								<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="../images\icon-delete.png" /></a></td>

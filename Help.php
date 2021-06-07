@@ -25,7 +25,6 @@
                 <div class="msg-header">
 					<?php
 						include('php/config.php');        
-						$_SESSION['btn']="";
 						$quer="select * from chat_qstn where cq_id='1'";
 						$resul=mysqli_query($con,$quer);
 						$ro=mysqli_fetch_array($resul);

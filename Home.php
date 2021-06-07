@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/home.css">
      <meta http-equiv="Cache-control" content="no-cache">
     <title>Home Care</title>
     <style>
@@ -11,7 +11,7 @@
         .mySlides {display:none;}
         .slides{
             /* background-color: rgba(1,158,227,255); */
-            max-width:80%;
+            max-width:79.5%;
             padding-top:2%;
             padding-left:10%;
             padding-right:10%;
@@ -21,11 +21,13 @@
 
     </style> 
 </head>
-<body>
+<body onload="alertFunction()">
 <?php require("Leftbar.php"); ?> 
 <div class="right_cont">
     <?php require("Topbar.php"); ?> 
-    <div class="slides">
+    <!-- <p id="alert">sample test</p> -->
+
+    <div class="slides"  >
         <img class="mySlides" src="images/poster4.png" style="width:100%">
         <img class="mySlides" src="images/poster1.png" style="width:100%">
         <img class="mySlides" src="images/poster2.png" style="width:100%">
@@ -33,7 +35,11 @@
     </div>
 </div>
 <script>
-var myIndex = 0;
+    function alertFunction() {
+        // document.getElementById("alert").innerHTML = "Low stock";
+    }
+
+    var myIndex = 0;
     carousel();
 
     function carousel() {

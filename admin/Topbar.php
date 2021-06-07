@@ -24,6 +24,11 @@
                 
                 include('php/config.php');
                 $tmpid=$_SESSION['id'];
+                if($row['user_type']=='admin')
+                {    ?>
+                    <a href=""><img class="carticon" src="../images/bell.png" width="40" height="40"></a>
+                    <?php
+                }
                 $sql="select image from dp where L_id=$tmpid ";
                 $result=mysqli_query($con,$sql) or die($sql);
                 if(mysqli_num_rows($result)>0)

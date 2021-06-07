@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2021 at 01:46 PM
+-- Generation Time: Jun 07, 2021 at 03:07 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -80,14 +80,14 @@ CREATE TABLE `chat_bot` (
 --
 
 INSERT INTO `chat_bot` (`cb_id`, `queries`, `replies`) VALUES
-(1, 'HI||Hello||Hola||Hlo||Hai||Koi||hey||hy', 'Hello, how are you.'),
+(1, 'HIIII||HAIIIII||Hello||Hola||Hlo||Hai||Koi||hey||hy', 'Hello, how are you.'),
 (2, 'How are you', 'Good to see you again!'),
 (3, 'what is your name||what is your name ?||whats your name||whats your name ?', 'My name is Bot'),
 (4, 'what should I call you', 'You can call me Bot'),
 (5, 'Where are you from||Where are you from ?', 'I m from India'),
 (6, 'See you later||Have a Good Day||Bye||by||bi||bei||good bye||good by||thank you||tnk u||thanks||thankz', 'Sad to see you are going. Have a nice day'),
-(7, 'ok||oky||okey||kk|thanks||thank you||tnq||thankz||', 'Ok see you again!'),
-(8, 'others||Others||othrs||oters||otrs||other||help||hlp||chat||call|||care||customer||costomer||costamar||custumer||costumer||please||pls||may||talk||can||shall||will||what||wht||who||need||sorry||dont||don\'t||this||', 'Choose any above given choices given for faster response');
+(7, 'ok||oky||okey||kk|thanks||thank you||tnq||thankz||fine||happy||hapy||hpy||', 'Ok see you again!'),
+(8, 'others||Medical||Shopping||Orders||Payment||othrs||oters||otrs||other||help||hlp||chat||call|||care||customer||costomer||costamar||custumer|', 'Choose any above given choices given for faster response');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ INSERT INTO `chat_link` (`op_id`, `cl_id`, `link`) VALUES
 --
 
 CREATE TABLE `chat_message` (
-  `id` int(10) NOT NULL,
+  `ms_id` int(10) NOT NULL,
   `L_id` int(10) NOT NULL,
   `message` varchar(300) NOT NULL,
   `date` varchar(20) NOT NULL,
@@ -131,11 +131,10 @@ CREATE TABLE `chat_message` (
 -- Dumping data for table `chat_message`
 --
 
-INSERT INTO `chat_message` (`id`, `L_id`, `message`, `date`, `toWhom`) VALUES
-(1, 12, 'Hello', '2021-06-06', 'admin'),
-(10, 12, 'nbnbn', '2021-06-06', 'admin'),
-(11, 12, 'sadsadasd', '2021-06-06', 'admin'),
-(12, 12, 'jkxjkx', '2021-06-06', 'admin');
+INSERT INTO `chat_message` (`ms_id`, `L_id`, `message`, `date`, `toWhom`) VALUES
+(15, 12, 'Lost my money', '04/06/2021', 'admin'),
+(18, 12, 'call me. its urgent', '05/06/2021', 'admin'),
+(28, 15, 'Payment is not working', '06-06-2021', 'admin');
 
 -- --------------------------------------------------------
 
@@ -198,6 +197,28 @@ INSERT INTO `chat_qstn` (`from_optn`, `cq_id`, `question`) VALUES
 (21, 13, 'Leave a message to our executive, We will call back you as soon as possible!'),
 (13, 16, 'Site is under maintenance! \r\nSorry for the inconvenience.\r\nHope to reach you soon. '),
 (14, 17, 'Site is under maintenance! \r\nSorry for the inconvenience.\r\nHope to reach you soon. ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(30) NOT NULL,
+  `comment` varchar(300) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 0,
+  `subject` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `comment`, `status`, `subject`) VALUES
+(5, 'poda', 0, 'hello'),
+(6, 'money is gone unfortunatly an it matters', 0, 'patment related'),
+(13, 'its me', 0, 'koi');
 
 -- --------------------------------------------------------
 
@@ -376,7 +397,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`P_id`, `name`, `price`, `quantity`, `category`, `image`, `status`) VALUES
 (2, 'Milk', 50, 99, 'Food', 'Screenshot_20201005-144846_WhatsApp.jpg', 1),
 (3, 'Rice', 50, 995, 'Grocery', 'attachment_68686820.jpg', 1),
-(4, 'Onion', 25, 1000, 'Vegitable', 'Onion-alternative_1200.jpg', 1);
+(4, 'Onion', 25, 5, 'Vegitable', 'Onion-alternative_1200.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -628,7 +649,7 @@ ALTER TABLE `chat_link`
 -- Indexes for table `chat_message`
 --
 ALTER TABLE `chat_message`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ms_id`);
 
 --
 -- Indexes for table `chat_optn`
@@ -642,6 +663,12 @@ ALTER TABLE `chat_optn`
 --
 ALTER TABLE `chat_qstn`
   ADD PRIMARY KEY (`cq_id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `district`
@@ -773,7 +800,7 @@ ALTER TABLE `chat_link`
 -- AUTO_INCREMENT for table `chat_message`
 --
 ALTER TABLE `chat_message`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ms_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `chat_optn`
@@ -786,6 +813,12 @@ ALTER TABLE `chat_optn`
 --
 ALTER TABLE `chat_qstn`
   MODIFY `cq_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `dp`

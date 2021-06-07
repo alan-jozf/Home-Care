@@ -48,6 +48,8 @@
 
                                 <a href="ViewProduct.php"><li>View Product</li></a>
 
+                                <a href="Feedbacks.php"><li>Feedbacks</li></a>
+
                                 <a href="../TestMyself.php"><li>Test Myself</li></a>
 
                                 <a href="../ViewQuarantine.php"><li>Quarantined List</li></a>

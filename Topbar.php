@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
      <link rel="stylesheet" href="css/home.css">
+     <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
      <meta http-equiv="Cache-control" content="no-cache">
     <title>Home Care</title>
 <style>
@@ -52,6 +53,45 @@
                 if($row['user_type']=='user')
                 {    ?>
                     <a href="Cart.php"><img class="carticon" src="images/cart.png" width="40" height="40"></a>
+                    <?php
+                }
+                if($row['user_type']=='admin')
+                {                      
+                    $count=0;
+
+                    $sql="select * from mrequest ";
+                    $result=mysqli_query($con, $sql);
+                    $row=mysqli_num_rows($result);
+                    if($row>0){
+                        $count+=1;
+                    }
+                    $sql="select * from chat_message ";
+                    $result=mysqli_query($con, $sql);
+                    $row=mysqli_num_rows($result);
+                    if($row>0){
+                        $count+=1;
+                    }
+                    $sql="select * from product where quantity <10";
+                    $result=mysqli_query($con, $sql);
+                    $row=mysqli_num_rows($result);
+                    if($row>0){
+                        $count+=1;
+                    }
+                    $sql="select * from product where quantity =0";
+                    $result=mysqli_query($con, $sql);
+                    $row=mysqli_num_rows($result);
+                    if($row>0){
+                        $count+=1;
+                    }
+                    ?>
+                        <!-- <a href=""><img class="carticon" src="images/bell.png" width="40" height="40"></a> -->
+                        <div>
+
+                        </div>
+                        <button id="notification-icon" name="button" onclick="myFunction()">
+                                <span id="notification-count"><?php if($count>0) { echo $count; } ?></span>
+                                <img class="bellicon" src="images/bell.png" width="40" height="40"/></button>
+                            <div id="notification-latest"></div>
                     <?php
                 }
                 $sql="select image from dp where L_id=$tmpid ";
@@ -112,4 +152,27 @@
     <hr>
 
 </body>
+<script>
+	function myFunction() {
+		$.ajax({
+			url: "admin/php/view_notification.php",
+			type: "POST",
+			processData:false,
+			success: function(data){
+				// $("#notification-count").remove();					
+				$("#notification-latest").show();
+                $("#notification-latest").html(data);
+			},
+			error: function(){}           
+		});
+	 }
+	 
+	 $(document).ready(function() {
+		$('body').click(function(e){
+			if ( e.target.id != 'notification-icon'){
+				$("#notification-latest").hide();
+			}
+		});
+	});
+</script>
 </html>
