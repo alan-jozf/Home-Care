@@ -29,7 +29,7 @@ $result=mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($result);
 if($row>0){
     $response = $response . "<div class='notification-item'>" .
-    "<a href='admin/Feedbacks.php' class='notification-subject'>New Message Alert </a>" . 
+    "<a href='Feedbacks.php' class='notification-subject'>New Message Alert </a>" . 
     "</div>";
 }
 $sql="select * from product where quantity <10";
@@ -37,11 +37,11 @@ $result=mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($result);
 if($row>0){
     $response = $response . "<div class='notification-item'>" .
-    "<a href='admin/ViewProduct.php' class='notification-subject'> Low Stock Warning </a>" . 
+    "<a href='ViewProduct.php' class='notification-subject'> Low Stock Warning </a>" . 
     "</div>";
     if($row["quantity"]==0){
         $response = $response . "<div class='notification-item'>" .
-        "<a href='admin/ViewProduct.php' class='notification-subject'> Product Out of Stock </a>" . 
+        "<a href='ViewProduct.php' class='notification-subject'> Product Out of Stock </a>" . 
         "</div>";
     }
 }

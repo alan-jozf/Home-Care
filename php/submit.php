@@ -70,7 +70,7 @@ if(isset($_POST['stripeToken'])){
 			// $token=	'42657316c6fc1a18df815437c7592022';
 			$twilio = new Client('ACfe7629a58dee1146a63c91fa9e5aae75','42657316c6fc1a18df815437c7592022');
 
-			// Uncomment bellow	$message for SMS
+			// Uncomment bellow	$message for enable SMS
 
 			// $message = $twilio->messages
 			// 				->create($phone, // to
