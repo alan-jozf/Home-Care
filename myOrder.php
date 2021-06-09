@@ -36,23 +36,19 @@ input[type=button]{
 
 		<?php require("Topbar.php"); ?> 
 
-		<br><h1 style="margin-left:4%;">My Orders</h1><br>
+		<br><h1 style="margin-left:4%;">Order History</h1><br>
 
 		<table class="cart" cellpadding="5" cellspacing="10">
 		<thead>
-
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
 				<th style="text-align:left;" width="100px">Image</th>
 				<th style="text-align:left;" width="100px">Name</th>
 				<th style="text-align:left;" width="100px">Price</th>
 				<th style="text-align:left;" width="100px">Quantinty</th>
-				<th style="text-align:left;" width="100px">Total</th>
-				<th style="text-align:left;" width="100px">Date</th>								
+				<th style="text-align:left;" width="80px">Total</th>
+				<th style="text-align:left;" width="200px">Date</th>								
 				<th style="text-align:left;" width="100px">Delete</th>
-
-				<!-- <th style="text-align:left;" width="100px">Date</th> -->
-				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
 			</thead>
 
@@ -77,7 +73,7 @@ input[type=button]{
 						$image = $ro['image'];
 						$image_src = "uploads/".$image;
 						?>
-					<tr>
+					<tr onclick ="window.location='orderDetails.php?dd=<?php echo $Oid ?>';">
 						<td><?php echo ++$counter ?></td>
 						<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 						<td><?php echo $ro['name'] ?></td>
@@ -91,7 +87,7 @@ input[type=button]{
 						<td><?php echo $row['Date'] ?></td>
 						<td><a href="php/deleteOrder.php?dd=<?php echo $Oid ?>"><img src="images\icon-delete.png" /></a></td>
 
-					</tr>
+					</tr></div>
 					<?php
 				}
 			?>

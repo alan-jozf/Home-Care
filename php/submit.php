@@ -5,7 +5,6 @@ session_start();
 require_once 'TwilioSMS/vendor/autoload.php';
 use Twilio\Rest\Client;
 $total = $_SESSION['total'];
-// $tmpid=	$_SESSION['id'];
 
 if(isset($_POST['stripeToken'])){
 	\Stripe\Stripe::setVerifySslCerts(false);
@@ -23,7 +22,9 @@ if(isset($_POST['stripeToken'])){
 	// print_r($data);
 
 	$tmpid=$_SESSION['id'];
-	$date = date('m/d/Y');
+	date_default_timezone_set("Asia/Kolkata");
+	$date = date('d-m-Y H:i:A');
+
 
 	$queryA = "SELECT * FROM cart WHERE L_id = '$tmpid'";
 	$resultA=mysqli_query($con,$queryA);
@@ -43,6 +44,9 @@ if(isset($_POST['stripeToken'])){
 
 			$queryD ="insert into myorder(L_id,P_id,quantity,Date) values($tmpid,$Pid,$quantity,'$date')";
 			$resultD =mysqli_query($con,$queryD);
+			$oid=mysqli_insert_id($con);
+
+
 		}
 		$queryE ="DELETE FROM cart WHERE L_id= $tmpid";
 		$resultE =mysqli_query($con,$queryE);
@@ -54,8 +58,8 @@ if(isset($_POST['stripeToken'])){
 			$id     = $_SESSION["id"];
 			$total  = $_SESSION['total'];
 			$total 	= $total/100;
-			$date   = date('m/d/Y');
-
+			date_default_timezone_set("Asia/Kolkata");
+			$date = date('d-m-Y H:i:A');
 			$query  = "select * from login where L_id=$id";
 			$result = mysqli_query($con,$query);
 			$login  = mysqli_fetch_array($result);
@@ -66,21 +70,22 @@ if(isset($_POST['stripeToken'])){
 
 			// require_once 'TwilioSMS/vendor/autoload.php';
 			// use Twilio\Rest\Client;
-			// $sid=	'ACfe7629a58dee1146a63c91fa9e5aae75';
-			// $token=	'42657316c6fc1a18df815437c7592022';
-			$twilio = new Client('ACfe7629a58dee1146a63c91fa9e5aae75','42657316c6fc1a18df815437c7592022');
+			// $sid=	'';
+			// $token=	'';
+			$twilio = new Client('','');
 
 			// Uncomment bellow	$message for enable SMS
 
-			// $message = $twilio->messages
-			// 				->create($phone, // to
-			// 						["body" => $body, 
-			// 						"from" => "+18053015484"]
-			// 				);
-
-			// print($message->sid);
-
-		header("location:../myOrder.php");
+				// $message = $twilio->messages
+				// 				->create($phone, // to
+				// 						["body" => $body, 
+				// 						"from" => "+18053015484"]
+				// 				);
+				// print($message->sid);
+		
+		// Bill generation to mail begins
+			
+		header("location:BillSentMail.php?dd=".$oid);
 	}
 	else{
 		header("location:../Shopping.php");

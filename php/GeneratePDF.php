@@ -8,7 +8,8 @@ include('config.php');
   // session_start();
   // if(isset($_POST['create']))
   // {
-    $date = date('m/d/Y');
+    date_default_timezone_set("Asia/Kolkata");
+    $date = date('d-m-Y H:i:A');
     $query="select * from myOrder";
     $result =mysqli_query($con,$query);
     $row=mysqli_fetch_array($result); 

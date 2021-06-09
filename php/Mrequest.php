@@ -2,8 +2,8 @@
 include('config.php');
 $cbox = $_POST['cbox'];
 $Urgency = $_POST['Urgency'];
-$date=date("Y-m-d");
-
+date_default_timezone_set("Asia/Kolkata");
+$date = date('d-m-Y H:i:A');
 session_start();
 $tmpid=$_SESSION['id'];
 // echo $cbox,$Urgency,$tmpid;

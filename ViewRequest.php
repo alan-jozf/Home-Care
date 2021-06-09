@@ -9,7 +9,7 @@
 
 table{
 	margin-left:4%;
-	/* margin-top:1%; */
+	margin-top:1%;
 	
 }
 label{
@@ -32,14 +32,14 @@ input[type="file"],[type=button]{
 
 		<br><h1 style="margin-left:4%;">Medical Requests</h1><br>
 
-		<table class="cart" cellpadding="5" cellspacing="10">
+		<table class="cart" cellpadding="5" cellspacing="5">
 			<tbody>
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
 				<th style="text-align:left;" width="100px">Name</th>
 				<th style="text-align:left;" width="100px">Urgency</th>
 				<th style="text-align:left;" width="100px">Reason</th>
-				<th style="text-align:left;" width="100px">Date</th>
+				<th style="text-align:left;" width="150px">Date</th>
 				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
 			<?php

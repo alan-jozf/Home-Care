@@ -37,8 +37,8 @@ input[type="file"],[type=button]{
 			<tr>
 				<th style="text-align:left;" width="40px">No</th>
 				<th style="text-align:left;" width="100px">Name</th>
-				<th style="text-align:left;" width="300px">Message</th>
-				<th style="text-align:left;" width="100px">Date</th>
+				<th style="text-align:left;" width="250px">Message</th>
+				<th style="text-align:left;" width="180px">Date</th>
 				<th style="text-align:left;" width="100px">Mobile</th>
 				<th style="text-align:left;" width="100px">Delete</th>
 

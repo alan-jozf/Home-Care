@@ -28,7 +28,7 @@ if($rowCheck>0){
     $count= $quantity+ $ro['quantity'];
     $query="update cart SET quantity = '$count' where P_id ='$Pid' and L_id = '$tmpid'";
     if(mysqli_query($con,$query)){
-        header("location:../Cart.php");
+        header("location:../Shopping.php");
     }
     else{
         header("location:../Home.php");
@@ -37,7 +37,7 @@ if($rowCheck>0){
 else{
     $query="insert into cart(L_id,P_id,quantity) values($tmpid,$Pid,$quantity)";
     if(mysqli_query($con,$query)){
-        header("location:../Cart.php");
+        header("location:../Shopping.php");
     }
     else{
         header("location:../Home.php");

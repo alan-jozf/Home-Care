@@ -32,7 +32,6 @@
                 $row=mysqli_fetch_array($result);
                 ?>
                     <a href="Home.php"><li><img class ="smallicon" src="images/logo/home.png">Home</li></a>
-                    <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                 <?php   
                 if($row['user_type']=='admin')
                 {?>
@@ -46,6 +45,7 @@
                 }
                 elseif($row['user_type']=='pnchOfficr')
                 {?>
+                    <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="ViewRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">View Request</li></a>
                     <!-- <a href="AddProduct.php"><li>Add Product</li></a>
                     <a href="ViewProduct.php"><li>View Product</li></a> -->
@@ -55,6 +55,7 @@
                 }
                 elseif($row['user_type']=='mstaff')
                 {?>
+                    <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="ViewRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">View Request</li></a>
                     <a href="TestMyself.php"><li><img class ="smallicon" src="images/logo/testme.png">Test Myself</li></a>
                     <a href="ViewQuarantine.php"><li><img class ="smallicon" src="images/logo/people.png">Quarantined List</li></a>
@@ -62,6 +63,7 @@
                 }
                 elseif($row['user_type']=='volunteer')
                 {?>
+                    <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="ViewRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">View Request</li></a>
                     <a href="Delivery.php"><li><img class ="smallicon" src="images/logo/list.png">Deliveries</li></a>
                     <a href="TestMyself.php"><li><img class ="smallicon" src="images/logo/testme.png">Test Myself</li></a>
@@ -70,6 +72,7 @@
                 }
                 elseif($row['user_type']=='user')
                 {?>
+                    <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="MedicalRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">Medical Request</li></a>
                     <!-- <a href="MedicineRequest.php"><li>Medicine</li></a> -->
                     <a href="Shopping.php"><li><img class ="smallicon" src="images/logo/shopping.png">Shopping</li></a>

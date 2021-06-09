@@ -4,15 +4,29 @@ require("PHPMailer/src/PHPMailer.php");
 require("PHPMailer/src/SMTP.php");
 require("PHPMailer/src/Exception.php");
 // require("../../../../confidential.php");
+include('config.php');
+$tmpid=$_SESSION['id'];
+$oid=$_GET['dd'];
+
+$sql="SELECT * FROM myorder where O_id = '$oid' ";
+$result=mysqli_query($con,$sql);
+$row=mysqli_fetch_array($result);
+$date=$row['Date']; 
+
+$sql3="SELECT * FROM login where L_id = '$tmpid' ";
+$result3=mysqli_query($con,$sql3);
+$row3=mysqli_fetch_array($result3);
+$email=$row3['email'];
+
+$sql2="SELECT * FROM myorder where Date = '$date' ";
+$result2=mysqli_query($con,$sql2);
+$row2=mysqli_fetch_array($result2);
 
 // function sentmail($otp_data,$rand,$email){
-if(isset($_SESSION['email']) && isset($_SESSION['rand']) && isset($_SESSION['otp_data'])){
-    $email=$_SESSION['email'];
-    $otp_data=$_SESSION['otp_data'];
-    $rand=$_SESSION['rand'];
         
     $mail = new PHPMailer\PHPMailer\PHPMailer();
-    try {
+    try 
+    {
         $mail->isSMTP();                                    
         $mail->Host       = 'smtp.gmail.com';                 
         $mail->SMTPAuth   = true;                   
@@ -26,7 +40,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['rand']) && isset($_SESSION['otp
 
         //Content
         $mail->isHTML(true); 
-        $mail->Subject = 'Reset your password for Home Care';
+        $mail->Subject = 'New Order on Home Care';
         $mail->Body    = '
             <!DOCTYPE html>
             <html lang="en">
@@ -81,12 +95,9 @@ if(isset($_SESSION['email']) && isset($_SESSION['rand']) && isset($_SESSION['otp
             <body>
                 <div class="container">
                     <center><h1>Hello.</h1></center>
-                    <p>No need to worry, you can reset your Find password by clicking the link below or entering the OTP:</p>
-                    <a href="localhost/Home-Care/php/fpOtpValidation.php?varify='.$rand.'">Reset Password</a>
-                    <p>OTP : <b>'.$otp_data.'</b> </p>
-                    <p>For security reasons this link and OTP will only be active for 3 minuties. If you didnt request a password reset, feel free to delete this email and carry on enjoying !</p>
-                    <p style="margin-bottom:0;">All the best</p>
-                    <p style="margin-top:0;">The Find Team.</p>
+                    <p>New order has been placed successfully on '.$date.' </p>
+                    <a href="localhost/Home-Care/orderDetails.php?dd='.$oid.'">View Your receipt</a>
+                    <p style="margin-bottom:0;">Thank You for Choosing Home Care</p>
                 </div>
             </body>
             </html>
@@ -95,18 +106,13 @@ if(isset($_SESSION['email']) && isset($_SESSION['rand']) && isset($_SESSION['otp
 
         $mail->send();
         // echo 'Message has been sent';
-        session_unset();
-        if(session_destroy()){header("location:../fpEnterOtp.php");}
+        header("location:../orderDetails.php?dd=".$oid);
         
-    } catch (Exception $e) {
+    } 
+    catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-}
-else{
-    header("location:../fpEnterMail.php?err='wrong'");
-            // echo 'Message not sent';
 
-}
 ?>
                       
 <html>

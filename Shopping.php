@@ -15,7 +15,7 @@
         position: relative;
         float: left;
         width:200px;
-        height:180px;
+        height:270px;
         /* background-color:  rgb(232, 232, 232); */
         margin-top:20px;
         margin: 14px;
@@ -112,7 +112,7 @@
 								$image = $row['image'];
 								$image_src = "uploads/".$image;
 								?>
-							<div class="Pimage"><img src="<?php echo $image_src;  ?>" width="200" height="120" ></div>
+							<div class="Pimage"><img src="<?php echo $image_src;  ?>" width="200" height="200" ></div>
 							<div class="pname"><h3 ><?php echo $row["name"]; ?></h3></div>
  							
 							<?php 

@@ -54,7 +54,7 @@
         list-style: none;
     } */
     .left_cont ul{
-        width:80%;
+        width:90%;
         margin-top: 20%;
         margin-left: 10%;
     }
@@ -88,7 +88,7 @@
         margin-left: 100px ;
         margin-top: 50px;
         height: 60px;
-        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+        /* box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3); */
     }
     .smallicon{
         width: 22px;
@@ -245,8 +245,8 @@ button#notification-icon {
 
 }
 a{
-text-decoration: none;
-color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 #notification-count{
     text-align: center;

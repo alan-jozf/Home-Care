@@ -8,7 +8,8 @@ $getMes = $_SESSION['btn'];
 
 if($getMes=="Others")
 {
-    $date=date("d-m-Y");
+	date_default_timezone_set("Asia/Kolkata");
+	$date = date('d-m-Y H:i:A');
     $tmpid=$_SESSION['id'];
     $to='admin';
     $sql = "insert into chat_message(L_id,message,date,toWhom) values($tmpid,'$getMesg','$date','$to')";
