@@ -5,6 +5,7 @@ require("PHPMailer/src/SMTP.php");
 require("PHPMailer/src/Exception.php");
 // require("../../../../confidential.php");
 include('config.php');
+include('confidential.php');
 $tmpid=$_SESSION['id'];
 $oid=$_GET['dd'];
 
@@ -30,12 +31,12 @@ $row2=mysqli_fetch_array($result2);
         $mail->isSMTP();                                    
         $mail->Host       = 'smtp.gmail.com';                 
         $mail->SMTPAuth   = true;                   
-        $mail->Username   = '@gmail.com';       
-        $mail->Password   = 'Alan.';         #password here                         
+        $mail->Username   = $email;             #sender mail id  
+        $mail->Password   = $password;          #password here                         
         $mail->Port       = 587;                                   
 
         //Recipients
-        $mail->setFrom('@gmail.com', 'Mailer');
+        $mail->setFrom($email, 'Mailer');
         $mail->addAddress($email); 
 
         //Content
