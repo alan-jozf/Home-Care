@@ -1,0 +1,74 @@
+
+	.grid{
+		margin-left: 80px;
+
+	}
+	.grid .box{
+        position: relative;
+        float: left;
+        width:200px;
+        height:270px;
+        /* background-color:  rgb(232, 232, 232); */
+        margin-top:20px;
+        margin: 14px;
+		border-radius: 2px;
+		border: #E0E0E0 1px solid;
+
+	}  
+	.pname{
+		margin-left:10px;
+		width: 50px;
+		font-size: 15px ;
+	}
+	.line{
+		/* background-color:red; */
+		width:100%;
+		/* overflow: auto; */
+		/* display: inline-block; */
+		float: left; 
+	}
+	.pprice {
+		position: relative;
+		float: left; 
+		/* display:inline; */
+		padding: 5px 1px;
+		width: 50px;
+		margin-left:5px;
+		font-size: 16px;
+	}
+	.pquantity {
+		position: relative;
+		float: left; 
+		padding: 5px 10px;
+		width: 30px;
+		margin-top:1px;
+		border-radius: 3px;
+		font-size: 13px;
+		height:20px;
+		border: #E0E0E0 1px solid;
+	}
+	/* button{
+		position: relative;
+		float: left; 
+		background-color:#f2ca65;
+		padding: 5px 10px;
+		margin-top:1px;
+		margin-left:6px;
+		width: 80px;
+		height:30px;
+		font-size: 13px;
+		border: #E0E0E0 1px solid;
+
+	} */
+	.btn {
+		position: relative;
+		float: left; 
+		background-color:#f2ca65;
+		/* padding: 5px 10px; */
+		margin-top:1px;
+		margin-left:6px;
+		width: 80px;
+		height:30px;
+		font-size: 13px;
+		border: #E0E0E0 1px solid;
+	}

@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/home.css">
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
      <meta http-equiv="Cache-control" content="no-cache">
-    <title>Home Care</title>
     <style>
-        .right_cont{
-            background-color: rgba(1,158,227,255);
-        }
-        .mySlides {display:none;}
-        .slides{
-            /* background-color: rgba(1,158,227,255); */
-            max-width:79.5%;
-            padding-top:2%;
-            padding-left:10%;
-            padding-right:10%;
-            padding-bottom:2%;
-            box-shadow: 10px 20px 15px 5px rgba(0, 0, 0, 0.3);
-        }
 
     </style> 
 </head>
-<body onload="alertFunction()">
-<?php require("Leftbar.php"); ?> 
-<div class="right_cont">
+<body>
     <?php require("Topbar.php"); ?> 
-    <!-- <p id="alert">sample test</p> -->
+    <div class="homepage">
 
-    <div class="slides"  >
-        <img class="mySlides" src="images/poster4.png" style="width:100%">
-        <img class="mySlides" src="images/poster1.png" style="width:100%">
-        <img class="mySlides" src="images/poster2.png" style="width:100%">
-        <img class="mySlides" src="images/poster3.png" style="width:100%">
+        <!-- <p id="alert">sample test</p> -->
+        <!-- <div class="slides"  >
+            <img class="mySlides" src="images/poster4.png" style="width:100%">
+            <img class="mySlides" src="images/poster1.png" style="width:100%">
+            <img class="mySlides" src="images/poster2.png" style="width:100%">
+            <img class="mySlides" src="images/poster3.png" style="width:100%">
+        </div> -->
     </div>
-</div>
 <script>
-    function alertFunction() {
-        // document.getElementById("alert").innerHTML = "Low stock";
-    }
 
     var myIndex = 0;
     carousel();
