@@ -32,10 +32,9 @@
 </script>
 
 <body>
-<?php require("Leftbar.php"); ?>
-<div class="right_cont">
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
-    <?php require("Topbar.php"); ?> 
 
 		<div class="full">
 			<div class="l2">

@@ -5,7 +5,6 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/table.css">
      <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
      <script src="script/jquery-3.5.1.min.js" type="text/javascript"></script>
      <meta http-equiv="Cache-control" content="no-cache">
@@ -18,8 +17,9 @@
     <div class="nav">
             <img id="logo" src="images/homecare.jpg" alt="pic">
             <h1>Home Care</h1> 
-        <div class="logo">
-            <!-- <a href="ViewProfile.php"><img class="usericon" src="images/uicon.png" width="60" height="60"></a> -->
+            <!-- <img class="user icon" src="images/uicon.png"> -->
+            <!-- <img class="Bell icon" src="images/bell.png"> -->
+            <!-- <img class="cart icon" src="images/cart.png"> -->
             <?php
             if(isset($_SESSION['id']))
             {
@@ -76,14 +76,11 @@
                         $count+=1;
                     }
                     ?>
-                        <!-- <a href=""><img class="carticon" src="images/bell.png" width="40" height="40"></a> -->
-                        <div>
-
-                        </div>
                         <button id="notification-icon" name="button" onclick="myFunction()">
-                                <span id="notification-count"><?php if($count>0) { echo $count; } ?></span>
-                                <img class="bellicon" src="images/bell.png" width="35" height="35"/></button>
-                            <div id="notification-latest"></div>
+                            <span id="notification-count"><?php if($count>0) { echo $count; } ?></span>
+                            <img class="bellicon" src="images/bell.png" width="35" height="35"/>
+                        </button>
+                        <div id="notification-latest"></div>
                     <?php
                 }
             }
@@ -92,7 +89,7 @@
                 ?><a href="Login.php"><img class="usericon" src="images/uicon.png" ></a><?php
             }
 
-        ?>
+            ?>
 
             
             <h3>
@@ -118,14 +115,9 @@
                 //         }
                 // }
             ?></h3>
-        </div>
-
     </div>
     
     <?php require("Leftbar.php"); ?> 
-
-    
-    <hr>
 
 </body>
 <script>

@@ -119,11 +119,9 @@
 	</script>
 
 <body><b>
-<?php require("Leftbar.php"); ?>
-	
-	<div class="right_cont">
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
-    <?php require("Topbar.php"); ?> 
 
 	<form action="php\addVolunteer.php" method="POST" >
 

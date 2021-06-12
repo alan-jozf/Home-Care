@@ -25,10 +25,9 @@ input[type="file"],[type=button]{
 </style>
 
 <body>
-	<?php require("Leftbar.php"); ?> 
-	<div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
 
-		<?php require("Topbar.php"); ?> 
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
 		<br><h1 style="margin-left:4%;">Medical Requests</h1><br>
 

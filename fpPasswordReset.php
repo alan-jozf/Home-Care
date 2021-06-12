@@ -62,10 +62,9 @@
 </script>
 
 <body>
-<?php require("Leftbar.php"); ?>
-<div class="right_cont">
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
-    <?php require("Topbar.php"); ?> 
 		<?php
 			if(isset($_SESSION['login']))
 			{

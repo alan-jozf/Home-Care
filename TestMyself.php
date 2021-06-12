@@ -94,17 +94,15 @@
 
 <body>
 
-<?php require("Leftbar.php"); ?> 
-<div class="right_cont" >
-	<?php
-		include('php/config.php');
-		require("Topbar.php"); 
-		?> 
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
+		
 	<div class= "cntr" id="div1">
 		<div class=" inCntr">
 			<center>
 					<!-- <h3>Are you experiencing any of these serious symptoms ?</h3><br>  -->
 					<?php
+						include('php/config.php');
 						$quer="select * from test_qstn where Type='Serious'";
 						$resul=mysqli_query($con,$quer);
 						$ro=mysqli_fetch_array($resul);

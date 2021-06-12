@@ -29,10 +29,10 @@ input[type="file"],[type=button]{
 </style>
 
 <body>
-<?php require("Leftbar.php"); ?> 
-<div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
 
-	<?php require("Topbar.php"); ?> 
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
+
 	<center>
     <form >
 	<?php
@@ -72,6 +72,25 @@ input[type="file"],[type=button]{
 
             $result=mysqli_query($con,$query);
             $reg_table = mysqli_fetch_array($result);
+			if(isset($_SESSION['id']))
+			{
+				include('php/config.php');
+				$tmpid=$_SESSION['id'];
+				$sql="select user_type from login where L_id=$tmpid";
+				$result=mysqli_query($con,$sql) or die($sql);
+				$row=mysqli_fetch_array($result);
+				if($row['user_type']=='user')
+				{    $name="User" ;}
+				if($row['user_type']=='admin')
+				{    $name="Admin" ;}
+				if($row['user_type']=='mstaff')
+				{    $name="Medical Staff" ;}
+				if($row['user_type']=='pnchOfficr')
+				{    $name="Punchayat Officer" ;}
+				if($row['user_type']=='volunteer')
+				{    $name="Volunteer" ;}  
+				// echo "<h2>".$name."</h2>" ;        
+			}
 
         ?> 
 		<br>
@@ -82,6 +101,7 @@ input[type="file"],[type=button]{
 				
 			} -->
         <h2><?php echo $reg_table['name'] ?></h2><br>
+		<h2><?php echo $name	 		?></h2><br>      
         <h2><?php echo $login['PhoneNo'] ?></h2><br>
         <h2><?php echo $login['email'] ?></h2><br>
 		<!-- <b><label style ="float:left" > Update DP :</label>  </b><br> -->

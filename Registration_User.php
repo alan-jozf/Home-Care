@@ -120,11 +120,9 @@
 
 <body><b>
 
-<?php require("Leftbar.php"); ?>
-	
-	<div class="right_cont">
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
-    <?php require("Topbar.php"); ?> 
 
 	<form action="php\addUser.php" method="POST" >
 

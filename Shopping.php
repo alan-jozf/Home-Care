@@ -10,10 +10,9 @@
 </style>
 
 <body>
-	<?php require("Leftbar.php"); ?> 
-	<div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
-		<?php require("Topbar.php"); ?> 
 
 		<br><h3 style="margin-left:4%;">Products</h3><br>
 		<!-- <br><h3 style="margin-right:4%; align:right;">Cart</h3><br> -->

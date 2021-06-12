@@ -70,18 +70,18 @@ if(isset($_POST['stripeToken'])){
 
 			// require_once 'TwilioSMS/vendor/autoload.php';
 			// use Twilio\Rest\Client;
-			// $sid=	'';
-			// $token=	'';
-			$twilio = new Client($sid ,$token);
+			// $sid=	'ACfe7629a58dee1146a63c91fa9e5aae75';
+			// $token=	'42657316c6fc1a18df815437c7592022';
+			$twilio = new Client('ACfe7629a58dee1146a63c91fa9e5aae75','92c61b0c450f2cc12aecbea0939051ee');
 
 			// Uncomment bellow	$message for enable SMS
 
-				// $message = $twilio->messages
-				// 				->create($phone, // to
-				// 						["body" => $body, 
-				// 						"from" => "+18053015484"]
-				// 				);
-				// print($message->sid);
+				$message = $twilio->messages
+								->create($phone, // to
+										["body" => $body, 
+										"from" => "+18053015484"]
+								);
+				print($message->sid);
 		
 		// Bill generation to mail begins
 			

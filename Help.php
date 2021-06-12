@@ -11,9 +11,8 @@
     <script src="script/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-	<?php require("Leftbar.php"); ?> 
-	<div class="right_cont" style="{background-color: rgb(232, 232, 232);}">
-	 <?php require("Topbar.php"); ?> 
+<?php require("Topbar.php"); ?> 
+    <div class="homepage">
 
     <div class="wrapper">
         <div class="title">Chatbot</div>
