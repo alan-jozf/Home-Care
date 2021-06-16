@@ -190,7 +190,7 @@ chart.render();
 <?php require("Topbar.php"); ?>
     <div class="homepage">
 
-        <div id="chartContainer" style="height: 70%; width: 85%; margin-top:80px;margin-left:50px;"></div>
+        <div id="chartContainer" style="height: 70%; width: 85%; margin-top:80px;margin-left:50px; border: #e4e4e4 2px solid;"></div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
         <!-- https://canvasjs.com/php-charts/spline-area-chart/ -->

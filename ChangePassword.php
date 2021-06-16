@@ -2,51 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/profile.css" />
     <title>Profile</title>
     <style>
-        a{
-            /* text-decoration:yes; */
-            color:blue;
-        }
-
-        .container{
-                    margin-top:5%;
-
-                }
-        input{
-            width:250px;
-            height:40px;
-            /* border:.10px ; */
-            margin:5px;
-        }
-        input:focus{
-            outline:none;
-        }
-
-        form{
-            margin:2%;
-            
-        }
-        label{
-            width: 70%;
-        }
-        img{
-            border-radius:1%;
-        }
-        input[type="password"],[type=button]{
-            background-color:  rgb(0, 138, 103);
-            color: #fff;
-            width: 40%;
-            height:40px;
-            margin: 8px 0;
-            border-radius: 10px;
-            /* border:10px; */
-        }
-        .butt{
-            margin-top:-30px;
-        }
     </style>
     <script>
         var one1=false;
@@ -124,7 +82,6 @@
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
 
-    <center>
         <?php
         $id=$_SESSION["id"];
         include('php/config.php');
@@ -141,7 +98,7 @@
         ?>
         <div class="container">
             <div class="inside_container">
-            <h2>Change Password</h2>
+            <h2 id="head">Change Password</h2>
                 <?php  
                             if(isset($_GET['err'])=='wrongpass'){
                                 ?>
@@ -157,11 +114,10 @@
                         <input type="password" class="box" name="" id="three" placeholder="Confirm Password"><br><br>
                     </form>
                 </div>
-                <input type="button" style="background-color:green;color:white;" class="butt" id="ch" onclick="send()" value="Change Paswword">
+                <input id="pbtn" type="button" class="butt" id="ch" onclick="send()" value="Change Paswword">
                 <BR><h3 style="color:blue;"><a href="ViewProfile.php">🢀 Go Back</a></h3>
             </div>
         </div>
-    </center>
 </div>
 </body>
 </html>

@@ -76,12 +76,12 @@ if(isset($_POST['stripeToken'])){
 
 			// Uncomment bellow	$message for enable SMS
 
-				$message = $twilio->messages
-								->create($phone, // to
-										["body" => $body, 
-										"from" => "+18053015484"]
-								);
-				print($message->sid);
+				// $message = $twilio->messages
+				// 				->create($phone, // to
+				// 						["body" => $body, 
+				// 						"from" => "+18053015484"]
+				// 				);
+				// print($message->sid);
 		
 		// Bill generation to mail begins
 			

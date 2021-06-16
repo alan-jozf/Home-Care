@@ -34,8 +34,6 @@
 <body>
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
-
-
 		<div class="full">
 			<div class="l2">
 				<center>

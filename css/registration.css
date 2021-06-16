@@ -1,68 +1,80 @@
-body{ 
-    /* background-image: linear-gradient(rgb(245, 245, 245),rgb(238, 238, 238)); */
-    background-color:whitesmoke;
-    background-attachment:fixed;
-    margin: 0px;
+/* .homepage and #head style is on the toplaftbar.css  */
 
-}
-.maindiv{
-    position: fixed;
-    margin-top:0%;
-    /* width: 60%; */
-    /* margin-left: 10%; */
-    background-color:white;
-}
-h1{
-margin-top: 0%;
-}
-.division1{
-    float:left;
-    margin-top:2%;
-    margin-left:17%;
-    position: relative;
-    width:30%;
-    height:60%;
-    /* background-color: brown; */
-}
-.division2{
-    float:left;
-    margin-top:2%;
-    margin-left:5%;
-    position: relative;
-    width:30%;
-    height:60%;
-    /* background-color: brown; */
-}
-input[type="submit"],[type=button]{
-    background-color: rgb(12, 146, 0);
-    color: #fff;
-    width: 40%;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-input:focus, textarea:focus, select:focus{
-    outline: none;
-}
+    form{
+        position: relative;
+        padding: 0px 20px 20px 20px;
+        margin: 20px 40px;
+        width: 100%;
+        height: fit-content;
+        /* background-color: whitesmoke; */
+        /* border: 1px solid rgb(129, 129, 129); */
 
-input[type=text],[type=date],[type=password],[type="submit"],
-        [type=button],[type=time],[type=number],[type=file],select {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: 17px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+        }
+        form #head{
+            text-decoration: underline 
+        }
+        form p{
+            font-family:opensansregular ;
+            font-size: 15px;
+            padding-top: 3px;
+        }  
+        .formrow{
+            position:relative;
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-wrap: wrap;
+            }
+        @media screen and (max-width: 400px) {
+            .formrow {
+                flex-direction: column;
+                }
+            }
+            .formcol1{
+                float: left;
+                padding:1px 3%;
+                width: 94%;
+                }
+            .formcol{
+                float: left;
+                padding:0 3%;
+                width: 27.3%;
+                min-width: 20%;
+                flex: 200px;
+                min-width: 200px;
+                }
 
-}
-
-input[type="submit"],[type=button]{
-    background-color: rgb(12, 146, 0);
-    color: #fff;
-    border-radius: 10px;
-}
-label{
-    font-size: 20px;
-
-}
+                input[type=text],[type=date],[type=password],[type="submit"],
+                        [type=button],[type=time],[type=number],[type=file],select {
+                    width: 100%;
+                    padding: 8px 20px;
+                    font-size: 17px;
+                    margin: 3px 0;
+                    display: inline-block;
+                    border: 1px solid rgb(129, 129, 129);
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
+                input[type="submit"],[type=button]{
+                    background-color: rgb(0, 30, 201);
+                    color: rgb(255, 255, 255);
+                    margin-top: 25px;
+                    font-size: 18px;
+                    border-radius: 8px;
+                }
+                input[type=submit]:hover {
+                    /* background-color: #414285; */
+                    background-color: rgb(0, 138, 103);
+                    color: white;
+                    }
+                .formrow a{
+                    font-family:opensanssemibold;
+                    font-size: 18px;
+                    color: rgb(91, 2, 255);
+                }
+                label{
+                    color: darkblue;
+                }
+                /* input:focus, textarea:focus, select:focus{
+                    outline: none;
+                } */

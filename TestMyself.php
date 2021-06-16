@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css\testmyself.css" />
 
     <script>
 		var arry=[];
@@ -55,40 +55,7 @@
     </script>
 </head>
 <style>
-	.cntr{
-		background-color:  rgb(0, 208, 156);
-		height:40%;
-		padding:5%;
-		margin:5%;
-		display:none;
-		
-	}
-	.inCntr{
-		/* background-color:  RED; */
-		/* padding:5%; */
-		height:90%;
-		margin:0% 0% ;
-	}
 
-	/* .btn:hover, .btn:focus, .btn:active, .btn:visited  {
-		background-color: rgba(52, 152, 219,0.6);
-	}  */
-	button{
-		margin:5px;
-		padding:5px;
-		font-size:16px;
-		color:rgb(50, 112, 204);
-		padding:10px;
-		border-radius: 4px;
-		background-color: rgb(235, 235, 235);
-		border:none;
-		cursor: pointer;    
-		/* box-shadow: 10px 10px 10px rgb(233, 231, 231), -10px -10px 10px white; */
-		margin-left:10px;
-	}
-	button:hover{
-		/* box-shadow: 10px 10px 10px rgb(233, 231, 231), -10px -10px 10px white; */
-	}
 
 </style>
 
@@ -193,7 +160,7 @@
 	<div class= "cntr" id="div5">
 		<div class=" inCntr">
 			<center>
-					<h3>Don't be panic</h3><br> 
+					<h3>You should Care More.. Don't be panic</h3><br> 
 					<?php	
 						$query="select * from test_treatment where Type='Serious'";
 						$result=mysqli_query($con,$query);
@@ -203,6 +170,7 @@
 							echo "<button id='.$bt.' name='Serious'> ".$row['Description']." </button><br>";
 						}
 					?>
+					<h3>Thank You for using Self Test </h3>
 					<!-- <br><button  id="q4" onclick="show_next_div()"> Next &#10095;</button> -->
 		</div>
 	</div>
@@ -219,13 +187,15 @@
 							echo "<button id='.$bt.' name='MoreCare'> ".$row['Description']." </button>";
 						}
 					?>
+					<h3>Thank You for using Self Test </h3>
+
 					<!-- <br><button  id="q4" onclick="MoreCare()"> Next &#10095;</button> -->
 		</div>
 	</div>
 	<div class= "cntr" id="div7">
 		<div class=" inCntr">
 			<center>
-					<h3>Self Care Tips</h3><br> 
+					<h3>Self Care Tips</h3>
 					<?php						
 						$query="select * from test_treatment where Type='SelfCare'";
 						$result=mysqli_query($con,$query);
@@ -235,6 +205,7 @@
 							echo "<button id='.$bt.' name='SelfCare'> ".$row['Description']." </button>";
 						}
 					?>
+					<h3>Thank You for using Self Test </h3>
 					<!-- <br><button  id="q4" onclick="show_next_div()"> Next &#10095;</button> -->
 		</div>
 	</div>

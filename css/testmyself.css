@@ -1,0 +1,32 @@
+.cntr{
+		/* background-color:  rgb(0, 208, 156); */
+		min-height:500px;
+		padding:10px 30px 0 30px ;
+		margin:30px 50px 0 50px;
+        width: 80%;
+		display:none;
+		border :1px solid #4e67f1 ;
+	}
+    .cntr h3{
+        font-family:opensansregular;
+        font-size: 20px;
+        margin: 20px;
+		text-decoration: underline 
+        }
+	/* .btn:hover, .btn:focus, .btn:active, .btn:visited  {
+		background-color: rgba(52, 152, 219,0.6);
+	}  */
+	button{
+		margin:5px;
+		padding:5px;
+        max-width: 400px;
+		font-size:17px;
+		color:rgb(50, 112, 204);
+		padding:10px;
+		border-radius: 4px;
+		background-color: rgb(255, 255, 255);
+        border :2px solid #4e67f1 ;
+		cursor: pointer;    
+		/* box-shadow: 10px 10px 10px rgb(233, 231, 231), -10px -10px 10px white; */
+	}
+    

@@ -22,16 +22,16 @@
     $ro=mysqli_fetch_array($resul);
     $replay=$ro['question'];
     $cqid=$ro['cq_id'];
-    echo <<<alan
-            <div class="bot-inbox inbox">
-                <div class="icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="msg-header">
-                    <p>$replay</p>
-                        <div class="msg-optn">
-    alan;
-
+    // echo <<<alan
+    //         <div class="bot-inbox inbox">
+    //             <div class="icon">
+    //                 <i class="fas fa-user"></i>
+    //             </div>
+    //             <div class="msg-header">
+    //                 <p>$replay</p>
+    //                     <div class="msg-optn">
+    // alan;
+    echo "<div class=\"bot-inbox inbox\"><div class=\"icon\"><i class=\"fas fa-user\"></i></div><div class=\"msg-header\"><p>".$replay."</p><div class=\"msg-optn\">";
     $query="select * from chat_optn where cq_id='$cqid'";
     $result=mysqli_query($con,$query);
     $bt=0;

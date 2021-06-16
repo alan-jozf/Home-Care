@@ -2,54 +2,11 @@
 <html lang="en">
 <head>
 	<title>Medical request</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css\profile.css" />
 
 </head>
 <style>
-div.right_cont{
-	/* background-color: rgb(232, 232, 232); */
-}
-form{
-	margin:5% 0 0 10%;
-	width:40%;
-}
-/* .content{
-	margin-left:30;
-} */
-label{
-	width: 70%;
-	/* size:20px; */
-}
-input[type="file"],[type=button],[type=checkbox]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 40%;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-/* .lst{
-	align:left;
-	position:relative;
-	background-color:  red;
-	width:50%;
-	height:50%;
 
-} */
-/* .snd{
-	align:left;
-	position:relative;
-	background-color:  blue;
-	margin-top:40%;
-	width:20p%;
-} */
-img{
-	/* margin-left:5%; */
-	/* position:fixed; */
-	/* margin-left:80%; */
-	/* margin-top:3%; */
-	width:150px;
-	height:60px;
-}
 </style>
 
 <body>

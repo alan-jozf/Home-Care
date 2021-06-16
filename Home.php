@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <!-- <link rel="stylesheet" href="css/home.css"> -->
-    <style>
-
-    </style> 
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <?php require("Topbar.php"); ?>
+    <?php require("Topbar.php"); 
+        include('php/config.php');?>
     <div class="homepage">
         <div class="col1">
             <div class="row1">
-                <h2>Affected Areas</h2>
+                <h2 id="head">Affected Areas</h2>
                 <div id="map">
-                    <!-- <img id="map" src="images/Map.PNG" alt="MAP"> -->
-
+                    <img id="default" src="images/Map.PNG" alt="MAP">
                 </div>
             </div>
 
@@ -69,8 +65,10 @@
             </div>
         </div>
         <div class="col2">
-            <div class="news">
+            <div id="head">
                 <h2>Helpline Numbers</h2>
+            </div>
+            <div class="news">
                 <div class="rowc">
                     <div class="icon">
                         <img id="icon" src="images/verify.png">
@@ -144,11 +142,10 @@
 <!-- script for map begins -->
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHTWkA5K-6EpKCyTPcdS3ONyCxDBqJ74o"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI1qfenpKZLABJ5z-n_Ct0h53tzwUBmCA"
             type="text/javascript"></script>
 
-            <!-- js?key=AIzaSyDHTWkA5K-6EpKCyTPcdS3ONyCxDBqJ74o" -->
-            <!-- AIzaSyAI1qfenpKZLABJ5z-n_Ct0h53tzwUBmCA -->
+            <!-- Babu?key=AIzaSyDHTWkA5K-6EpKCyTPcdS3ONyCxDBqJ74o" -->
 
     <script type="text/javascript">
 
@@ -158,9 +155,10 @@
         x.getCurrentPosition(success, failure);
         function success(position)
         {
-            var myLat = 9.6046476; 
-            var myLong = 76.6768996;
+            var myLat = 9.6358538; 
+            var myLong = 76.5971685;
 
+            //    https://www.google.co.in/maps/place/Ayarkunnam,+Kerala/@9.6358538,76.5971685,
             //    myLat = position.coords.latitude;
             //    myLong = position.coords.longitude;
 

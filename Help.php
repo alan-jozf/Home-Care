@@ -1,9 +1,6 @@
-<!-- Created By CodingNepal -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Chatbot</title>
     <link rel="stylesheet" href="css/chatbot.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -11,47 +8,48 @@
     <script src="script/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-<?php require("Topbar.php"); ?> 
+    <?php 
+        require("Topbar.php"); 
+        $_SESSION['btn']="";
+    ?> 
     <div class="homepage">
-
-    <div class="wrapper">
-        <div class="title">Chatbot</div>
-        <div class="form">
-            <div class="bot-inbox inbox">
-                <div class="icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="msg-header">
-					<?php
-						include('php/config.php');        
-						$quer="select * from chat_qstn where cq_id='1'";
-						$resul=mysqli_query($con,$quer);
-						$ro=mysqli_fetch_array($resul);
-						echo "<p>".$ro['question']."</p>";
-						?>
-						<div class="msg-optn">
-					<?php
-						$query="select * from chat_optn where cq_id='1'";
-						$result=mysqli_query($con,$query);
-						$bt=0;
-						while($row=mysqli_fetch_array($result)){
-							$bt++;
-							echo "<input class='option-btn' id='$bt' name='btn' type='button' value='".$row['options']."' >&nbsp";
-						}?>
-						</div><?php
-					?>
+        <div class="wrapper">
+            <div class="title">Chatbot</div>
+            <div class="form">
+                <div class="bot-inbox inbox">
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="msg-header">
+                        <?php
+                            include('php/config.php');        
+                            $quer="select * from chat_qstn where cq_id='1'";
+                            $resul=mysqli_query($con,$quer);
+                            $ro=mysqli_fetch_array($resul);
+                            echo "<p>".$ro['question']."</p>";
+                            ?>
+                            <div class="msg-optn">
+                        <?php
+                            $query="select * from chat_optn where cq_id='1'";
+                            $result=mysqli_query($con,$query);
+                            $bt=0;
+                            while($row=mysqli_fetch_array($result)){
+                                $bt++;
+                                echo "<input class='option-btn' id='$bt' name='btn' type='button' value='".$row['options']."' >&nbsp";
+                            }?>
+                            </div><?php
+                        ?>
+                    </div>
                 </div>
             </div>
-
-        </div>
-        <div class="typing-field">
-            <div class="input-data">
-                <input id="data" type="text" placeholder="Type something here.." required>
-                <button id="send-btn">Send</button>
+            <div class="typing-field">
+                <div class="input-data">
+                    <input id="data" type="text" placeholder="Type something here.." required>
+                    <button id="send-btn">Send</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <script>
 			
 		// ajax for button input

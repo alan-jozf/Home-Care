@@ -1,11 +1,11 @@
 <?php
-$conn = new mysqli("localhost","root","","home_care");
+    include('config.php');
 
 // $sql="UPDATE comments SET status=1 WHERE status=0";	
-// $result=mysqli_query($conn, $sql);
+// $result=mysqli_query($con, $sql);
 
 // $sql="select * from comments ORDER BY id DESC limit 5";
-// $result=mysqli_query($conn, $sql);
+// $result=mysqli_query($con, $sql);
 // $response='';
 // while($row=mysqli_fetch_array($result)) {
 // 	$response = $response . "<div class='notification-item'>" .
@@ -17,7 +17,7 @@ $conn = new mysqli("localhost","root","","home_care");
 $response='';
 
 $sql="select * from mrequest ";
-$result=mysqli_query($conn, $sql);
+$result=mysqli_query($con, $sql);
 $row=mysqli_fetch_array($result);
 if($row>0){
     $response = $response . "<div class='notification-item'>" .
@@ -25,7 +25,7 @@ if($row>0){
     "</div>";
 }
 $sql="select * from chat_message ";
-$result=mysqli_query($conn, $sql);
+$result=mysqli_query($con, $sql);
 $row=mysqli_fetch_array($result);
 if($row>0){
     $response = $response . "<div class='notification-item'>" .
@@ -33,7 +33,7 @@ if($row>0){
     "</div>";
 }
 $sql="select * from product where quantity <10";
-$result=mysqli_query($conn, $sql);
+$result=mysqli_query($con, $sql);
 $row=mysqli_fetch_array($result);
 if($row>0){
     $response = $response . "<div class='notification-item'>" .

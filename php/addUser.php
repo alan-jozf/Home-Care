@@ -2,7 +2,7 @@
 include('config.php');
 $name = $_POST['name'];
 $hname = $_POST['hname'];
-$subdist= $_POST['subdist'];
+$punchayat= $_POST['punchayat'];
 $gender = $_POST['gender'];
 $dob = $_POST['dob'];
 $phone = $_POST['phone'];
@@ -34,7 +34,7 @@ else{
     mysqli_query($con,$query);
     $id=mysqli_insert_id($con);
     
-    $sql = "insert into user(L_id,name,sd_id,hname,dob,gender) values($id,'$name',$subdist,'$hname','$dob','$gender')";
+    $sql = "insert into user(L_id,name,pn_id,hname,dob,gender) values($id,'$name',$punchayat,'$hname','$dob','$gender')";
     if(mysqli_query($con,$sql)){
         header("location:../Login.php");
     }

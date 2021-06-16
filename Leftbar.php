@@ -86,25 +86,25 @@
         <!-- <h2>Welcome User</h2> -->
         <div class="nametag">
             <?php
-            // if(isset($_SESSION['id']))
-            // {
-            //     include('php/config.php');
-            //     $tmpid=$_SESSION['id'];
-            //     $sql="select user_type from login where L_id=$tmpid";
-            //     $result=mysqli_query($con,$sql) or die($sql);
-            //     $row=mysqli_fetch_array($result);
-            //     if($row['user_type']=='user')
-            //     {    $name="User" ;}
-            //     if($row['user_type']=='admin')
-            //     {    $name="Admin" ;}
-            //     if($row['user_type']=='mstaff')
-            //     {    $name="Medical Staff" ;}
-            //     if($row['user_type']=='pnchOfficr')
-            //     {    $name="Punchayat Officer" ;}
-            //     if($row['user_type']=='volunteer')
-            //     {    $name="Volunteer" ;}  
-            //     echo "<h2>".$name."</h2>" ;        
-            // }
+            if(isset($_SESSION['id']))
+            {
+                include('php/config.php');
+                $tmpid=$_SESSION['id'];
+                $sql="select user_type from login where L_id=$tmpid";
+                $result=mysqli_query($con,$sql) or die($sql);
+                $row=mysqli_fetch_array($result);
+                if($row['user_type']=='user')
+                {    $name="User" ;}
+                if($row['user_type']=='admin')
+                {    $name="Admin" ;}
+                if($row['user_type']=='mstaff')
+                {    $name="Medical Staff" ;}
+                if($row['user_type']=='pnchOfficr')
+                {    $name="Punchayat Officer" ;}
+                if($row['user_type']=='volunteer')
+                {    $name="Volunteer" ;}  
+                echo "<h2>Loggined as ".$name."</h2>" ;        
+            }
             ?>
         </div>
     </div>

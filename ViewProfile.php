@@ -1,121 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="css/profile.css" />
 
 </head>
-<style>
-div.right_cont{
-	/* background-color: rgb(232, 232, 232);; */
-}
-form{
-	margin:1%;
-	
-}
-label{
-	width: 70%;
-}
-img{
-	/* border-radius:50%; */
-}
-input[type="file"],[type=button]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 40%;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-</style>
-
 <body>
-
-<?php require("Topbar.php"); ?> 
+	<?php require("Topbar.php"); ?> 
     <div class="homepage">
-
-	<center>
-    <form >
-	<?php
+		<form >
+			<?php
             if(isset($_SESSION['id']))
             {
-				?>
-	<?php
-		include('php/config.php');
-		$tmpid=$_SESSION['id'];
-		$sql = "select image from dp where L_id=$tmpid";
-		$result = mysqli_query($con,$sql);
-		if(mysqli_num_rows($result)>0)
-        {
-			$row = mysqli_fetch_array($result);
-			$image = $row['image'];
-			$image_src = "uploads/".$image;
-			?>
-			<img src='<?php echo $image_src;  ?>' width="150" height="150" >
-
-			<?php
-		}
-
-		?>	
-		<br>
-		<?php
-            $id=$_SESSION["id"];
-			// include('php/config.php');
-            $query="select * from login where L_id=$id";
-            $result=mysqli_query($con,$query);
-            $login = mysqli_fetch_array($result);
-
-            $query="select name from admin where L_id=$id
-			union select name from user where L_id=$id
-			union select name from medical_staff where L_id=$id
-			union select name from punchayat_officer where L_id=$id
-            union select name from volunteer where L_id=$id";
-
-            $result=mysqli_query($con,$query);
-            $reg_table = mysqli_fetch_array($result);
-			if(isset($_SESSION['id']))
-			{
 				include('php/config.php');
 				$tmpid=$_SESSION['id'];
-				$sql="select user_type from login where L_id=$tmpid";
-				$result=mysqli_query($con,$sql) or die($sql);
-				$row=mysqli_fetch_array($result);
-				if($row['user_type']=='user')
-				{    $name="User" ;}
-				if($row['user_type']=='admin')
-				{    $name="Admin" ;}
-				if($row['user_type']=='mstaff')
-				{    $name="Medical Staff" ;}
-				if($row['user_type']=='pnchOfficr')
-				{    $name="Punchayat Officer" ;}
-				if($row['user_type']=='volunteer')
-				{    $name="Volunteer" ;}  
-				// echo "<h2>".$name."</h2>" ;        
-			}
+				$sql1 = "select image from dp where L_id=$tmpid";
+				$result1 = mysqli_query($con,$sql1);
+				if(mysqli_num_rows($result1)>0)
+				{
+					$row1 = mysqli_fetch_array($result1);
+					$image = $row1['image'];
+					$image_src = "uploads/".$image;
+					?>
+					<img class="prof" src='<?php echo $image_src;  ?>' >
 
-        ?> 
-		<br>
-			<!-- 
-			if($login['user_type']=='punchOfficr')
-			{ 
-				echo 'Punchayat Officer';
+					<?php
+				}
+
+				$query2="select * from login where L_id=$tmpid";
+				$result2=mysqli_query($con,$query2);
+				$login2 = mysqli_fetch_array($result2);
 				
-			} -->
-        <h2><?php echo $reg_table['name'] ?></h2><br>
-		<h2><?php echo $name	 		?></h2><br>      
-        <h2><?php echo $login['PhoneNo'] ?></h2><br>
-        <h2><?php echo $login['email'] ?></h2><br>
-		<!-- <b><label style ="float:left" > Update DP :</label>  </b><br> -->
-		<!-- <input type="FILE" name='1'><br> -->
-		<a href="ChangeDP.php"><input type="button" value="Update DP"></a><br>
-		<a href="ChangePassword.php"><input type="button" value="Update Password"></a>
-		<?php
+				$query3=  "select name from admin where L_id=$tmpid
+					union select name from user where L_id=$tmpid
+					union select name from medical_staff where L_id=$tmpid
+					union select name from punchayat_officer where L_id=$tmpid
+					union select name from volunteer where L_id=$tmpid";
+				$result3=mysqli_query($con,$query3);
+				$row3 = mysqli_fetch_array($result3);
+
+				if($login2['user_type']!='admin'){
+					$query4= "select pn_id from user where L_id=$tmpid
+						union select pn_id from medical_staff where L_id=$tmpid
+						union select pn_id from punchayat_officer where L_id=$tmpid
+						union select pn_id from volunteer where L_id=$tmpid";
+					$result4=mysqli_query($con,$query4);
+					$row4 = mysqli_fetch_array($result4);
+					$pid= $row4['pn_id'];
+
+					$sql5="select pn_name from punchayat where pn_id=$pid";
+					$result5=mysqli_query($con,$sql5) or die($sql5);
+					$row5=mysqli_fetch_array($result5);
+				}
+
+				if($login2['user_type']=='user')
+				{    $name="User" ;}
+				if($login2['user_type']=='admin')
+				{    $name="Admin" ;}
+				if($login2['user_type']=='mstaff')
+				{    $name="Medical Staff" ;}
+				if($login2['user_type']=='pnchOfficr')
+				{    $name="Punchayat Officer" ;}
+				if($login2['user_type']=='volunteer')
+				{    $name="Volunteer" ;}  
+
+				?> 	
+				<div class="type">
+					<p><?php echo $name	?></p>
+				</div>	
+				<div class="cont">
+					<div class="title">
+						<p>Name 	</p>
+						<p>Mobile  	</p>
+						<p>Email  	</p>
+						<?php
+						if($login2['user_type']!='admin'){?>
+							<p>Place  	</p><?php
+						}?>
+					</div>	
+					<div class="ans">
+						<p>: <?php echo $row3['name'] ?></p>
+						<p>: <?php echo $login2['PhoneNo'] ?></p>
+						<p>: <?php echo $login2['email'] ?></p>
+						<?php
+						if($login2['user_type']!='admin'){?>
+							<p>: <?php echo $row5['pn_name'] ?></p><?php
+						}?>
+					</div>
+				</div>
+				<div class="bton">
+					<a href="ChangeDP.php"><input type="button" value="Update DP"></a>
+					<a href="ChangePassword.php"><input type="button" value="Update Password"></a>
+				</div>
+				<?php
 			}
 			else{
-                header("location:Login.php");
-            }?>
-	</form>
-	
-</center>	
+				header("location:Login.php");
+			}?>
+		</form>
 	</div>
 </body>
 </html>

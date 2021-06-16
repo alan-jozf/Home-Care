@@ -10,23 +10,31 @@
 </style>
 
 <body>
-<?php require("Topbar.php"); ?> 
+	<?php require("Topbar.php"); 
+		include('php/config.php');
+		?> 
     <div class="homepage">
-
-
-		<br><h3 style="margin-left:4%;">Products</h3><br>
-		<!-- <br><h3 style="margin-right:4%; align:right;">Cart</h3><br> -->
-		
+		<div class="header">
+			<h2 id="heads">Category</h2>
+			<select class="categ" >
+				<option value=""></option>
+				<?php $query =mysqli_query($con,"SELECT * FROM prodt_category");
+				while($row=mysqli_fetch_array($query))
+				{ 
+					$val=$row['pcat_id'];
+					?><option value="<?php echo $val;?>"><?php echo $row['category'];?></option>
+					<?php
+					}?>
+			</select>
+		</div>
 		<div class="grid">
 			<!-- <div class="box"> </div>
 			<div class="box"> </div>
 			<div class="box"> </div>
 			<div class="box"> </div> -->
-
 			<?php
-
-				include('php/config.php');
 				$query="select * from product";
+				// $query="select * from product where pcat_id=$val";
 				$result =mysqli_query($con,$query);
 				// $row=mysqli_fetch_array($result);
 				// echo count($row);
@@ -38,16 +46,14 @@
 								$image = $row['image'];
 								$image_src = "uploads/".$image;
 								?>
-							<div class="Pimage"><img src="<?php echo $image_src;  ?>" width="200" height="200" ></div>
-							<div class="pname"><h3 ><?php echo $row["name"]; ?></h3></div>
- 							
-							<?php 
-								// $_SESSION['pname'] = $row["name"]; 
-								// $_SESSION['pid'] = $row["P_id"]; 
-							?> 
-
+							<div class="Pimage"><img id="pdt" src="<?php echo $image_src;  ?>" ></div>
 							<div class ="line">
-								<div class="pprice"><?php echo "Rs: ".$row["price"]; ?></div>
+								<div class="pname"><h3 ><?php echo $row["name"]; ?></h3></div>
+								<div class="pdic"><h5><?php echo " (". $row["discription"]. ")"; ?></h5></div>
+							</div>
+							<div class="pprice"><h4 ><?php echo "Rs: ".$row["price"];  ?></h4></div> 
+							<div class ="line">
+								<!-- <div class="pprice"></div> -->	
 								<?php
 								$mx=$row['quantity'];?>
 								<div><input  class="pquantity"type="number" name="quantity" value="1" min="1" max= "<?php echo $mx?>"/></div>
@@ -62,7 +68,6 @@
 					</div>					
 					<?php
 				}
-				
 			?> 	
 		</div>
 	</div>

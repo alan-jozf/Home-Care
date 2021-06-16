@@ -1,24 +1,56 @@
 
-	.grid{
-		margin-left: 80px;
+	.header{
+		position: relative;
+	}
+	#heads{
+		float: left;
+		margin:20px 50px 0 30px;
+	}
+	.categ{
+		float: left;
+		margin:20px 50px 0 30px;
+		border :1px solid #4e67f1 ;
+		height: 35px;
+		width: 200px;
+		font-size: 18px;
+	}
 
+	.grid{
+		margin-top: 0px;
+		margin-right: 1%;
+		min-width: 380px;
 	}
 	.grid .box{
         position: relative;
         float: left;
-        width:200px;
-        height:270px;
-        /* background-color:  rgb(232, 232, 232); */
-        margin-top:20px;
-        margin: 14px;
+        width: 180px;
+        height: 275px;
+        margin-top: 3%;
+        margin-left: 2.5%;
 		border-radius: 2px;
-		border: #E0E0E0 1px solid;
-
+		border: #bbbbbb 1px solid;
 	}  
+	.Pimage{
+		margin: 10px ;
+		width: 160px;
+		height: 160px;
+		/* border: #E0E0E0 1px solid; */
+	}
+	#pdt{
+		margin: 10px ;
+		width: 140px;
+		height: 140px;
+	}
 	.pname{
 		margin-left:10px;
-		width: 50px;
+		margin-right: 10px;
+		width:fit-content;
+		float: left;
 		font-size: 15px ;
+	}
+	.pdic{
+		float: left;
+		margin-top: 3px;
 	}
 	.line{
 		/* background-color:red; */
@@ -32,43 +64,30 @@
 		float: left; 
 		/* display:inline; */
 		padding: 5px 1px;
-		width: 50px;
-		margin-left:5px;
+		width: 100px;
+		margin-left:10px;
 		font-size: 16px;
 	}
 	.pquantity {
 		position: relative;
 		float: left; 
 		padding: 5px 10px;
-		width: 30px;
-		margin-top:1px;
+		width: 40px;
+		margin-left:10px;
 		border-radius: 3px;
 		font-size: 13px;
 		height:20px;
 		border: #E0E0E0 1px solid;
 	}
-	/* button{
-		position: relative;
-		float: left; 
-		background-color:#f2ca65;
-		padding: 5px 10px;
-		margin-top:1px;
-		margin-left:6px;
-		width: 80px;
-		height:30px;
-		font-size: 13px;
-		border: #E0E0E0 1px solid;
-
-	} */
 	.btn {
 		position: relative;
 		float: left; 
-		background-color:#f2ca65;
-		/* padding: 5px 10px; */
+		background-color:#f8c544;
 		margin-top:1px;
 		margin-left:6px;
-		width: 80px;
+		width: 90px;
 		height:30px;
 		font-size: 13px;
+		border-radius: 5px;
 		border: #E0E0E0 1px solid;
 	}
