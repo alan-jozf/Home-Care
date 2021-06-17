@@ -2,44 +2,11 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css/orderdetails.css" />
+	<link rel="stylesheet" type="text/css" href="css/profile.css" />
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
 
 </head>
-<style>
-    .right_cont{
-    }
-    .adrs{
-        float: left;
-        margin:40px;
-        padding:20px;
-        width:25%;
-        height:50%;
-        border-radius:5px;
-        box-shadow: 5px 5px 5px 5px  rgba(0, 0, 0, 0.4);
-        background-color: rgb(232,232,232);
-    }    
-    .sumry{
-        float: left;
-        margin:40px;
-        padding:20px;
-        width:50%;
-        height:50%;
-        border-radius:5px;
-        box-shadow: 5px 5px 5px 5px  rgba(0, 0, 0, 0.4);
-        background-color: rgb(232,232,232);
-    }
-    button{
-        color:white;
-        font-size:15px;
-        height: 35px;
-        width: 70%;
-        border-radius: 2px;
-        margin: 30px 2px 0px;
-        cursor: pointer;
-        background-color: blue;
-    }
-
-</style>
 
 <body>
 <?php require("Topbar.php"); ?> 
@@ -55,7 +22,12 @@
             $query2="select * from user where L_id=$tempid";
             $result2=mysqli_query($con,$query2);
             $user = mysqli_fetch_array($result2);
-            $sdid= $user['sd_id'];
+            $pnid= $user['pn_id'];
+
+            $query5="select * from punchayat where pn_id=$pnid";
+            $result5=mysqli_query($con,$query5);
+            $punchayat = mysqli_fetch_array($result5);
+            $sdid= $punchayat['sd_id'];
 
             $query3="select * from subdist where sd_id=$sdid";
             $result3=mysqli_query($con,$query3);
@@ -68,32 +40,29 @@
 
         ?> 
         <div class="adrs">
-            <h1><?php echo $user['name'] ?></h1><br>
-            <h2><?php echo $user['hname'] ?></h2>
-            <h3><?php echo $sd['sd_name'] ?></h3>
-            <h3><?php echo $dt['dt_name'] ?></h3><br>
-            <h3><?php echo $login['email'] ?></h3>
-
+            <h1 class="phead">Shipping Address</h1><br>
+            <b><p><?php echo $user['name'] ?></p></b>
+            <p><?php echo $user['hname'] ?></p>
+            <p><?php echo $punchayat['pn_name'] ?></p>
+            <p><?php echo $sd['sd_name'] ?></p>
+            <p><?php echo $dt['dt_name'] ?></p><br>
+            <p><?php echo $login['email'] ?></p>
+            <p><?php echo $login['PhoneNo'] ?></p>
             <?php   
                 $mail=$login['email'];
                 $_SESSION['mail']= $mail;?>
 
-            <h3><?php echo $login['PhoneNo'] ?></h3><br><br><br>
-            <button color=blue>Change or Add Address</button>
+            <button >Change or Add Address</button>
         </div>
         <div class="sumry">
-            <h1>Payment Summary</h1><br>
-            <table class="cart" cellpadding="5" cellspacing="10">
+            <h1 class="phead">Payment Summary</h1>
+            <table style="margin-left:0px"class="cart" >
 			<tbody>
 			<tr>
-				<!-- <th style="text-align:left;" width="40px">No</th> -->
-				<th style="text-align:left;" width="100px">Name</th>
-				<th style="text-align:left;" width="100px">Price</th>
-				<th style="text-align:left;" width="100px">Quantinty</th>
-				<th style="text-align:left;" width="100px">Total</th>				
-
-				<!-- <th style="text-align:left;" width="100px">Date</th> -->
-				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
+				<th >Name</th>
+				<th >Price</th>
+				<th >Quantinty</th>
+				<th >Total</th>				
 			</tr>
             <?php
                 $query="select * from cart where L_id = $tempid";
@@ -121,28 +90,29 @@
 				}
 			?>
             </table><br>
-            <h2 style="position:absolute; left:55%; bottom:25%;">Total Amount &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ₹  <?php echo $gtotal ?> </h2>   
+            <h1 class="pbotom">Total Amount &emsp;&emsp;&emsp;&emsp; ₹  <?php echo $gtotal ?> </h1>
             <?php $_SESSION['total']=$gtotal; ?>
+            <?php
+                require('php/pconfig.php');
+                ?>
+            <form action="php/submit.php" method="post" class="paywithcard">
+                <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<?php echo $publishableKey?>"
+                    data-amount=<?php echo  $gtotal* 100  ?>
+                    data-name="Payment"
+                    data-description="Purchace with Home Care"
+                    data-image="C:\xampp\htdocs\Home-Care\images\homecare.jpg"
+                    data-currency="inr"
+                    data-email=<?php echo $mail ?>
+                >
+                </script>
+                    <!-- data-amount="1000"
+                                    =1000paisa= 10rs -->
+                    <?php   $_SESSION['total']=$gtotal*100; ?>
+            </form>
         </div>
 	</div>
-    <?php
-        require('php/pconfig.php');
-        ?>
-    <form action="php/submit.php" method="post" style="position:absolute;   left:75%; top:76%;">
-        <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<?php echo $publishableKey?>"
-            data-amount=<?php echo  $gtotal* 100  ?>
-            data-name="Payment"
-            data-description="Purchace with Home Care"
-            data-image="C:\xampp\htdocs\Home-Care\images\homecare.jpg"
-            data-currency="inr"
-            data-email=<?php echo $mail ?>
-        >
-        </script>
-            <!-- data-amount="1000"
-                            =1000paisa= 10rs -->
-            <?php   $_SESSION['total']=$gtotal*100; ?>
-    </form>
+    
 </body>
 </html>

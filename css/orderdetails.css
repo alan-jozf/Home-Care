@@ -1,0 +1,79 @@
+  
+  
+  /* payment page style begins */
+  /* payment page style begins */
+
+  
+  .adrs{
+        float: left;
+        margin:50px;
+        padding:30px;
+        width:250px;
+        height:300px;
+        border-radius:5px;
+        border :1px solid #afafaf ;
+        background-color: rgb(255, 255, 255);
+    }    
+    .sumry{
+        float: left;
+        margin:50px 0 0 50px;
+        padding:30px;
+        width:fit-content;
+        height:fit-content;
+        border-radius:5px;
+        border :1px solid #afafaf ;
+        background-color: rgb(255, 255, 255);
+    }
+    .phead{
+		font-size: 22px;
+		height: 30px;
+    }
+    .pbotom{
+		font-size: 18px;
+		height: 30px;
+    }
+    .paywithcard{
+        float: right;
+    }
+
+
+/* order details page style bedins */
+/* order details page style bedins */
+
+
+.odhead{
+    width: 100%;
+    margin: 30px 0 20px 50px;
+    font-size: 22px;
+    float: left;
+    height: 30px;
+}
+.odleft{
+    max-width: 350px;
+    margin: 20px 5px 0 50px;
+    }
+    .odbox {
+        border: 1px solid black;
+        height: 100px;
+        margin-top: 20px;
+        padding: 10px;
+        }
+        .odbox1 {
+            float: left;
+            padding: 10px;
+            }  
+        #odimg{
+            width: 80px;
+            height: 80px;
+        }
+.odrght {
+    float: left;
+    height: fit-content;
+    margin: 20px 5px 0 50px;
+    }
+    .odrgbox{
+        border: 1px solid black;
+        height: 270px;
+        margin-top: 20px;
+        padding: 10px;
+        }

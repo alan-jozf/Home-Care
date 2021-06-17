@@ -5,14 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="css/profile.css" />
 
 </head>
-<style>
-
-
-</style>
-
 <body>
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
+		<h1 class="hed">Update DP </h1>
 		<form action="php\UpdateDP.php" method='POST' enctype="multipart/form-data">
 			<?php
 			include('php/config.php');
@@ -30,10 +26,9 @@
 				<?php
 			}
 
-			?>	<br>
-			<label class="hed"> Update DP :</label> <br>
-			<input type="FILE" name='1' required ><br>
-			<input type="submit" value="Upload">
+			?><br>
+			<input class="filey" type="FILE" name='1' required ><br>
+			<input class="dpsub" type="submit" value="Upload">
 			<h3 style="color:blue;"><a href="ViewProfile.php">🢀 Go Back</a></h3>
 		</form>
 	</div>

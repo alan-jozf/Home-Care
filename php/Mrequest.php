@@ -9,7 +9,6 @@ $tmpid=$_SESSION['id'];
 // echo $cbox,$Urgency,$tmpid;
 $sql = "insert into mrequest(L_id,Reason,Urgency,Date) values($tmpid,'$cbox','$Urgency','$date')";
 
-
 if(mysqli_query($con,$sql)){
     header("location:..\Medicalrequest.php?err=wrong");
     // echo '<h3>Request Succesfull</h3>';

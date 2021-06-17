@@ -1,28 +1,87 @@
+	/* my odrder table syle begins */
+	/* my odrder table syle begins */
 
-/* fix table height and heading in case of row overflow */
-table {
-	border-collapse: collapse;
-	border: 1px solid black;
-	height: 10px !important; 
-	overflow: scroll;
 
-}
-th {
-	background-color: #4CAF50;
-	color: white;
-}
-th, td {
-	padding: 5px;
-	/* border: 1px solid black; */
-	text-align: left;
-}
-tr{
-	border: 1px solid black;
-}
-tr:hover {
-	background-color: #cecece;
-}
+	.thead{
+		width: 70%;
+		margin: 30px 0 20px 50px;
+		font-size: 22px;
+		float: left;
+		height: 30px;
+	}
+	table {
+		border-collapse: collapse;
+		border: 1px solid rgb(165, 147, 147);
+		overflow: scroll;
+		margin: 20px 5px 5px 50px;
+		text-align: left;
+		max-width: 80%;
+	}
+	
+	th {
+		background-color: #ffffff;
+		color: rgb(0, 0, 0);
+		padding: 20px;
+		position: sticky;
+		top: 70PX;  	/*  STICKY POSITION */
+		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+	}
+	td {
+		padding: 10px 20px 10px 20px;
+	}
+	tr:hover {
+		background-color: #cecece;
+	}
+	.tblebtom{
+		width: 80%;
+		margin: 30px 40px;
+	}
+	.tbotm{
+		font-size: 16px;
+		margin-left: 50px;
+	}
+	input[type=submit],[type=button]{
+		background-color: rgb(255, 255, 255);
+		color: rgb(22, 0, 219);
+		margin: 10px 0 10px 50px;
+		height: 50px;
+		width: 300px;
+		font-size: 18px;
+		border-radius: 10px;
+	}
+	input[type=button]:hover {
+		background-color: #414285;
+		color: white;
+		}
+	input[type=submit]:hover {
+		background-color: #414285;
+		color: white;
+		}
 
-/* table{
-	border:1;
-} */
+	input[type="text"]{
+		background-color: whitesmoke;
+		width: 300px;
+		margin-left: 50px;
+		height: 45px;
+		padding: auto;
+		font-size: 18px;
+		border-radius: 10px;
+		}
+	#error{
+		width: 70%;
+		margin: 50px;
+	}
+	button{
+		background-color: rgb(255, 255, 255);
+		color: rgb(22, 0, 219);
+		padding: 7px;
+		float: right;
+		height: 40px;
+		font-size: 17px;
+		margin: 40px 10px 0 0;
+	}
+	button:hover {
+		background-color: #414285;
+		color: white;
+		}
+	

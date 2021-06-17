@@ -1,56 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
-
+	<title>Order History</title>
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
 </head>
-<style>
-
-table{
-	margin-left:4%;
-	/* margin-top:1%; */
-	
-}
-label{
-	width: 70%;
-}
-
-input[type="file"],[type=button]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-input[type=button]{
-    width: 30%;
-    margin: 20px 0 0 20%;
-    border-radius: 10px;
-}
-
-</style>
-
 <body>
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
-
-		<br><h1 style="margin-left:4%;">Order History</h1><br>
-
+		<br><h1 class="thead">Order History</h1><br>
 		<table class="cart" cellpadding="5" cellspacing="10">
 		<thead>
-			<tr>
-				<th style="text-align:left;" width="40px">No</th>
-				<th style="text-align:left;" width="100px">Image</th>
-				<th style="text-align:left;" width="100px">Name</th>
-				<th style="text-align:left;" width="100px">Price</th>
-				<th style="text-align:left;" width="100px">Quantinty</th>
-				<th style="text-align:left;" width="80px">Total</th>
-				<th style="text-align:left;" width="200px">Date</th>								
-				<th style="text-align:left;" width="100px">Delete</th>
+			<tr >
+				<th >No</th>
+				<th >Image</th>
+				<th >Name</th>
+				<th >Price</th>
+				<th >Quantinty</th>
+				<th >Total</th>
+				<th >Date</th>								
+				<th >Delete</th>
 			</tr>
 			</thead>
 
-			<tbody style="height: 10px !important; overflow: scroll; ">
+			<tbody>
 
 			<?php
 				$counter = 0;

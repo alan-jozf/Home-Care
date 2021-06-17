@@ -1,201 +1,130 @@
 
-/* profile PAGE STYLE BEGINS */
-/* profile PAGE STYLE BEGINS */
+/* common style excepts the margin and width */
+/* common style excepts the margin and width */
 
 
-	form{
-		top: 0px;
-		width: 800px;
-		}
-		.prof{
-			width:150px;
-			height: 150px;
-			margin: 50px 0 0 50px;
-			}
-		.type{
-			margin:50px 0 20px 50px;
-			width: 200px;
-			text-decoration: underline ;
-			font-size: 18px;
-			}
-		.cont{
-			margin-left: 50px;
-			margin-bottom: 20px;
-			float: left;
-			}
-			.title{
-				float: left;
-				width: 100px;
-				}
-			.ans{
-				float: left;
-				width: 200px;
-				}
-		.bton{
-			width: 200px;
-			float: left;
-			margin-left:50px;
-			}
-			input[type=button]{
-				width: 100%;
-				border-radius: 10px;
-				background-color: rgb(255, 255, 255);
-				color: rgb(22, 0, 219);
-				padding: 5px;
-				height: 35px;
-				margin-bottom: 20px;
-				cursor: pointer;
-				border :2px solid #4e67f1 ;
-			}
-			input[type=button]:hover {
-				background-color: rgb(22, 0, 219);
-				color: white;
-				}
-
-
-/* profile PAGE STYLE ENDS */
-/* profile PAGE STYLE ENDS */
-
-
-/* change dp STYLE BEGINS */
-/* change dp STYLE BEGINS */
- 
-	.hed{
-		margin:50px;
-		font-size: 18px;
-	}
-	.updp{
-		position: absolute;
-		/* margin-left: 50px; */
-		margin-top: 20px;
-		display: table;
-	}
-	input[type=file]{
-		width: 200px;
+	button, input[type=button],[type=submit],[type=checkbox]{
 		border-radius: 10px;
 		background-color: rgb(255, 255, 255);
 		color: rgb(22, 0, 219);
 		padding: 5px;
-		height: 25px;
-		margin: 20px 50px;
-		cursor: pointer;
-		border :2px solid #4e67f1 ;
-		position:relative;
-	}
-	input[type=submit]{
-		width: 215px;
-		border-radius: 10px;
-		background-color: rgb(255, 255, 255);
-		color: rgb(22, 0, 219);
-		padding: 5px;
+		margin: 5px;
 		height: 40px;
-		font-size: 18px;
-		margin-left: 50px;
+		min-width: 215px;
 		cursor: pointer;
 		border :2px solid #4e67f1 ;
-		position:relative;
+		outline:none;
 	}
+	input[type=password],[type=text],[type=file]{
+		border-radius: 10px;
+		background-color: rgb(255, 255, 255);
+		color: rgb(22, 0, 219);
+		padding: 5px;
+		margin: 5px;
+		min-width: 200px;
+		height: 25px;
+		cursor: pointer;
+		border :2px solid #4e67f1 ;
+		outline:none;
+	}
+	input[type=button]:hover {
+		background-color: rgb(22, 0, 219);
+		color: white;
+		}
 	input[type=submit]:hover {
 		background-color: rgb(22, 0, 219);
 		color: white;
 		}
+	select{
+		border :1px solid #4e67f1 ;
+		height: 35px;
+		font-size: 18px;
+	}
+	form{
+		top: 0px;
+		width: 70%;
+		margin-left: 50px;
+		}
+	.hed{
+		width: 70%;
+		margin: 50px 0 20px 50px;
+		font-size: 22px;
+		height: 30px;
+	}
+
+/* profile PAGE STYLE BEGINS */
+/* profile PAGE STYLE BEGINS */
+
+
+	.prof{
+		width:150px;
+		height: 150px;
+		margin-top: 50px;
+		}
+	.type{
+		margin:20px 0 20px 0;
+		width: 200px;
+		text-decoration: underline ;
+		font-size: 18px;
+		}
+	.cont{
+		margin-bottom: 20px;
+		min-width: 300PX;
+		width: 100%;
+		float: left;
+		}
+		.title{
+			float: left;
+			width: 100px;
+			}
+		.ans{
+			float: left;
+			width: 250px;
+			}
+
+/* profile PAGE STYLE ENDS */
+/* profile PAGE STYLE ENDS */
+
+
+/* change dp STYLE BEGINS */
+/* change dp STYLE BEGINS */
+
+	.filey{
+		width: 200px;
+		margin: 20px 0 20px 5px;
+	}
 	h3{
 		margin: 10px 50px;
 		font-size: 16px;
 	}
 
 
-/* change dp STYLE ends */
-/* change dp STYLE ends */
-
-
-/* reset PASSWORD STYLE BEGINS */
-/* reset password STYLE BEGINS */
-
-
-.container{
-	margin-top:5%;
-}
-input{
-	width:250px;
-	height:40px;
-	margin:5px;
-}
-input:focus{
-	outline:none;
-}
-img{
-	border-radius:1%;
-}
-input[type="password"],[type=button]{
-	background-color: rgb(255, 255, 255);
-	color: rgb(22, 0, 219);
-	width: 40%;
-	height:40px;
-	margin: 8px 50px;
-	border-radius: 10px;
-	border :2px solid #4e67f1 ;
-}
-#pbtn{
-	background-color: rgb(255, 255, 255);
-	color: rgb(22, 0, 219);
-	width: 40%;
-	height:40px;
-	margin: 8px 50px;
-	border :2px solid #4e67f1 ;
-	border-radius: 10px;
-}
-#pbtn:hover {
-	background-color: rgb(22, 0, 219);
-	color: white;
-	}
-.butt{
-	margin-top:-30px;
-}
-
 
 /* medical request STYLE BEGINS */
 /* medical request STYLE BEGINS */
 
-/* 
-form{
-	margin:5% 0 0 10%;
-	width:500px;
-} */
-/* .content{
-	margin-left:30;
-} */
-label{
-	width: 70%;
-	/* size:20px; */
+.lst, .snd{
+	width: 300px;
+	margin: 20px;
 }
-input[type="file"],[type=button],[type=checkbox]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 40%;
-    margin: 8px 0;
-    border-radius: 10px;
+.top{
+	margin: 20px;
 }
-/* .lst{
-	align:left;
-	position:relative;
-	background-color:  red;
-	width:50%;
-	height:50%;
-
-} */
-/* .snd{
-	align:left;
-	position:relative;
-	background-color:  blue;
-	margin-top:40%;
-	width:20p%;
-} */
-img{
-	width:150px;
-	height:60px;
+.categ{
+	width: 80%;
+}
+.mrh{
+	font-size: 19px;
+}
+.categ{
+	float: left;
+	margin:20px 50px 20px 30px;
+	width: 200px;
 }
 
+.sub{
+	width: 250px;
+}
 
-/* medical request STYLE BEGINS */
-/* medical request STYLE BEGINS */
+/* medical request STYLE ends */
+/* medical request STYLE ends */

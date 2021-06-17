@@ -98,7 +98,7 @@
         ?>
         <div class="container">
             <div class="inside_container">
-            <h2 id="head">Change Password</h2>
+            <h1 class="hed">Change Password </h1>
                 <?php  
                             if(isset($_GET['err'])=='wrongpass'){
                                 ?>
@@ -106,15 +106,15 @@
                                 <?php
                             }
                         ?>
-                <!-- <div class="pass" id="div" style="display:none;"> -->
                 <div class="pass" id="div">
                     <form action="php\UpdatePass.php" method="POST" id="fm">
                         <input type="password" class="box" name="old" id="one" placeholder="Old password" onclick="dis()"><br>
                         <input type="password" class="box" name="new" id="two" onblur="pass('two')" placeholder="New password"><br>
                         <input type="password" class="box" name="" id="three" placeholder="Confirm Password"><br><br>
+                        <input type="button"   class="box" id="ch" onclick="send()" value="Change Paswword">
+
                     </form>
                 </div>
-                <input id="pbtn" type="button" class="butt" id="ch" onclick="send()" value="Change Paswword">
                 <BR><h3 style="color:blue;"><a href="ViewProfile.php">🢀 Go Back</a></h3>
             </div>
         </div>

@@ -2,44 +2,15 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
-
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
 </head>
-<style>
-
-table{
-	margin-left:4%;
-	/* margin-top:1%; */
-	/* border-collapse: collapse;	 */
-}
-
-label{
-	width: 70%;
-}
-input[type="text"]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 25%;
-    margin: 8px 0 0 6%;
-    border-radius: 10px;
-}input[type=submit]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 8%;
-    margin: 8px 0 15px 1%;
-    border-radius: 10px;
-}
-</style>
-
 <body>
 
 <!-- Home page begins -->
 
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
-
-		<br><h1 style="margin-left:4%;">Quarantined List</h1><br>
-
+		<br><h1 class="thead">Quarantined List</h1><br>
 		<form method="post" action="ViewQuarantine.php">
 			<input type="text" name="search" placeholder="Search in List">
 			<input type="submit" value="Search">
@@ -56,26 +27,35 @@ input[type="text"]{
 				if (isset($_POST['search'])){
 					$searchq = $_POST['search'];
 					$searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
-					// $query = mysql_query("SELECT * FROM user WHERE name LIKE '%$searchq%' OR hname LIKE '%$searchq%'") or die("could not search");
-					$query = "SELECT * FROM user WHERE name LIKE '%$searchq%' OR hname LIKE '%$searchq%'";
+					
+					$query1 = "select pn_id FROM punchayat WHERE pn_name LIKE '%$searchq%'";
+					$result1 =mysqli_query($con,$query1)or die("could not search1");
+					$count1 = mysqli_num_rows($result1);
+					if($count1 > 0)
+					{
+						$prow = mysqli_fetch_array($result1);
+						$pcatid = $prow['pn_id'];
+					}
+					else
+					{
+						$pcatid = -1;
+					}	
+					
+					$query = "SELECT * FROM user WHERE name LIKE '%$searchq%' OR hname LIKE '%$searchq%' or pn_id = '$pcatid'";
 					$result =mysqli_query($con,$query);
 					$count = mysqli_num_rows($result);
 					if($count == 0){
-						?>
-						</table><br><br><tab>
-						<?php
-						// $output = 'There was no search results!';
-						echo  'There was no search results!';
+						echo  '<p id="error">There is no search results!</p>';
 					}
 					else{
 						?>
-							<table class="cart" cellpadding="5" cellspacing="10">
+							<table class="cart" >
 							<tbody>
 							<tr>
-								<th style="text-align:left;" width="40px">No</th>
-								<th style="text-align:left;" width="100px">Name</th>
-								<th style="text-align:left;" width="100px">House Name</th>
-								<th style="text-align:left;" width="100px">Place</th>
+								<th >No</th>
+								<th >Name</th>
+								<th >House Name</th>
+								<th >Place</th>
 								<!-- <th style="text-align:left;" width="100px">Date</th> -->
 								<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 							</tr>
@@ -88,12 +68,12 @@ input[type="text"]{
 							<td><?php echo $row['name'] ?></td>
 							<td><?php echo $row['hname'] ?></td>
 							<?php
-							$id=$row['sd_id'];
-							$quer="select * from subdist where sd_id=$id";
+							$id=$row['pn_id'];
+							$quer="select * from punchayat where pn_id=$id";
 							$resl =mysqli_query($con,$quer);
 							$ro=mysqli_fetch_array($resl);
 							?>
-								<td><?php echo $ro['sd_name'] ?></td>
+								<td><?php echo $ro['pn_name'] ?></td>
 
 
 							</tr>
@@ -104,13 +84,13 @@ input[type="text"]{
 				// Normal case 
 				else{
 						?>
-							<table class="cart" cellpadding="10" cellspacing="10">
+							<table class="cart" >
 							<tbody>
 							<tr>
-								<th style="text-align:left;" width="40px">No</th>
-								<th style="text-align:left;" width="100px">Name</th>
-								<th style="text-align:left;" width="150px">House Name</th>
-								<th style="text-align:left;" width="150px">Place</th>
+								<th >No</th>
+								<th >Name</th>
+								<th >House Name</th>
+								<th >Place</th>
 								<!-- <th style="text-align:left;" width="100px">Date</th> -->
 								<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 							</tr>
@@ -127,13 +107,13 @@ input[type="text"]{
 							<td><?php echo $row['hname'] ?></td>
 							<?php
 							// echo $row['L_id'] 
-							$id=$row['sd_id'];
-							$quer="select * from subdist where sd_id=$id";
+							$id=$row['pn_id'];
+							$quer="select * from punchayat where pn_id=$id";
 							$resl =mysqli_query($con,$quer);
 							$ro=mysqli_fetch_array($resl);
 							// echo count($ro);
 							?>
-								<td><?php echo $ro['sd_name'] ?></td>
+								<td><?php echo $ro['pn_name'] ?></td>
 
 
 							</tr>

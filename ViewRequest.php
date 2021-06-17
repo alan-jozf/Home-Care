@@ -2,43 +2,22 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
 
 </head>
-<style>
-
-table{
-	margin-left:4%;
-	margin-top:1%;
-	
-}
-label{
-	width: 70%;
-}
-input[type="file"],[type=button]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 40%;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-</style>
 
 <body>
-
-<?php require("Topbar.php"); ?> 
+	<?php require("Topbar.php"); ?> 
     <div class="homepage">
-
-		<br><h1 style="margin-left:4%;">Medical Requests</h1><br>
-
-		<table class="cart" cellpadding="5" cellspacing="5">
+		<h1 class="thead">Medical Requests</h1>
+		<table  class="cart">
 			<tbody>
 			<tr>
-				<th style="text-align:left;" width="40px">No</th>
-				<th style="text-align:left;" width="100px">Name</th>
-				<th style="text-align:left;" width="100px">Urgency</th>
-				<th style="text-align:left;" width="100px">Reason</th>
-				<th style="text-align:left;" width="150px">Date</th>
+				<th >No</th>
+				<th >Name</th>
+				<th >Urgency</th>
+				<th >Reason</th>
+				<th >Date</th>
 				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
 			<?php
@@ -63,14 +42,13 @@ input[type="file"],[type=button]{
 
 					<td><?php echo $row['Urgency'] ?></td>
 					<td><?php echo $row['Reason'] ?></td>
-					<td><?php echo $row['Date'] ?></td><br>
+					<td><?php echo $row['Date'] ?></td>
 
 					</tr>
 					<?php
 				}
-			?> 		
-			
-			
+			?> 	</tbody>	
+		</table >
 	</div>
 </body>
 </html>

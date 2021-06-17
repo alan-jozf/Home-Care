@@ -2,54 +2,30 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
 
 </head>
-<style>
-
-table{
-	margin-left:4%;
-	/* margin-top:1%; */
-	
-}
-label{
-	width: 70%;
-}
-
-input[type="file"]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-button{
-	padding: 3px;
-    margin: 0 0 10px 79%  ;
-    /* border-radius: 10px; */
-}
-</style>
 
 <body>
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
 
-
-		<br><h1 style="margin-left:4%;">Pending Deliveries</h1>
+		<br><h1 class="thead">Pending Deliveries</h1><br>
 
 		<button><a href="php/GeneratePDF.php" target="_blank"> Generate PDF</a></button>
 
-		<table class="cart" cellpadding="5" cellspacing="10" >
+		<table class="cart" >
 			<tbody>
 			<tr>
-				<th style="text-align:left;" width="40px">No</th>
-				<th style="text-align:left;" width="100px">Date</th>
-				<th style="text-align:left;" width="100px">User</th>
-				<th style="text-align:left;" width="100px">Mobile</th>
-				<th style="text-align:left;" width="100px">House Name</th>
-				<th style="text-align:left;" width="100px">Place</th>
-				<th style="text-align:left;" width="100px">Image</th>
-				<th style="text-align:left;" width="100px">Product</th>
-				<th style="text-align:center;" width="80px">Quantinty</th>
+				<th >No</th>
+				<th >Date</th>
+				<th >User</th>
+				<th >Mobile</th>
+				<th >House Name</th>
+				<th >Place</th>
+				<th >Image</th>
+				<th >Product</th>
+				<th >Quantinty</th>
 					
 
 				<!-- <th style="text-align:left;" width="100px">Date</th> -->
@@ -75,9 +51,9 @@ button{
 					$querB="select * from user where L_id=$lid";
 					$reslB =mysqli_query($con,$querB);
 					$roB=mysqli_fetch_array($reslB);
-					$sid=$roB['sd_id'];
+					$sid=$roB['pn_id'];
 
-					$querC="select * from subdist where sd_id=$sid";
+					$querC="select * from punchayat where pn_id=$sid";
 					$reslC =mysqli_query($con,$querC);
 					$roC=mysqli_fetch_array($reslC);
 
@@ -92,7 +68,7 @@ button{
 						<td><?php echo $roB['name'] ?></td>
 						<td><?php echo $roD['PhoneNo'] ?></td>
 						<td><?php echo $roB['hname'] ?></td>
-						<td><?php echo $roC['sd_name'] ?></td>
+						<td><?php echo $roC['pn_name'] ?></td>
 						<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 						<td><?php echo $ro['name'] ?></td>
 						<td style="text-align:center;"><?php echo $row['quantity'] ?></td>

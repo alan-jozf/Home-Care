@@ -2,43 +2,11 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
-	<link rel="stylesheet" type="text/css" href="css\Home.css" />
-
+	<link rel="stylesheet" type="text/css" href="css/registration.css" />
 </head>
 <style>
 
-form{
-	margin-left:6%;
-	margin-top:2%;
-	
-}
 
-label{
-	width: 20%;
-}
-input[type="file"],[type=button],[type=text],[type=number]{
-    /* background-color:  rgb(0, 138, 103); */
-    /* color: #fff; */
-    width: 30%;
-    margin: 8px 0;
-	padding: 8px 20px;
-    border-radius: 10px;
-}
-select{
-	/* color: #fff; */
-    width: 30%;
-	padding: 8px 20px;
-    margin: 8px 0;
-    border-radius: 10px;
-
-}
-input[type=text] {
-  width: 30%;
-  padding: 8px 20px;
-  margin: 8px 0;
-  border-radius: 10px;
-}
 </style>
 <script>
 function ee()
@@ -48,12 +16,13 @@ function ee()
 	}
 </script>
 <body>
-<?php require("Topbar.php"); ?> 
+	<?php require("Topbar.php"); 		
+		include('php/config.php');
+		?> 
     <div class="homepage">
- 
-    <form action="php\AddPrdt.php" method='POST' enctype="multipart/form-data">
-		<h2>Add a New Porduct</h2><br>
 
+    <form class="adpdtform" action="php\AddPrdt.php" method='POST' enctype="multipart/form-data">
+		<h2 id="head">Add a New Porduct</h2>
 		<?php
 			if(isset($_GET['err'])){
 				if($_GET["err"]=="done"){
@@ -61,24 +30,49 @@ function ee()
 				}
 			}
 		?>
-
-		<label>Name</label><br>
-		<input type="text" onclick=ee() name="name" required><br>
-		<label>Price</label><br>
-		<input type="number"  onclick=ee() name="price"  min=1 required><br>
-		<label>Quantity</label><br>
-		<input type="number"  onclick=ee() name="quantity" min=1 required><br>
-		<label>Category</label><br>
-		<select name ="category"  required>
+		<div class="formrow">
+			<div class="formcol">
+				<p>Name :</p>
+				<input type="text" onclick=ee() name="name" required><br>
+				<!-- <input type="text" placeholder="" name="hname"id="1"   onclick=ee() onblur="myhname()"required> -->
+			</div>
+			<div class="formcol">
+				<p>Description :</p>
+				<input type="text" onclick=ee() name="desc" required><br>
+			</div>
+		</div>
+		<div class="formrow">
+			<div class="formcol">
+				<p>Category :</p>
+				<select name ="category"  required>
 					<option value="" onclick=ee() ></option>
-					<option value="Vegitable">Vegitable</option>
-					<option value="Fruits">Fruits</option>
-					<option value="Food">Food</option>
-					<option value="Grocery">Grocery</option>
-		</select><br>
-		<label>Image</label><br>
-		<input type="FILE"  onclick=ee() name='image' required >
-		<input type="submit" value="Add ">
+					<?php $query =mysqli_query($con,"SELECT * FROM prodt_category");
+					while($row=mysqli_fetch_array($query))
+					{ 
+						$val=$row['pcat_id'];
+						?><option value="<?php echo $val;?>"><?php echo $row['category'];?></option>
+						<?php
+						}?>
+				</select><br>		
+			</div>
+			<div class="formcol">
+				<p>Image :</p>
+				<input type="FILE"  onclick=ee() name='image' required >
+			</div>
+		</div>
+		<div class="formrow">
+			<div class="formcol">
+				<p>Price :</p>
+				<input type="number"  onclick=ee() name="price"  min=1 required><br>
+			</div>
+			<div class="formcol">
+				<p>Quantity :</p>
+				<input type="number"  onclick=ee() name="quantity" min=1 required><br>
+			</div>
+		</div>
+		<div class="formrow">
+			<input class="addpdt" type="submit" value="Add ">
+		</div>
 
 	</form>
 	</div>

@@ -27,8 +27,9 @@
         height: 275px;
         margin-top: 3%;
         margin-left: 2.5%;
-		border-radius: 2px;
-		border: #bbbbbb 1px solid;
+		border-radius: 10px;
+		/* border: #bbbbbb 1px solid; */
+		box-shadow: rgb(107, 107, 107) 3px 3px 8px, white -4px -4px 10px;
 	}  
 	.Pimage{
 		margin: 10px ;

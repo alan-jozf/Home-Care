@@ -157,10 +157,10 @@
         {
             var myLat = 9.6358538; 
             var myLong = 76.5971685;
-
             //    https://www.google.co.in/maps/place/Ayarkunnam,+Kerala/@9.6358538,76.5971685,
-            //    myLat = position.coords.latitude;
-            //    myLong = position.coords.longitude;
+
+            //    var myLat = position.coords.latitude;
+            //    var myLong = position.coords.longitude;
 
             var coords = new google.maps.LatLng(myLat,myLong);
             var mapOptions = {

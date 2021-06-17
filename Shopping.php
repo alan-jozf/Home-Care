@@ -49,7 +49,7 @@
 							<div class="Pimage"><img id="pdt" src="<?php echo $image_src;  ?>" ></div>
 							<div class ="line">
 								<div class="pname"><h3 ><?php echo $row["name"]; ?></h3></div>
-								<div class="pdic"><h5><?php echo " (". $row["discription"]. ")"; ?></h5></div>
+								<div class="pdic"><h5><?php echo " (". $row["description"]. ")"; ?></h5></div>
 							</div>
 							<div class="pprice"><h4 ><?php echo "Rs: ".$row["price"];  ?></h4></div> 
 							<div class ="line">

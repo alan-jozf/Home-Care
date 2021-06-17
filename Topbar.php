@@ -3,12 +3,12 @@
 ?>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
     <link rel="stylesheet" href="css/topleftbar.css">
      <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
      <script src="script/jquery-3.5.1.min.js" type="text/javascript"></script>
-    <title>Home Care</title>
+    <title>Home Care </title>
 <style>
 
 </style> 
@@ -78,7 +78,7 @@
                     ?>
                         <button id="notification-icon" name="button" onclick="myFunction()">
                             <span id="notification-count"><?php if($count>0) { echo $count; } ?></span>
-                            <img class="bellicon" src="images/bell.png" width="35" height="35"/>
+                            <img class="bellicon" src="images/bell.png" >
                         </button>
                         <div id="notification-latest"></div>
                     <?php

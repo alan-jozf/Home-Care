@@ -2,46 +2,16 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
-
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
 </head>
-<style>
-
-table{
-	margin-left:4%;
-	/* margin-top:1%; */
-	/* border-collapse: collapse;	 */
-}
-
-label{
-	width: 70%;
-}
-input[type="text"]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 25%;
-    margin: -5% 0 0 6%;
-    border-radius: 10px;
-}input[type=submit]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-    width: 8%;
-    margin: 8px 0 15px 1%;
-    border-radius: 10px;
-}
-</style>
-
 <body>
-
 <!-- Home page begins -->
 
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
-
-		<br><h1 style="margin-left:4%;">Product List</h1>
-
+		<h1 class="thead">Product List</h1>
 		<form method="post" action="ViewProduct.php">
-			<input type="text" name="search" placeholder="Search in List">
+			<input type="text" name="search" placeholder=" Search in List">
 			<input type="submit" value="Search">
 		</form>
 
@@ -57,35 +27,48 @@ input[type="text"]{
 				{
 					$searchq = $_POST['search'];
 					$searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
-					// $query = mysql_query("SELECT * FROM product WHERE name LIKE '%$searchq%' OR category LIKE '%$searchq%'") or die("could not search");
-					$query = "SELECT * FROM product WHERE name LIKE '%$searchq%' OR category LIKE '%$searchq%' ORDER BY quantity ";
-					$result =mysqli_query($con,$query);
+					
+					$query1 = "select pcat_id FROM prodt_category WHERE category LIKE '%$searchq%'";
+					$result1 =mysqli_query($con,$query1)or die("could not search1");
+					$count1 = mysqli_num_rows($result1);
+					if($count1 > 0)
+					{
+						$prow = mysqli_fetch_array($result1);
+						$pcatid = $prow['pcat_id'];
+					}
+					else
+					{
+						$pcatid = -1;
+					}
+					$query = "select * FROM product WHERE name LIKE '%$searchq%' or description like '%$searchq%' or pcat_id = '$pcatid' ORDER BY quantity";
+					$result =mysqli_query($con,$query)or die($query."could not search2");
 					$count = mysqli_num_rows($result);
 					if($count == 0)
 					{
-						?>
-						</table><br><br><tab>
-						<?php
-						// $output = 'There was no search results!';
-						echo  'There was no search results!';
+						echo  '<p id="error">There is no search results!</p>';
 					}
 					else{
 							?>
-								<table class="cart" cellpadding="5" cellspacing="10">
+								<table class="cart" >
 								<tbody>
 								<tr>
-									<th style="text-align:left;" width="40px">No</th>
-									<th style="text-align:left;" width="100px">Image</th>
-									<th style="text-align:left;" width="100px">Name</th>
-									<th style="text-align:left;" width="100px">Category</th>
-									<th style="text-align:left;" width="100px">Price</th>
-									<th style="text-align:left;" width="100px">Quantity</th>
-									<th style="text-align:left;" width="100px">Edit</th>
-									<th style="text-align:left;" width="100px">Delete</th>
+									<th >No</th>
+									<th >Image</th>
+									<th >Name</th>
+									<th >Description</th>
+									<th >Category</th>
+									<th >Price</th>
+									<th >Quantity</th>
+									<th >Edit</th>
+									<th >Delete</th>
 								</tr>
 							<?php
 							while($row=mysqli_fetch_array($result))  
 							{
+								$pcatid=$row['pcat_id'];
+								$query2 = "SELECT * FROM prodt_category where pcat_id=$pcatid";
+								$result2 =mysqli_query($con,$query2);
+								$row2=mysqli_fetch_array($result2)
 								?>
 								<tr>
 									<td><?php echo ++$counter ?></td>
@@ -95,7 +78,8 @@ input[type="text"]{
 										$image_src = "uploads/".$image;?>
 									<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
 									<td><?php echo $row['name'] ?></td>
-									<td><?php echo $row['category'] ?></td>
+									<td><?php echo $row['description'] ?></td>
+									<td><?php echo $row2['category'] ?></td>
 									<td><?php echo $row['price'] ?></td>
 									<td><?php echo $row['quantity'] ?></td>
 									<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
@@ -113,36 +97,42 @@ input[type="text"]{
 					$result =mysqli_query($con,$query);
 					$count = mysqli_num_rows($result);
 					?>
-						<table class="cart" cellpadding="5" cellspacing="10">
+						<table class="cart" >
 						<tbody>
 						<tr>
-							<th style="text-align:left;" width="40px">No</th>
-							<th style="text-align:left;" width="100px">Image</th>
-							<th style="text-align:left;" width="100px">Name</th>
-							<th style="text-align:left;" width="100px">Category</th>
-							<th style="text-align:left;" width="100px">Price</th>
-							<th style="text-align:left;" width="100px">Quantity</th>
-							<th style="text-align:left;" width="100px">Edit</th>
-							<th style="text-align:left;" width="100px">Delete</th>
+							<th >No</th>
+							<th >Image</th>
+							<th >Name</th>
+							<th >Description</th>
+							<th >Category</th>
+							<th >Price</th>
+							<th >Quantity</th>
+							<th >Edit</th>
+							<th >Delete</th>
 						</tr>
 					<?php
 					while($row=mysqli_fetch_array($result))  
 					{
+						$pcatid=$row['pcat_id'];
+						$query2 = "SELECT * FROM prodt_category where pcat_id=$pcatid";
+						$result2 =mysqli_query($con,$query2);
+						$row2=mysqli_fetch_array($result2)
 						?>
-							<tr>
-								<td><?php echo ++$counter ?></td>
-								<?php 
-									$pid =$row['P_id'];
-									$image = $row['image'];
-									$image_src = "uploads/".$image;?>
-								<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
-								<td><?php echo $row['name'] ?></td>
-								<td><?php echo $row['category'] ?></td>
-								<td><?php echo $row['price'] ?></td>						
-								<td><?php echo $row['quantity'] ?></td>
-								<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
-								<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="images\icon-delete.png" /></a></td>
-							</tr> 
+						<tr>
+							<td><?php echo ++$counter ?></td>
+							<?php 
+								$pid =$row['P_id'];
+								$image = $row['image'];
+								$image_src = "uploads/".$image;?>
+							<td><img src='<?php echo $image_src;  ?>' width="50" height="50" ></td>
+							<td><?php echo $row['name'] ?></td>
+							<td><?php echo $row['description'] ?></td>
+							<td><?php echo $row2['category'] ?></td>
+							<td><?php echo $row['price'] ?></td>						
+							<td><?php echo $row['quantity'] ?></td>
+							<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
+							<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="images\icon-delete.png" /></a></td>
+						</tr> 
 						<?php
 					}
 				}
