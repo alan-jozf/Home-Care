@@ -66,11 +66,11 @@ elseif(isset($_POST['otp'])){
         else{
             $sql="delete from tbl_otp where otp_data='$otp'";
             mysqli_query($con,$sql);
-            header('Location:../fpEnterOTP.php?err=wrong');
+            header('Location:../fpEnterOtp.php?err=wrong');
         }
     }
     else{
-        header('Location:../fpEnterOTP.php?err=wrong');
+        header('Location:../fpEnterOtp.php?err=wrong');
     }
 }
 else{
