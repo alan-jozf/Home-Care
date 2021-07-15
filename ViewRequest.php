@@ -18,6 +18,7 @@
 				<th >Urgency</th>
 				<th >Reason</th>
 				<th >Date</th>
+				<th >Mobile</th>
 				<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 			</tr>
 			<?php
@@ -36,6 +37,9 @@
 					$quer="select * from user where L_id=$id";
 					$resl =mysqli_query($con,$quer);
 					$ro=mysqli_fetch_array($resl);
+					$quer2="select * from login where L_id=$id";
+					$resl2 =mysqli_query($con,$quer2);
+					$ro2=mysqli_fetch_array($resl2);
 					// echo count($ro);
 					?>
 						<td><?php echo $ro['name'] ?></td>
@@ -43,6 +47,7 @@
 					<td><?php echo $row['Urgency'] ?></td>
 					<td><?php echo $row['Reason'] ?></td>
 					<td><?php echo $row['Date'] ?></td>
+					<td><?php echo $ro2['PhoneNo'] ?></td>
 
 					</tr>
 					<?php

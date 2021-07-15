@@ -1,57 +1,65 @@
 <?php
 include('config.php');
+session_start();
+
 // ob_start();
   require_once 'dompdf/autoload.inc.php';
   use Dompdf\Dompdf;
   $dompdf = new Dompdf();
-
+  ?>
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
+<?php
   // session_start();
   // if(isset($_POST['create']))
   // {
     date_default_timezone_set("Asia/Kolkata");
     $date = date('d-m-Y H:i:A');
-    $query="select * from myOrder";
+    $tmpid=$_SESSION['id'];
+
+    $query="select * from volunteer";
     $result =mysqli_query($con,$query);
     $row=mysqli_fetch_array($result); 
-    $lid=$row['L_id'];
-    $querC="select * from subdist where sd_id=$lid";
-    $querB="select * from user where L_id=$lid";
+    $plid=$row['pn_id'];
+
+    $querB="select * from punchayat where pn_id=$plid";
     $reslB =mysqli_query($con,$querB);
     $roB=mysqli_fetch_array($reslB);
-    $sid=$roB['sd_id'];
-    $querC="select * from subdist where sd_id=$sid";
-    $reslC =mysqli_query($con,$querC);
-    $roC=mysqli_fetch_array($reslC);
+    $pname=$roB['pn_name'];
 
-
-    $output ='<p align="left">'.$roC['sd_name'] .'</p><p align="left">'.$date.'</p>
+    $output ='<p align="left">'.$pname .'</p><p align="left">'.$date.'</p>
               <h3 align="center"><u>Home Care </u></h3><h4>Delivery List</h4><br />';
     $output .="
-      <table fontsize= '10' width ='100%' border='1' cellpadding='5' cellspacing='0'>
+      <table fontsize= '10' border='1' cellpadding='5' cellspacing='0'>
       <tbody>
-      <tr>
-        <th width='10px'>No</th>
-        <th width='70px'>Date</th>
-        <th width='100px'>User</th>
-        <th width='80px'>Mobile</th>
-        <th width='100px'>House Name</th>
-        <th width='100px'>Place</th>
-        <th width='80px'>Product</th>
-        <th width='70px'>Quantinty</th>
-          
+      <tr>          
+      <th width='10px'>No</th>
+      <th width='80px'>Date</th>
+      <th width='60px'>User</th>
+      <th width='80px'>Mobile</th>
+      <th width='100px'>House Name</th>
+      <th width='80px'>Place</th>
+      <th width='60px'>Product</th>
+      <th width='60px'>Description</th>
+      <th width='20px'>Quantinty</th>
       </tr>
       ";
     
-    $counter = 0;
-    
-    $query="select * from myOrder";
-    $result =mysqli_query($con,$query);
-    while($row=mysqli_fetch_array($result))  
-    {	
+      $counter = 0;
+      include('php/config.php');
+      
+
+      $query="select * from myorder where L_id in (select L_id from user where pn_id =$plid)";
+      $result =mysqli_query($con,$query);
+      while($row=mysqli_fetch_array($result))  
+
+
+      // $query="select * from myorder";
+      // $result =mysqli_query($con,$query);
+      // while($row=mysqli_fetch_array($result))  
+      {	
         $id=$row['P_id'];
         $Oid=$row['O_id'];
         $lid=$row['L_id'];
-
 
         $quer="select * from product where P_id=$id";
         $resl =mysqli_query($con,$quer);
@@ -62,9 +70,9 @@ include('config.php');
         $querB="select * from user where L_id=$lid";
         $reslB =mysqli_query($con,$querB);
         $roB=mysqli_fetch_array($reslB);
-        $sid=$roB['sd_id'];
+        $sid=$roB['pn_id'];
 
-        $querC="select * from subdist where sd_id=$sid";
+        $querC="select * from punchayat where pn_id=$sid";
         $reslC =mysqli_query($con,$querC);
         $roC=mysqli_fetch_array($reslC);
 
@@ -80,8 +88,9 @@ include('config.php');
           <td>'.$roB['name'] .'</td>
           <td>'.$roD['PhoneNo'] .'</td>
           <td>'.$roB['hname'] .'</td>
-          <td>'.$roC['sd_name'] .'</td>
+          <td>'.$roC['pn_name'] .'</td>
           <td>'.$ro['name'] .'</td>
+          <td>'.$ro['description'] .'</td>
           <td>'.$row['quantity'] .'</td>
         </tr>';
     }

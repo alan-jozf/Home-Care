@@ -95,7 +95,8 @@
             <?php
                 require('php/pconfig.php');
                 ?>
-            <form action="php/submit.php" method="post" class="paywithcard">
+            <form action="php/submiteasy.php" method="post" class="paywithcard">
+            <!-- <form action="php/submit.php" method="post" class="paywithcard"> -->
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<?php echo $publishableKey?>"

@@ -59,22 +59,40 @@
         height:45px;
         border-radius: 50%;
         transition: 0.10s ease-out;
-    }
+        }
         .usericon:hover{
             transform: scale(1.1);
         }
-    .carticon{
+    .caart{
         float:right;
         margin-right:50px;
-        margin-top:25px;
+        margin-top:20px;
         position:relative;
         cursor:pointer;    
-        width:35px;
-        height:35px;
+        width:50px;
+        height:50px;
         border:0;
         transition: 0.10s ease-out;
-    }
-        .carticon:hover{
+        }
+        .carticon{
+            float:left;    
+            width:30px;
+            height:30px;
+            margin-top: 10px;
+            border:0;
+        }
+        #carth2{
+            float: right;
+            /* font-size: 12px; */
+            font-size:0.7em;
+            background-color: red;
+            border-radius: 50px;
+            color: white;
+            width: 12px;
+            height: 16px;
+            padding-left:5px;
+        }
+        .caart:hover{
             transform: scale(1.1);
         }
     /* display name  h3*/
@@ -90,16 +108,16 @@
 /* NOTIFICATION STYLE BEGINS*/
 
 
-    button#notification-icon:hover{
+    #notification-icon:hover{
         transform: scale(1.1);
     }
-    button#notification-icon {
+    #notification-icon {
         background: transparent;
         border: 0;
         margin-right:50px;
         height: 50px;
         width:50px;
-        margin-top:18px;
+        margin-top:25px;
         position:relative;
         float:right;
         cursor:pointer;
@@ -199,12 +217,19 @@
             }
             .left_cont ul li:hover{
                 /* background-color: rgb(7, 179, 136); */
-                background-color: rgb(202, 202, 202);
+                /* background-color: rgb(202, 202, 202); */
+                
+				background-color: #7a7cec;
+				color: white;
             }
             .left_cont a{
                 text-decoration:none;
                 color:black;
             }
+            /* a:active{
+                background-color: #7a7cec;
+				color: white;
+            } */
 
             .smallicon{
                 width: 22px;
@@ -243,7 +268,7 @@
     top: 0;
     right: 0;
     left: 0;
-    /* width: 78%; */
+    /* width:fit-content; */
     display: flex;
     flex-wrap: wrap;
     min-width: 350px;

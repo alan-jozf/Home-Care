@@ -44,8 +44,13 @@
                 $row=mysqli_fetch_array($result);
                 if($row['user_type']=='user')
                 {    ?>
-                    <a href="Cart.php"><img class="carticon" src="images/cart.png"></a>
+                    <a href="Cart.php"><div class="caart">
+                    <img class="carticon" src="images/cart.png">
                     <?php
+                        $sql="select * from cart where L_id= $tmpid";
+                        $result=mysqli_query($con, $sql);
+                        $count=mysqli_num_rows($result);
+                        echo "<h2 id='carth2'>".$count. "</h2></div></a>";
                 }
                 if($row['user_type']=='admin')
                 {                      
@@ -76,10 +81,10 @@
                         $count+=1;
                     }
                     ?>
-                        <button id="notification-icon" name="button" onclick="myFunction()">
+                        <div id="notification-icon" name="button" onclick="myFunction()">
                             <span id="notification-count"><?php if($count>0) { echo $count; } ?></span>
                             <img class="bellicon" src="images/bell.png" >
-                        </button>
+                        </div>
                         <div id="notification-latest"></div>
                     <?php
                 }

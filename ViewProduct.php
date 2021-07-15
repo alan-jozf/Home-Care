@@ -130,7 +130,7 @@
 							<td><?php echo $row2['category'] ?></td>
 							<td><?php echo $row['price'] ?></td>						
 							<td><?php echo $row['quantity'] ?></td>
-							<td><a href="EditProduct.php?dd=<?php echo $pid ?>">Edit</a></td>
+							<td><a href="EditProduct.php?dd=<?php echo $pid ?>"><img style='width:15px;height:15px;' src="images\edit.png" /></a></td>
 							<td><a href="php/DeleteProduct.php?dd=<?php echo $pid ?>"><img src="images\icon-delete.png" /></a></td>
 						</tr> 
 						<?php

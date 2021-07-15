@@ -18,7 +18,7 @@
 				<th >Message</th>
 				<th >Date</th>
 				<th >Mobile</th>
-				<th >Delete</th>
+				<th >Complete</th>
 
 			</tr>
 			<?php
@@ -46,7 +46,7 @@
 					<td><?php echo $row['message'] ?></td>
 					<td><?php echo $row['date'] ?></td>
 					<td><?php echo $ro2['PhoneNo'] ?></td>
-					<td><a href="php/DeleteMsg.php?mid=<?php echo $mid ?>"><img src="images\icon-delete.png" /></a></td>
+					<td><a href="php/DeleteMsg.php?mid=<?php echo $mid ?>"><img width ="20px" height="20px" src="images\complete.png" /></a></td>
 
 
 					</tr>

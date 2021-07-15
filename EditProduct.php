@@ -2,51 +2,16 @@
 <html lang="en">
 <head>
 	<title>EDIT</title>
-	<link rel="stylesheet" type="text/css" href="css\registration.css" />
+	<link rel="stylesheet" type="text/css" href="css/table.css" />
+	<link rel="stylesheet" type="text/css" href="css/profile.css" />
 
 </head>
-<style>
-div.right_cont{
-	/* background-color: rgb(232, 232, 232);; */
-}
-form{
-	margin:1%;
-	
-}
-label{
-	width: 70%;
-}
-img{
-	/* border-radius:50%; */
-}
-h2{
-	margin:5% 0 3% 8%;
-}
-input[type="number"],[type=submit],[type=file]{
-    background-color:  rgb(0, 138, 103);
-    color: #fff;
-	/* width: 10%; */
-	align:left;
-    margin: 8px 0;
-    border-radius: 10px;
-}
-form{
-	align:left;
-}
-.cart input[type="submit"]{
-	width:100%;
-}
-table{
-	margin-left:5%;
-}
-</style>
-
 <body>
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
 
 
-		<a href="ViewProduct.php">🢀 Go Back</a></td>
+		<a href="ViewProduct.php">🢀 Go Back</a>
 		<?php
 			include('php/config.php');
 			$pid  = $_GET['dd'];
@@ -55,14 +20,14 @@ table{
 			$row=mysqli_fetch_array($reslt);
 			$image = $row['image'];
 			$image_src = "uploads/".$image;
-		?>
-		<h2><?php echo $row['name'] ?></h2>
-		<table class="cart" cellpadding="5" cellspacing="10">
+		?><br><br>		
+		<h1 class="thead"><?php echo $row['name'] ?></h1>
+		<table class="cart" >
 				<tr>
-					<th style="text-align:left;" width="100px">Column</th>
-					<th style="text-align:left;" width="150px">Current value</th>
-					<th style="text-align:left;" width="200px">Input</th>
-					<th style="text-align:left;" width="100px"></th>
+					<th >Column</th>
+					<th >Current value</th>
+					<th >Input</th>
+					<th ></th>
 				</tr>
 			<form method="post" action="php/EditImage.php?dd=<?php echo $pid ?>" enctype="multipart/form-data">
 				<tr>

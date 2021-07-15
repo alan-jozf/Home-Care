@@ -1,0 +1,259 @@
+/* account details STYLE BEGINS */
+/* account details STYLE BEGINS */
+
+
+.vlefttop{
+    margin: 50px 0 20px 50px;
+    width: 90%;
+}
+.vlft, .vrgt{
+    margin: 0 0 50px 50px;
+}
+p{
+    padding: 10px 0;
+}
+input[type=button],[type=submit]{
+    background-color: rgb(255, 255, 255);
+    color: rgb(22, 0, 219);
+    margin: 5px 0 ;
+    padding:5px 10px;
+    cursor: pointer;
+    border :2px solid #4e67f1 ;
+    outline:none;
+    white-space: pre-line;
+}
+input[type=button]:hover {
+    background-color: rgb(22, 0, 219);
+    color: white;
+    }
+input[type=submit]:hover {
+    background-color: rgb(22, 0, 219);
+    color: white;
+    }
+#nov{
+    margin-top: 20px;
+    border-radius: 10px;
+    color: white;
+    border:0px;
+    background-color: rgb(238, 0, 0);
+}
+#d1v{
+    margin: 20px 50px 0 0;
+    border-radius: 10px;
+    color: white;
+    border:0px;
+    background-color: rgb(57, 2, 253);
+}
+#d2v{
+    margin: 20px 50px 0 0;
+    border-radius: 10px;
+    color: white;
+    border:0px;
+    background-color: rgb(4, 104, 1);
+}
+/*account details STYLE ends */
+/*account details STYLE ends */
+
+
+/* book shedule STYLE BEGINS */
+/* book shedule STYLE BEGINS */
+
+
+.barow1, .barow2{
+    margin: 0 50px ;
+    width: 80%;
+}
+.balft, .bargt{
+    margin: 0 0 50px 50px;
+    width: 40%;
+    float: left;
+}
+input[type=text],select{
+    width: 150px;
+    padding: 5PX;
+    margin: 5PX 5px 0 0;
+}
+h3{
+    margin-bottom: 20px;
+}
+.barow2 #k2{
+    margin-right: 50px;
+}
+.barow2 p{
+    float: left;
+    margin-right: 20px;
+}
+.barow2 input[type=button]{
+    float: left;
+    margin-right: 20px;
+}
+
+.barow3{
+    margin: 10px 0 20px 50px;
+    /* width: 95%; */
+    min-width: 1000px;
+}
+.optrow1{
+    margin-bottom: 20px;
+    position: relative;
+    height: 80px;
+}
+.resul{
+    border: #838282 1px solid;
+    padding: 10px;
+    float: left;
+    width: 150px;
+}
+.resul p{
+    padding: 5px;
+}
+.date{
+    padding: 20px 0 20px 238px;
+    min-width: 800px;
+}
+.date  input[type=button]{
+    border: 0px;
+    border-radius: 5px;
+    background-color: #414285;
+    color: white;
+    padding: 4px;
+    font-size: 13px;
+    width: 80px;
+    margin: 0 25.5px;
+}
+.avbty{
+    padding: 5px 10px ;
+    border: #838282 1px solid;
+    margin-left: 30px;
+    float: left;
+    width: 80px;
+}
+.avbty p{
+    font-size: 15px;
+}
+button{
+    min-width: 40px;
+    margin-bottom: 10px;
+    background-color: green;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}
+#book{
+    background-color: #414285;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+#nill{
+    background-color: rgb(133, 133, 133);
+    color: white;
+    border: none;
+    height: 28px;
+    min-width: 60px;
+    border-radius: 10px;
+}
+
+/*book shedule STYLE ends */
+/*book shedule STYLE ends */
+
+
+/* add vaccine begis */
+.mlft1 p{
+    margin-bottom: 10px;
+}
+
+/* buy medicine style begins */
+/* buy medicine style begins */
+
+
+.bmlft{
+    float: left;
+    width: 500px;
+    margin-left: 50px;
+}
+.mlft1{
+    width: 200px;
+    float: left;
+}
+.mrgt1{
+    float: left;
+    width: 300px;
+}
+.mrgt1 input[type=text]{
+    width: 250px;
+    margin-bottom: 5px;
+}
+select{
+    background-color: white;
+    border: 1px solid #949494 ;
+}
+.mrgt1 input[type=file]{
+    width: 255px;
+    height: 22px;
+    margin-top: 5px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    padding: 4px;
+    border :1px solid #949494 ;
+    outline:none;
+}
+#mbn{
+    width: 265px;
+    height: 40px;
+    margin: 10px 0;
+}
+#qt{
+    width: 90px;
+}
+.bmrgt{
+    float: left;
+    width: 500px;
+}
+#mi{
+    height: 80px;
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+}
+
+
+/* buy medicine style ends */
+/* buy medicine style ends */
+
+
+/* add vaccine css begins */
+/* add vaccine css begins */
+
+.adate{
+
+    margin: 0 0 20px 15px;
+    width: 90%;
+}
+.adate  input[type=button]{
+    padding: 2px;
+    font-size: 13px;
+    width: 80px;
+    margin: 0 25.5px;
+}
+
+/* add vaccine css ends */
+/* add vaccine css ends */
+
+
+/*  vaccine approval css begins */
+/*  vaccine approval css begins */
+
+
+.thead{
+    margin: 50px;
+    width: 80%;
+}
+#search{
+    margin-left: 50px;
+}
+
+
+/*  vaccine approval css ends */
+/*  vaccine approval css ends */
+

@@ -1,24 +1,42 @@
 
 	.header{
 		position: relative;
+		width: 100%;
 	}
 	#heads{
 		float: left;
 		margin:20px 50px 0 30px;
+		width: 80%;
 	}
 	.categ{
 		float: left;
 		margin:20px 50px 0 30px;
 		border :1px solid #4e67f1 ;
-		height: 35px;
+		height: 35px;		
 		width: 200px;
 		font-size: 18px;
 	}
-
+	#submt{
+		float: left;
+		margin:20px 50px 0 30px;
+		border :1px solid #4e67f1 ;
+		background-color: white;
+		height: 35px;
+		width: 200px;
+		font-size: 18px;
+		cursor: pointer;
+		/* border :2px solid #4e67f1 ; */
+		outline:none;
+	}
+	#submt:hover {
+		background-color: rgb(22, 0, 219);
+		color: white;
+		}
 	.grid{
 		margin-top: 0px;
-		margin-right: 1%;
+		margin-right:0PX;
 		min-width: 380px;
+		width: 100%;
 	}
 	.grid .box{
         position: relative;
@@ -29,7 +47,7 @@
         margin-left: 2.5%;
 		border-radius: 10px;
 		/* border: #bbbbbb 1px solid; */
-		box-shadow: rgb(107, 107, 107) 3px 3px 8px, white -4px -4px 10px;
+		box-shadow: rgb(107, 107, 107) 1px 1px 8px, white -1px -1px 1px;
 	}  
 	.Pimage{
 		margin: 10px ;

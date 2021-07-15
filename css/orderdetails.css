@@ -77,3 +77,44 @@
         margin-top: 20px;
         padding: 10px;
         }
+
+    /* my order styles begin */       
+    /* my order styles begin */
+
+
+        
+    .hbtn {
+		background-color: #414285;
+		color: white;
+		padding: 7px;
+        border: 0px;
+        border-radius: 5px;
+        width: 200px;
+		float: left;
+		height: 40px;
+		font-size: 17px;
+        cursor: pointer;
+		margin: 40px 10px 0 50px;
+	}
+    .mbtn{
+        background-color: #0004ff;
+		color: white;
+		padding: 7px;
+        border: 0px;
+        border-radius: 5px;
+        width: 400px;
+		height: 40px;
+		font-size: 17px;
+        cursor: pointer;
+		margin: 40px 10px 0 50px;
+    }
+    #single{
+        position: relative;
+        margin-left: 50px;
+    }
+    .thead h5{
+        float: left;
+        margin-left: 20px;
+        color: rgb(0, 119, 255);
+        padding-bottom: 5px;
+    }

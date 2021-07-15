@@ -12,6 +12,8 @@
 			<?php
             if(isset($_SESSION['id']))
             {
+					// code for isset session
+				
 				include('php/config.php');
 				$tmpid=$_SESSION['id'];
 				$sql1 = "select image from dp where L_id=$tmpid";

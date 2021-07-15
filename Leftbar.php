@@ -44,6 +44,8 @@
                 {?>
                     <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="ViewRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">View Request</li></a>
+                    <a href="Add_vaccine.php"><li><img class ="smallicon" src="images/logo/vaccine.png">Add Vaccine</li></a>
+                    <a href="Vaccination.php"><li><img class ="smallicon" src="images/logo/vaccined.png">Vaccination</li></a>
                     <a href="TestMyself.php"><li><img class ="smallicon" src="images/logo/testme.png">Test Myself</li></a>
                     <a href="ViewQuarantine.php"><li><img class ="smallicon" src="images/logo/people.png">Quarantined List</li></a>
                     <?php
@@ -61,7 +63,8 @@
                 {?>
                     <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="MedicalRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">Medical Request</li></a>
-                    <!-- <a href="MedicineRequest.php"><li>Medicine</li></a> -->
+                    <a href="BuyMedicine.php"><li><img class ="smallicon" src="images/logo/medicine.png">Buy Medicine</li></a>
+                    <a href="VaccineBooking.php"><li><img class ="smallicon" src="images/logo/vaccine.png">Vaccine Booking</li></a>
                     <a href="Shopping.php"><li><img class ="smallicon" src="images/logo/shopping.png">Shopping</li></a>
                     <a href="myOrder.php"><li><img class ="smallicon" src="images/logo/list.png">My Orders</li></a>
                     <a href="TestMyself.php"><li><img class ="smallicon" src="images/logo/testme.png">Test Myself</li></a>

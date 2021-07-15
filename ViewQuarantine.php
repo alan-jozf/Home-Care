@@ -3,6 +3,7 @@
 <head>
 	<title>EDIT</title>
 	<link rel="stylesheet" type="text/css" href="css/table.css" />
+	<link rel="stylesheet" type="text/css" href="css/profile.css" />
 </head>
 <body>
 
@@ -12,7 +13,7 @@
     <div class="homepage">
 		<br><h1 class="thead">Quarantined List</h1><br>
 		<form method="post" action="ViewQuarantine.php">
-			<input type="text" name="search" placeholder="Search in List">
+			<input style="max-height:35px;"type="text" name="search" placeholder="Search in List">
 			<input type="submit" value="Search">
 		</form>
 
@@ -56,12 +57,17 @@
 								<th >Name</th>
 								<th >House Name</th>
 								<th >Place</th>
+								<th >Mobile</th>
 								<!-- <th style="text-align:left;" width="100px">Date</th> -->
 								<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 							</tr>
 						<?php
 						while($row=mysqli_fetch_array($result))  
 						{
+							$id=$row['L_id'];
+							$quer2="select * from login where L_id=$id";
+							$resl2 =mysqli_query($con,$quer2);
+							$ro2=mysqli_fetch_array($resl2);
 							?>
 							<tr>
 							<td><?php echo ++$counter ?></td>
@@ -74,7 +80,7 @@
 							$ro=mysqli_fetch_array($resl);
 							?>
 								<td><?php echo $ro['pn_name'] ?></td>
-
+								<td><?php echo $ro2['PhoneNo'] ?></td>
 
 							</tr>
 							<?php
@@ -91,6 +97,7 @@
 								<th >Name</th>
 								<th >House Name</th>
 								<th >Place</th>
+								<th >Mobile</th>
 								<!-- <th style="text-align:left;" width="100px">Date</th> -->
 								<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
 							</tr>
@@ -100,6 +107,10 @@
 						$result =mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result))  
 						{
+							$id=$row['L_id'];
+							$quer2="select * from login where L_id=$id";
+							$resl2 =mysqli_query($con,$quer2);
+							$ro2=mysqli_fetch_array($resl2);
 							?>
 							<tr>
 							<td><?php echo ++$counter ?></td>
@@ -114,8 +125,7 @@
 							// echo count($ro);
 							?>
 								<td><?php echo $ro['pn_name'] ?></td>
-
-
+								<td><?php echo $ro2['PhoneNo'] ?></td>
 							</tr>
 							<?php
 						}

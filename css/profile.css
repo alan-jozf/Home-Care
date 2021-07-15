@@ -15,7 +15,7 @@
 		border :2px solid #4e67f1 ;
 		outline:none;
 	}
-	input[type=password],[type=text],[type=file]{
+	input[type=password],[type=text],[type=number],[type=file]{
 		border-radius: 10px;
 		background-color: rgb(255, 255, 255);
 		color: rgb(22, 0, 219);
@@ -69,17 +69,17 @@
 		}
 	.cont{
 		margin-bottom: 20px;
-		min-width: 300PX;
 		width: 100%;
+		min-width: 320px;
 		float: left;
 		}
 		.title{
 			float: left;
-			width: 100px;
+			width: 70px;
 			}
 		.ans{
 			float: left;
-			width: 250px;
+			width: 240px;
 			}
 
 /* profile PAGE STYLE ENDS */

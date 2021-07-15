@@ -17,7 +17,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['rand']) && isset($_SESSION['otp
         $mail->Host       = 'smtp.gmail.com';                 
         $mail->SMTPAuth   = true;                   
         $mail->Username   = 'alanpezhumkattil@gmail.com';       
-        $mail->Password   = '';         #password here                         
+        $mail->Password   = 'Alan.jp97';         #password here                         
         $mail->Port       = 587;                                   
 
         //Recipients

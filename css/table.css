@@ -21,13 +21,13 @@
 	th {
 		background-color: #ffffff;
 		color: rgb(0, 0, 0);
-		padding: 20px;
+		padding: 20px 20px ;
 		position: sticky;
 		top: 70PX;  	/*  STICKY POSITION */
 		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 	}
 	td {
-		padding: 10px 20px 10px 20px;
+		padding: 20px 10px 10px 20px;
 	}
 	tr:hover {
 		background-color: #cecece;
@@ -84,4 +84,25 @@
 		background-color: #414285;
 		color: white;
 		}
-	
+
+
+		/* delivery table style begin */
+	.dtable .cart th{
+		padding: 15px 10px ;
+	}
+	.dtable .cart td{
+		padding: 15px 10px ;
+	}
+	.dbtn{
+		float: left;
+		margin-bottom: 20px;
+		float: left;
+		height: 40px;
+		font-size: 17px;
+		cursor: pointer;
+		background-color: #414285;
+		color: white;
+		padding: 10px;
+		border: 0px;
+		border-radius: 5px;
+	}
