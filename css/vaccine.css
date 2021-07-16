@@ -182,7 +182,7 @@ button{
 }
 .mrgt1 input[type=text]{
     width: 250px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 select{
     background-color: white;

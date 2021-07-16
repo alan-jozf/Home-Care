@@ -7,6 +7,22 @@
 <body>
 <?php require("Topbar.php"); ?> 
     <div class="homepage">
+		
+		<?php
+			if(isset($_GET['mid'])){
+				
+				$mid = $_GET['mid'];
+				unset($_GET);
+
+				$sql="update myorder SET status='delivered' where O_id='$mid'";
+				if(mysqli_query($con,$sql)){
+					header("Location:Delivery.php");
+				}
+				else{
+					header("location:Home.php");
+
+				}
+			}?>
 		<h1 class="thead">Pending Deliveries</h1>
 		<button><a href="php/GeneratePDF.php" target="_blank"> Generate PDF</a></button>
 		<div class="dtable">
@@ -23,6 +39,8 @@
 					<th >Product</th>
 					<th >Description</th>
 					<th >Quantinty</th>
+					<th >Deliver</th>
+					
 						
 					<!-- <th style="text-align:left;" width="100px">Date</th> -->
 					<!-- <th style="text-align:left;" width="100px">Mark as Done</th> -->
@@ -32,14 +50,14 @@
 					include('php/config.php');
 					$tmpid=$_SESSION['id'];
 
-					$query="select * from volunteer";
+					$query="select * from volunteer where L_id=$tmpid";
 					$result =mysqli_query($con,$query);
 					$row=mysqli_fetch_array($result); 
 					$plid=$row['pn_id'];
 
 					// $query="select * from myorder";
 
-					$query="select * from myorder where L_id in (select L_id from user where pn_id =$plid)";
+					$query="select * from myorder where L_id in (select L_id from user where pn_id =$plid) and status='pending'";
 					$result =mysqli_query($con,$query);
 					while($row=mysqli_fetch_array($result))  
 					{	
@@ -78,6 +96,8 @@
 							<td><?php echo $ro['name'] ?></td>
 							<td><?php echo $ro['description'] ?></td>
 							<td><?php echo $row['quantity'] ?></td>
+							<td><a href="Delivery.php?mid=<?php echo $Oid ?>"><img width ="20px" height="20px" src="images\complete.png" /></a></td>
+
 						</tr>
 						<?php
 					}

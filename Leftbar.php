@@ -34,6 +34,7 @@
                 {?>
                     <a href="ViewProfile.php"><li><img class ="smallicon" src="images/logo/account.png">Account</li></a>
                     <a href="ViewRequest.php"><li><img class ="smallicon" src="images/logo/mrequest.png">View Request</li></a>
+                    <a href="CountUpdate.php"><li><img class ="smallicon" src="images/logo/count.png">Count Update</li></a>
                     <!-- <a href="AddProduct.php"><li>Add Product</li></a>
                     <a href="ViewProduct.php"><li>View Product</li></a> -->
                     <a href="TestMyself.php"><li><img class ="smallicon" src="images/logo/testme.png">Test Myself</li></a>
