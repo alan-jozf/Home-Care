@@ -30,7 +30,7 @@
 			date_default_timezone_set("Asia/Kolkata");
 			$date = date('d-m-Y');
 
-			$quer1="select * from count where id='(select max(id) from count where sd_id=11)'";
+			$quer1="select * from count1 where id='(select max(id) from count where sd_id=11)'";
 			$resu1 =mysqli_query($con,$quer1) or die($sql);
             $row = mysqli_fetch_array($resu1);
 			$acti= $row['active'];
@@ -39,7 +39,7 @@
 
 			$active=$acti+$conf-$reco;
 
-			$sql2 = "insert into count(sd_id,date,tested,confirmed,recovery,active)values($sdid,'$date','$test','$conf','$reco','$active')";
+			$sql2 = "insert into count1(sd_id,date,tested,confirmed,recovery,active)values($sdid,'$date','$test','$conf','$reco','$active')" or die($sql2);
 
 			unset($_POST);
 			
@@ -48,7 +48,10 @@
 				exit;
 			}
 			else{
+				$_SESSION['sql']=$sql2;
+
 				header("location:CountUpdate.php?err=no");
+
 			}
 		}
 	?>
@@ -84,6 +87,8 @@
 								}
 								if($_GET["err"]=="no"){
 									echo "<h3 id='err' style='color:red'>Some error occured...! </h3>";
+									echo $_SESSION['sql'];
+
 								}
 							}
 						?>
